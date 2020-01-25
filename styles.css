@@ -1,0 +1,66 @@
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    margin-top: 1%;
+    position: fixed;
+    width: 100%;
+    height: 5%;
+    display:flex;
+    border: 2px solid black;
+}
+
+
+.links {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.links ul {
+    width: 30%;
+    margin-left: 2%;
+}
+
+
+nav ul li {
+    list-style: none;
+    display: inline;
+    color: white;
+    font-family: 'Chivo', sans-serif;
+    margin: 0 4.5%;
+}
+
+
+.logo {
+    width: 5%;
+    margin-left: 1.5%;
+    background-image: url(./Logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: 2px solid black;
+    display: flex;
+}
+
+.outer {
+    height: 600vh;
+    width: 99vw;
+}
+
+.outer section {
+    height: 16.66%;
+    width: 100%;
+}
+
+
+.outer .one {
+    background-color: black;
+}
+
+.outer .two {
+
+}
