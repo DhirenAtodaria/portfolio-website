@@ -2,10 +2,12 @@
     margin : 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 body {
     font-family: 'Chivo', sans-serif;
+    overflow-x:hidden;
 }
 
 .outer {
@@ -53,12 +55,25 @@ body {
 .outer section {
     height: 16.66%;
     width: 100%;
+    max-width:100%;
 }
 
 .outer .one {
-    background-color: blue;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typeitbox {
+    color: white;
 }
 
 .outer .two {
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
 }
