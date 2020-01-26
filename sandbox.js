@@ -52,3 +52,31 @@ const scene1 = new ScrollMagic.Scene({
 .setPin('.two')
 .setTween(tween2)
 .addTo(controller);
+
+
+TweenLite.set('#reveal2',{x:'-101%'})
+TweenLite.set('#anim2',{x:'-101%'})
+TweenLite.set('#anim3', {x:'+101%'})
+TweenLite.set('#anim4',{x:'-101%'})
+
+const tween3 = new TimelineLite();
+
+tween3.add(
+    TweenLite.to('#reveal2',2,{x:'0%',ease: Linear.easeNone})
+);
+
+tween3.add(
+    TweenLite.to('#anim2',2,{x:'0%',ease: Linear.easeNone})
+)
+
+tween3.add(
+    TweenLite.to('#anim3',2,{x:'0%',ease: Linear.easeNone})
+)
+
+tween3.add(
+    TweenLite.to('#anim4',2,{x:'0%',ease: Linear.easeNone})
+)
+
+
+
+

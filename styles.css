@@ -18,7 +18,7 @@ body {
 }
 
 
-.navbar {
+.navsbar {
     width: 100%;
     height: 5%;
     position: fixed;
@@ -84,4 +84,50 @@ body {
 
 #reveal1 {
     opacity: 0;
+}
+
+.outer .three {
+    height: 200vh;
+    background-color: black;
+}
+
+.three h1 {
+    padding: 25px;
+    margin: 0;
+    font-size: 40px;
+}
+
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 10%;
+    width: 80%;
+    overflow: hidden;
+}
+
+.outer h1 {
+    color: white;
+}
+
+@media screen and (min-width: 660px) {
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+    }
+    
+
+
 }
