@@ -71,15 +71,27 @@ body {
 
 .typeitbox {
     color: white;
+    font-size: 25px;
 }
 
-.outer .two {
-    background-color: black;
+#bg {
+    height: 100%;
+    width: 100%;
+    background-image: url(./trails.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 50px;
+    opacity: 0;
+}
+
+
+
+.outer .two {
+    background-color: black;
 }
 
 #reveal1 {
@@ -115,6 +127,48 @@ body {
 
 .outer h1 {
     color: white;
+}
+
+#reveal2 {
+    opacity: 0;
+}
+
+#anim2 {
+    opacity: 0;
+}
+
+#anim3 {
+    opacity: 0;
+}
+
+#anim4 {
+    opacity: 0;
+}
+
+#anim5 {
+    opacity: 0
+}
+
+.outer .four {
+    background-color: black;
+}
+
+#bg2 {
+    height: 100%;
+    width: 100%;
+    background-image: url(./trails2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+    opacity: 0;
+}
+
+#reveal3 {
+    opacity: 0;
 }
 
 @media screen and (min-width: 660px) {
