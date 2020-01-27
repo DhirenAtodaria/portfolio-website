@@ -22,14 +22,14 @@ body {
         }
 
         .three {
-            height: 300vh;
+            height: 400vh;
         }
     }
 }
 
 nav {
     width: 100%;
-    height: 5%;
+    height: 7%;
     position: fixed;
     z-index: 1;
     background-color: black;
@@ -78,6 +78,63 @@ nav {
     .typeitbox {
         color: white;
         font-size: 25px;
+        height: 350px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .icon-scroll,
+        .icon-scroll:before {
+            position: absolute;
+            left: 50%;
+          }
+          .icon-scroll {
+            width: 30px;
+            height: 60px;
+            margin-left: -20px;
+            top: 90%;
+            margin-top: -35px;
+            box-shadow: inset 0 0 0 1px #fff;
+            border-radius: 25px;
+          }
+          .icon-scroll:before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            margin-left: -4px;
+            top: 8px;
+            border-radius: 4px;
+            -webkit-animation-duration: 1.5s;
+                    animation-duration: 1.5s;
+            -webkit-animation-iteration-count: infinite;
+                    animation-iteration-count: infinite;
+            -webkit-animation-name: scroll;
+                    animation-name: scroll;
+          }
+          @-webkit-keyframes scroll {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+              -webkit-transform: translateY(46px);
+                      transform: translateY(46px);
+            }
+          }
+          @keyframes scroll {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+              -webkit-transform: translateY(46px);
+                      transform: translateY(46px);
+            }
+          }
     }
 }
 
@@ -112,41 +169,64 @@ nav {
         font-size: 40px;
         color: white;
 
-        #reveal2 {
-            opacity: 0;
-        }
     }
 
-    .col {
+    #reveal2 {
+        opacity: 0;
+    }
+    
+    .cardcontainer {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-    }
-    
-    .card {
-        border: 1px solid white;
-        border-radius: 10px;
-        margin: 10%;
-        width: 80%;
-        overflow: hidden;
-    }
+        height: 90%;
+        width: 100%;
+        opacity: 0.5;
 
-    #anim2 {
-        opacity: 0;
+        .bigcard {
+            height: 25%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+
+            .smallcard {
+                height: 60%;
+                width: 60%;
+                background-color: white;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .smallercard {
+                height: 15%;
+                width: 60%;
+                background-color: red;
+                border-radius: 0px 0px 10px 10px;
+            }
+        }
+
+        #anim2 {
+            opacity: 0;
+        }
+        
+        #anim3 {
+            opacity: 0;
+        }
+        
+        #anim4 {
+            opacity: 0;
+        }
+        
+        #anim5 {
+            opacity: 0
+        }
     }
     
-    #anim3 {
-        opacity: 0;
-    }
-    
-    #anim4 {
-        opacity: 0;
-    }
-    
-    #anim5 {
-        opacity: 0
-    }
+
+   
 }
 
 
@@ -176,14 +256,12 @@ nav {
     }
 }
 
-@media screen and (min-width: 660px) {
-    .cards {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.projects {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.8);
+}
 
-    .card {
-        width: 100%;
-    }
+@media screen and (min-width: 660px) {
+    
 }
