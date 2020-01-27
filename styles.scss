@@ -6,21 +6,28 @@
     scroll-behavior: smooth;
 }
 
-
-
 body {
     font-family: 'Chivo', sans-serif;
     overflow-x:hidden;
     background-color: black;
+
+    .outer {
+        height: 600vh;
+        width: 100vw;
+
+        section {
+            height: 16.66%;
+            width: 100%;
+            max-width:100%;
+        }
+
+        .three {
+            height: 300vh;
+        }
+    }
 }
 
-.outer {
-    height: 600vh;
-    width:  100vw;
-}
-
-
-.navsbar {
+nav {
     width: 100%;
     height: 5%;
     position: fixed;
@@ -29,148 +36,144 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .logo {
+        background-image: url(./logo2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 25%;
+        height: 35px;
+        margin-left: 3%;
+    }
+
+    .links {
+        width: 100%;
+
+        ul {
+            display: flex;
+            justify-content: flex-end;
+
+            li {
+                list-style: none;
+                display: inline-block;
+                color: white;
+                font-size: 10pt;
+                margin: 0 5%;
+            }
+            
+        }
+
+
+    }
+
 }
 
-.logo {
-    background-image: url(./logo2.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 25%;
-    height: 35px;
-    margin-left: 3%;
-}
-
-.links {
-    width: 100%;
-}
-
-.links ul {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.links ul li {
-    list-style: none;
-    display: inline-block;
-    color: white;
-    font-size: 10pt;
-    margin: 0 5%;
-}
-
-.outer section {
-    height: 16.66%;
-    width: 100%;
-    max-width:100%;
-}
-
-.outer .one {
+.one {
     background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .typeitbox {
+        color: white;
+        font-size: 25px;
+    }
 }
 
-.typeitbox {
-    color: white;
-    font-size: 25px;
-}
-
-#bg {
-    height: 100%;
-    width: 100%;
-    background-image: url(./trails.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 50px;
-    opacity: 0;
-}
-
-
-
-.outer .two {
+.two {
     background-color: black;
+
+    #bg {
+        height: 100%;
+        width: 100%;
+        background-image: url(./trails.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 50px;
+        opacity: 0;
+
+        #reveal1 {
+            opacity: 0;
+        }
+    }
 }
 
-#reveal1 {
-    opacity: 0;
-}
-
-.outer .three {
-    height: 200vh;
+.three {
     background-color: black;
+
+    h1 {
+        padding: 25px;
+        margin: 0;
+        font-size: 40px;
+        color: white;
+
+        #reveal2 {
+            opacity: 0;
+        }
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card {
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 10%;
+        width: 80%;
+        overflow: hidden;
+    }
+
+    #anim2 {
+        opacity: 0;
+    }
+    
+    #anim3 {
+        opacity: 0;
+    }
+    
+    #anim4 {
+        opacity: 0;
+    }
+    
+    #anim5 {
+        opacity: 0
+    }
 }
 
-.three h1 {
-    padding: 25px;
-    margin: 0;
-    font-size: 40px;
-}
 
 
-.col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.card {
-    border: 1px solid white;
-    border-radius: 10px;
-    margin: 10%;
-    width: 80%;
-    overflow: hidden;
-}
 
-.outer h1 {
-    color: white;
-}
 
-#reveal2 {
-    opacity: 0;
-}
-
-#anim2 {
-    opacity: 0;
-}
-
-#anim3 {
-    opacity: 0;
-}
-
-#anim4 {
-    opacity: 0;
-}
-
-#anim5 {
-    opacity: 0
-}
-
-.outer .four {
+.four {
     background-color: black;
-}
 
-#bg2 {
-    height: 100%;
-    width: 100%;
-    background-image: url(./trails2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 50px;
-    opacity: 0;
-}
+    #bg2 {
+        height: 100%;
+        width: 100%;
+        background-image: url(./trails2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 50px;
+        opacity: 0;
 
-#reveal3 {
-    opacity: 0;
+        #reveal3 {
+            opacity: 0;
+        }
+    }
 }
 
 @media screen and (min-width: 660px) {
@@ -183,7 +186,4 @@ body {
     .card {
         width: 100%;
     }
-    
-
-
 }

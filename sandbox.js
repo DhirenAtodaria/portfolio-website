@@ -36,17 +36,17 @@ const scene = new ScrollMagic.Scene({
 const tween2 = new TimelineLite();
 
 tween2.add(
-    TweenLite.to('#bg, #reveal1', 30, {opacity: 1
+    TweenLite.to('#bg, #reveal1', 1, {opacity: 1
     })
 );
 
 tween2.add(
-    TweenLite.to('#bg, #reveal1', 30, {opacity: 0})
+    TweenLite.to('#bg, #reveal1', 1, {opacity: 0})
 );
 
 const scene1 = new ScrollMagic.Scene({
     triggerElement:'.two',
-    duration: '100%',
+    duration: 1750,
     triggerHook: 0
 })
 .setPin('.two')
@@ -97,7 +97,7 @@ tween4.add(
 
 const scene3 = new ScrollMagic.Scene({
     triggerElement:'.four',
-    duration: '100%',
+    duration: 1750,
     triggerHook: 0
 })
 
