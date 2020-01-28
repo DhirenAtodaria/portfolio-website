@@ -13,14 +13,9 @@ body {
   background-color: black;
 }
 
-body .outer {
-  height: 600vh;
-  width: 100vw;
-}
-
 body .outer section {
-  height: 16.66%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   max-width: 100%;
 }
 
@@ -176,15 +171,17 @@ nav .links ul li {
 .three .cardcontainer .bigcard .smallcard {
   height: 60%;
   width: 60%;
-  background-color: white;
-  border-radius: 10px 10px 0 0;
+  border: 1px solid white;
+  background-color: black;
+  border-radius: 3px 3px 0 0;
 }
 
 .three .cardcontainer .bigcard .smallercard {
   height: 15%;
   width: 60%;
-  background-color: red;
-  border-radius: 0px 0px 10px 10px;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 0px 0px 3px 3px;
 }
 
 .three .cardcontainer #anim2 {
