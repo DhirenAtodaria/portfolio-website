@@ -60,25 +60,13 @@ tween3.add(
 );
 
 tween3.add(
-    TweenLite.to('#anim2', 1, {opacity: 1})
-)
-
-tween3.add(
-    TweenLite.to('#anim3', 1, {opacity: 1})
-)
-
-tween3.add(
-    TweenLite.to('#anim4', 1, {opacity: 1})
-)
-
-tween3.add(
-    TweenLite.to('#anim5', 1, {opacity: 1})
+    TweenLite.to('.point', 1, {opacity: 1})
 )
 
 const scene2 = new ScrollMagic.Scene({
     triggerElement:'.three',
     duration: '100%',
-    
+    triggerHook: 0.8
 })
 
 .setTween(tween3)
