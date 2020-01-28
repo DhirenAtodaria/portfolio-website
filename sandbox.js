@@ -93,6 +93,27 @@ const scene3 = new ScrollMagic.Scene({
 .setTween(tween4)
 .addTo(controller);
 
+const tween5 = new TimelineLite();
+
+tween5.add(
+    TweenLite.to('#title', 30, {opacity: 1
+    })
+);
+
+tween5.add(
+    TweenLite.to('#headline, #firstpara, #image1, #into, #image2, #mystory', 30, {opacity: 1})
+);
+
+const scene4 = new ScrollMagic.Scene({
+    triggerElement:'.five',
+    duration: '100%',
+    triggerHook: 1
+})
+
+
+.setTween(tween5)
+.addTo(controller);
+
 
 
 
