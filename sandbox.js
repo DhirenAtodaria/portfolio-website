@@ -1,3 +1,4 @@
+
 const instance = new TypeIt('.replaceStrings', {
     speed: 100,
     waitUntilVisible: true
@@ -16,7 +17,7 @@ const instance = new TypeIt('.replaceStrings', {
 const tween = new TimelineLite();
 
 tween.add(
-    TweenLite.to('#anim1', 20, {opacity: 0
+    TweenLite.to('#anim1, #vcontainer', 20, {opacity: 0
     })
 );
 
