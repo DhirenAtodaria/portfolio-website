@@ -11,7 +11,7 @@ const instance = new TypeIt('.replaceStrings', {
     speed: 100,
     waitUntilVisible: true
   })
-  .type('My name is <b>Dhiren Atodaria</b>.')
+  .type('My name is <b style="color:red;">Dhiren Atodaria</b>.')
   .pause(1000)
   .delete(27)
   .type('and I am a Web Developer.')
