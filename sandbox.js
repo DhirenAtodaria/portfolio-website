@@ -31,7 +31,7 @@ if (!window.mobileCheck()) {
   if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
     particleCount = 100;
   } else {
-    particleCount = 750;
+    particleCount = 250;
   }
 
   let mouse = {
@@ -89,7 +89,7 @@ if (!window.mobileCheck()) {
   (initializeParticles = () => {
     for (let i = 0; i < particleCount; i++) {
       let randomColorIndex = Math.floor(Math.random() * 6);
-      let randomRadius = Math.random() * 4;
+      let randomRadius = (Math.random() * 4);
 
       // Ensure particles are spawned past screen width and height so
       // there will be no missing stars when rotating canvas
