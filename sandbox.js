@@ -1,10 +1,10 @@
-var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 if (isIE11) {
-  var elem = document.querySelector("#ierrorinclusion");
+  const elem = document.querySelector("#ierrorinclusion");
   elem.style.display = "block";
 }
 
-window.mobileCheck = function () {
+window.mobileCheck = () => {
   let check = false;
   (function (a) {
     if (
@@ -20,21 +20,21 @@ window.mobileCheck = function () {
   return check;
 };
 
-if (window.mobileCheck()) {
-} else {
-  var canvas = document.querySelector("canvas");
-  var c = canvas.getContext("2d", { alpha: false });
+if (!window.mobileCheck()) {
+  let canvas = document.querySelector("canvas");
+  let c = canvas.getContext("2d", { alpha: false });
 
   canvas.width = window.innerWidth * 1.1;
   canvas.height = window.innerHeight * 1.1;
 
+  let particleCount;
   if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
-    var particleCount = 100;
+    particleCount = 100;
   } else {
-    var particleCount = 750;
+    particleCount = 750;
   }
 
-  var mouse = {
+  let mouse = {
     x: window.innerWidth / 2,
     y: window.innerHeight / 2,
   };
@@ -77,52 +77,52 @@ if (window.mobileCheck()) {
     };
   }
 
-  var lightParticles = [];
+  let lightParticles = [];
 
-  var timer = 0;
-  var opacity = 1;
-  var speed = 0.0001;
-  var colors = ["#F6F8FF", "#23CE6B", "#00003D", "#A846A0", "#50514F"];
+  let timer = 0;
+  let opacity = 1;
+  let speed = 0.0001;
+  let colors = ["#F6F8FF", "#23CE6B", "#00003D", "#A846A0", "#50514F"];
 
-  var initializeParticles;
+  let initializeParticles;
 
-  (initializeParticles = function () {
-    for (var i = 0; i < particleCount; i++) {
-      var randomColorIndex = Math.floor(Math.random() * 6);
-      var randomRadius = Math.random() * 4;
+  (initializeParticles = () => {
+    for (let i = 0; i < particleCount; i++) {
+      let randomColorIndex = Math.floor(Math.random() * 6);
+      let randomRadius = Math.random() * 4;
 
       // Ensure particles are spawned past screen width and height so
       // there will be no missing stars when rotating canvas
-      var x = Math.random() * (canvas.width + 200) - (canvas.width + 200) / 2;
-      var y = Math.random() * (canvas.width + 200) - (canvas.width + 200) / 2;
+      let x = Math.random() * (canvas.width + 200) - (canvas.width + 200) / 2;
+      let y = Math.random() * (canvas.width + 200) - (canvas.width + 200) / 2;
       lightParticles.push(
         new LightParticle(x, y, randomRadius, colors[randomColorIndex])
       );
     }
   })();
 
-  function animate() {
+  animate = () => {
     window.requestAnimationFrame(animate);
 
     c.save();
     if (isMouseDown === true) {
       // Ease into the new opacity
-      var desiredOpacity = 0.01;
+      let desiredOpacity = 0.01;
       opacity += (desiredOpacity - opacity) * 0.03;
       c.fillStyle = "rgba(0, 0, 0," + opacity + ")";
 
       // Ease into the new speed
-      var desiredSpeed = 0.012;
+      let desiredSpeed = 0.012;
       speed += (desiredSpeed - speed) * 0.01;
       timer += speed;
     } else {
       // Ease back to the original opacity
-      var originalOpacity = 1;
+      let originalOpacity = 1;
       opacity += (originalOpacity - opacity) * 0.01;
       c.fillStyle = "rgba(0, 0, 0, " + opacity + ")";
 
       // Ease back to the original speed
-      var originalSpeed = 0.001;
+      let originalSpeed = 0.001;
       speed += (originalSpeed - speed) * 0.01;
       timer += speed;
     }
@@ -131,14 +131,14 @@ if (window.mobileCheck()) {
     c.translate(canvas.width / 2, canvas.height / 2);
     c.rotate(timer);
 
-    for (var i = 0; i < lightParticles.length; i++) {
+    for (let i = 0; i < lightParticles.length; i++) {
       lightParticles[i].update();
     }
 
     c.restore();
   }
 
-  var isMouseDown = false;
+  let isMouseDown = false;
 
   window.addEventListener("mousedown", function () {
     isMouseDown = true;
@@ -151,8 +151,8 @@ if (window.mobileCheck()) {
   animate();
 }
 
-var parallaxah = document.getElementById("parallaxah");
-var parallaxInstance = new Parallax(parallaxah);
+let parallaxah = document.getElementById("parallaxah");
+let parallaxInstance = new Parallax(parallaxah);
 
 window.onscroll = function () {
   myFunction();
@@ -189,12 +189,7 @@ const instance = new TypeIt(".replaceStrings", {
   speed: 100,
   waitUntilVisible: true,
 })
-  //   .type('My name is <b style="color:red;">Dhiren Atodaria</b>.')
   .pause(7000)
-  //   .delete(27)
-  //   .type('and I am a Web Developer.')
-  //   .pause(1000)
-  //   .delete(30)
   .type('<b style="color:red;">Scroll</b> down to see what I\'ve done...')
   .pause(750)
   .go();
@@ -210,21 +205,18 @@ loadinganim.to("#loadinganim1", 1, { x: "-100%", rotation: 0.01, delay: 0.3 });
 
 const textrise = gsap.timeline({ delay: 5.5 });
 
-textrise.to(".borderbot", 1, { opacity: 1 });
-
-textrise.to(".firsttexts1", 0.5, {
-  y: "0",
-  rotation: 0.01,
-  ease: Power4.easeInOut,
-});
-
-textrise.to(".firsttexts2", 0.5, {
-  y: "0",
-  rotation: 0.01,
-  ease: Power4.easeInOut,
-});
-
-textrise.to(".scrollmes", 2, { opacity: 1 });
+textrise.to(".borderbot", 1, { opacity: 1 })
+  .to(".firsttexts1", 0.5, {
+    y: "0",
+    rotation: 0.01,
+    ease: Power4.easeInOut,
+  })
+  .to(".firsttexts2", 0.5, {
+    y: "0",
+    rotation: 0.01,
+    ease: Power4.easeInOut,
+  })
+  .to(".scrollmes", 2, { opacity: 1 });
 
 const tween = gsap.timeline();
 
@@ -238,26 +230,25 @@ const scene = new ScrollMagic.Scene({
   triggerHook: 0,
 })
 
-  .setPin(".one")
-  .setTween(tween)
-  .addTo(controller);
+.setPin(".one")
+.setTween(tween)
+.addTo(controller);
 
-const tween2 = new TimelineLite();
+const tween2 = gsap.timeline();
 
-tween2.add(TweenLite.to("#bg, #reveal1", 1, { opacity: 1 }));
-
-tween2.add(TweenLite.to("#bg, #reveal1", 1, { opacity: 0 }));
+tween2.to("#bg, #reveal1", 1, { opacity: 1 })
+  .to("#bg, #reveal1", 1, { opacity: 0 });
 
 const scene1 = new ScrollMagic.Scene({
   triggerElement: ".two",
   duration: 1750,
   triggerHook: 0,
 })
-  .setPin(".two")
-  .setTween(tween2)
-  .addTo(controller);
+.setPin(".two")
+.setTween(tween2)
+.addTo(controller);
 
-const tween3 = new TimelineLite();
+const tween3 = gsap.timeline();
 //Leaving Page 1
 tween3
   .delay(1)
@@ -332,16 +323,14 @@ const scene2 = new ScrollMagic.Scene({
   duration: "2000%",
   triggerHook: "onLeave",
 })
-
   .setPin(".three")
   .setTween(tween3)
   .addTo(controller);
 
-const tween4 = new TimelineLite();
+const tween4 = gsap.timeline();
 
-tween4.add(TweenLite.to("#reveal3, #bg2", 30, { opacity: 1 }));
-
-tween4.add(TweenLite.to("#reveal3, #bg2", 30, { opacity: 0 }));
+tween4.to("#reveal3, #bg2", 30, { opacity: 1 })
+.to("#reveal3, #bg2", 30, { opacity: 0 });
 
 const scene3 = new ScrollMagic.Scene({
   triggerElement: ".four",
@@ -353,15 +342,13 @@ const scene3 = new ScrollMagic.Scene({
   .setTween(tween4)
   .addTo(controller);
 
-const tween5 = new TimelineLite();
+const tween5 = gsap.timeline();
 
-tween5.add(TweenLite.to("#title", 30, { opacity: 1 }));
-
-tween5.add(
-  TweenLite.to("#headline, #firstpara, #image1, #into, #image2, #mystory", 30, {
-    opacity: 1,
+tween5.to("#title", 30, { opacity: 1 })
+  .to("#headline, #firstpara, #image1, #into, #image2, #mystory", 30, {
+      opacity: 1,
   })
-);
+
 
 const scene4 = new ScrollMagic.Scene({
   triggerElement: ".five",
