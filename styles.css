@@ -65,10 +65,12 @@ body .outer .one .vcontainer2, body .outer .two .vcontainer2, body .outer .four 
   position: absolute;
   max-height: 100%;
   width: 100%;
-  left: -100px !important;
-  top: -250px !important;
-  opacity: 0.4;
   z-index: -1;
+}
+
+body .outer .one .vcontainer2 canvas, body .outer .two .vcontainer2 canvas, body .outer .four .vcontainer2 canvas, html .outer .one .vcontainer2 canvas, html .outer .two .vcontainer2 canvas, html .outer .four .vcontainer2 canvas {
+  -webkit-transform: translate(-5%, -5%);
+          transform: translate(-5%, -5%);
 }
 
 @media screen and (min-width: 1920px) {
