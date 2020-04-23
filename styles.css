@@ -20,28 +20,41 @@
   display: none;
 }
 
-body, html {
-  font-family: 'Roboto Condensed', sans-serif;
+body,
+html {
+  font-family: "Roboto Condensed", sans-serif;
   overflow-x: hidden;
   background-color: black;
   width: 100%;
 }
 
-body #ierrorinclusion, html #ierrorinclusion {
+body #ierrorinclusion,
+html #ierrorinclusion {
   display: none;
 }
 
-body .outer section, html .outer section {
+body .outer section,
+html .outer section {
   height: 100vh;
   width: 100vw;
   max-width: 100%;
 }
 
-body .outer .one, body .outer .two, body .outer .four, html .outer .one, html .outer .two, html .outer .four {
+body .outer .one,
+body .outer .two,
+body .outer .four,
+html .outer .one,
+html .outer .two,
+html .outer .four {
   position: relative;
 }
 
-body .outer .one .vcontainer, body .outer .two .vcontainer, body .outer .four .vcontainer, html .outer .one .vcontainer, html .outer .two .vcontainer, html .outer .four .vcontainer {
+body .outer .one .vcontainer,
+body .outer .two .vcontainer,
+body .outer .four .vcontainer,
+html .outer .one .vcontainer,
+html .outer .two .vcontainer,
+html .outer .four .vcontainer {
   position: absolute;
   max-height: 100%;
   width: 100%;
@@ -50,50 +63,83 @@ body .outer .one .vcontainer, body .outer .two .vcontainer, body .outer .four .v
 }
 
 @media screen and (min-width: 1920px) {
-  body .outer .one .vcontainer, body .outer .two .vcontainer, body .outer .four .vcontainer, html .outer .one .vcontainer, html .outer .two .vcontainer, html .outer .four .vcontainer {
+  body .outer .one .vcontainer,
+  body .outer .two .vcontainer,
+  body .outer .four .vcontainer,
+  html .outer .one .vcontainer,
+  html .outer .two .vcontainer,
+  html .outer .four .vcontainer {
     display: none !important;
   }
 }
 
-body .outer .one .vcontainer video, body .outer .two .vcontainer video, body .outer .four .vcontainer video, html .outer .one .vcontainer video, html .outer .two .vcontainer video, html .outer .four .vcontainer video {
+body .outer .one .vcontainer video,
+body .outer .two .vcontainer video,
+body .outer .four .vcontainer video,
+html .outer .one .vcontainer video,
+html .outer .two .vcontainer video,
+html .outer .four .vcontainer video {
   -o-object-fit: fill;
      object-fit: fill;
   max-width: none;
 }
 
-body .outer .one .vcontainer2, body .outer .two .vcontainer2, body .outer .four .vcontainer2, html .outer .one .vcontainer2, html .outer .two .vcontainer2, html .outer .four .vcontainer2 {
+body .outer .one .vcontainer2,
+body .outer .two .vcontainer2,
+body .outer .four .vcontainer2,
+html .outer .one .vcontainer2,
+html .outer .two .vcontainer2,
+html .outer .four .vcontainer2 {
   position: absolute;
   max-height: 100%;
   width: 100%;
   z-index: -1;
 }
 
-body .outer .one .vcontainer2 canvas, body .outer .two .vcontainer2 canvas, body .outer .four .vcontainer2 canvas, html .outer .one .vcontainer2 canvas, html .outer .two .vcontainer2 canvas, html .outer .four .vcontainer2 canvas {
+body .outer .one .vcontainer2 canvas,
+body .outer .two .vcontainer2 canvas,
+body .outer .four .vcontainer2 canvas,
+html .outer .one .vcontainer2 canvas,
+html .outer .two .vcontainer2 canvas,
+html .outer .four .vcontainer2 canvas {
   -webkit-transform: translate(-5%, -5%);
           transform: translate(-5%, -5%);
 }
 
 @media screen and (min-width: 1920px) {
-  body .outer .one .vcontainer2, body .outer .two .vcontainer2, body .outer .four .vcontainer2, html .outer .one .vcontainer2, html .outer .two .vcontainer2, html .outer .four .vcontainer2 {
+  body .outer .one .vcontainer2,
+  body .outer .two .vcontainer2,
+  body .outer .four .vcontainer2,
+  html .outer .one .vcontainer2,
+  html .outer .two .vcontainer2,
+  html .outer .four .vcontainer2 {
     display: none !important;
   }
 }
 
-body .outer .one .vcontainer2 video, body .outer .two .vcontainer2 video, body .outer .four .vcontainer2 video, html .outer .one .vcontainer2 video, html .outer .two .vcontainer2 video, html .outer .four .vcontainer2 video {
+body .outer .one .vcontainer2 video,
+body .outer .two .vcontainer2 video,
+body .outer .four .vcontainer2 video,
+html .outer .one .vcontainer2 video,
+html .outer .two .vcontainer2 video,
+html .outer .four .vcontainer2 video {
   -o-object-fit: fill;
      object-fit: fill;
   max-width: none;
 }
 
-body .outer .three, html .outer .three {
+body .outer .three,
+html .outer .three {
   height: 100vh;
 }
 
-body .outer .five, html .outer .five {
+body .outer .five,
+html .outer .five {
   height: 250vh;
 }
 
-body .outer .six, html .outer .six {
+body .outer .six,
+html .outer .six {
   height: 20vh;
 }
 
@@ -150,7 +196,7 @@ nav header .links ul {
 nav header .links ul li {
   list-style: none;
   display: inline-block;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   color: white;
   font-size: 16px;
   margin: 0 5%;
@@ -284,7 +330,7 @@ nav .progress-container .progress-bar {
   width: 70%;
   top: 25%;
   left: 15%;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .one .typeitbox .firsttexts {
@@ -317,7 +363,7 @@ nav .progress-container .progress-bar {
   font-size: 18px;
   text-align: right;
   opacity: 0;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .one .typeitbox .scrollmes span {
@@ -491,7 +537,7 @@ nav .progress-container .progress-bar {
   color: white;
   width: 80%;
   font-weight: 400;
-  font-family: 'Gbold';
+  font-family: "Gbold";
 }
 
 @media screen and (max-width: 1286px) {
@@ -650,7 +696,7 @@ nav .progress-container .progress-bar {
   width: 100%;
   font-size: 28px;
   font-weight: bold;
-  font-family: 'G', sans-serif;
+  font-family: "G", sans-serif;
   text-decoration: underline;
 }
 
@@ -729,7 +775,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project2 .imgContainer .p1Skills .jskill .logo4 {
-  background-image: url("./skills/sui.png");
+  background-image: url("./skills/redux.png");
 }
 
 .three .project3 .imgContainer .p1Img {
@@ -1022,7 +1068,8 @@ nav .progress-container .progress-bar {
           align-items: center;
 }
 
-.six footer .background .fab, .six footer .background .far {
+.six footer .background .fab,
+.six footer .background .far {
   padding: 0 20px;
   font-size: 36px;
 }
