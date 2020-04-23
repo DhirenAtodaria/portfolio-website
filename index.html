@@ -1,380 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Dhiren Atodaria</title>
+        <script
+            src="https://kit.fontawesome.com/21668e4100.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display:700i"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        />
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Dhiren Atodaria</title>
-  <script src="https://kit.fontawesome.com/21668e4100.js" crossorigin="anonymous"></script>
-  <link rel='icon' href='./favicon.ico' type='image/x-icon' />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display:700i" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
-  <link rel="stylesheet" href="./styles.css" />
-  
-</head>
+    <body>
+        <div id="tops" class="outer">
+            <nav id="navi">
+                <header class="navpart">
+                    <a class="logo" href="#tops"></a>
 
-<body>
-  <div id="tops" class="outer">
-    <nav id="navi">
-      <header class="navpart">
-        <a class="logo" href="#tops"></a>
+                    <div class="links">
+                        <ul>
+                            <li><a href="#projectJump">PROJECTS</a></li>
+                            <li><a href="#aboutlink">ABOUT</a></li>
+                            <li>
+                                <a href="mailto:dhiren.atodaria@hotmail.co.uk"
+                                    >CONTACT</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="progress-container">
+                    <div class="progress-bar" id="myBar"></div>
+                </div>
+            </nav>
 
-        <div class="links">
-          <ul>
-            <li><a href="#projectlink">PROJECTS</a></li>
-            <li><a href="#aboutlink">ABOUT</a></li>
-            <li><a href="mailto:dhiren.atodaria@hotmail.co.uk">CONTACT</a></li>
-          </ul>
-        </div>
-      </header>
-      <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
-      </div>
-    </nav>
-    
-    <div class="whitebg" id="loadinganim1">
-      <h1 id="ierrorinclusion">Please view this on a more modern browser</h1>
-      <div class="gooey">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-
-    <section id="parallaxah" class="one">
-      <div data-depth="0.1" class="vcontainer2" >
-        <canvas id="anim1forbg"></canvas>
-      </div>
-      <div data-depth="0.1" data-invert-x="false" data-invert-y="false" id="anim1" class="typeitbox">
-        <div class="firsttexts">
-          <div class="borderbot"><p class="firsttexts1 mouse over">SOFTWARE-<span>DEVELOPER</span></p></div>
-          <p class="firsttexts2 mouse"><span>DHIREN ATODARIA</span></p>
-        </div>
-        <div class="scrollmes">
-          <p class="replaceStrings mouse"></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="two">
-      <div id="bg">
-        <div class="vcontainer">
-          <video autoplay muted loop playsinline>
-            <source src="./projectvideo.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="projects">
-          <p id="reveal1" class="mouse">P R O J E C T S</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="three" id="projectlink">
-      <div id="slideContainer">
-        <div class="project1 panel">
-          <br/>
-          <div class="headers">
-            <h1 class="anaglyph texteffect">The<br/> <span class="secondary">Drop</span></h1>
-            <div class="linksIcons">
-                <a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
-                <a href="https://the-drop-x-nology.web.app" target="_blank"><i class="fas fa-link"></i></a>
+            <div class="whitebg" id="loadinganim1">
+                <h1 id="ierrorinclusion">
+                    Please view this on a more modern browser
+                </h1>
+                <div class="gooey">
+                    <span class="dot"></span>
+                    <div class="dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <p>The Drop is an intuitive and easy to use web application. It's sole purpose is to notify/update users on the current music releases and includes features such as Spotify API integration and a full user/artist following feature. It was built during the _nology course with a team of 15 members, The primary technologies used are React and Firebase. I was responsible for developing a full following feature and integrating it to the various parts of the database/app.</p>
-          <div class="imgContainer">
-            <div class="p1Img"></div>
-            <div class="p1Skills">
-              <div class="titles">Technologies Used</div>
-              <div class="reactskill skills">
-                <div class="logo1 logos"></div>
-              </div>
-              <div class="fbskill skills">
-                <div class="logo2 logos"></div>
-              </div>
-              <div class="askill skills">
-                <div class="logo3 logos"></div>
-              </div>
-              <div class="jskill skills">
-                <div class="logo4 logos"></div>
-              </div>
-            </div>
-          </div>
+
+            <section id="parallaxah" class="one">
+                <div data-depth="0.1" class="vcontainer2">
+                    <canvas id="anim1forbg"></canvas>
+                </div>
+                <div
+                    data-depth="0.1"
+                    data-invert-x="false"
+                    data-invert-y="false"
+                    id="anim1"
+                    class="typeitbox"
+                >
+                    <div class="firsttexts">
+                        <div class="borderbot">
+                            <p class="firsttexts1 mouse over">
+                                SOFTWARE-<span>DEVELOPER</span>
+                            </p>
+                        </div>
+                        <p class="firsttexts2 mouse">
+                            <span>DHIREN ATODARIA</span>
+                        </p>
+                    </div>
+                    <div class="scrollmes">
+                        <p class="replaceStrings mouse"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="two">
+                <div id="bg">
+                    <div class="vcontainer">
+                        <video autoplay muted loop playsinline>
+                            <source src="./projectvideo.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <div class="projects">
+                        <p id="reveal1" class="mouse">P R O J E C T S</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="three" id="projectlink">
+                <div id="slideContainer">
+                    <div class="project1 panel">
+                        <br />
+                        <div class="headers">
+                            <h1 class="anaglyph texteffect">
+                                The<br />
+                                <span class="secondary">Drop</span>
+                            </h1>
+                            <div class="linksIcons">
+                                <a href="#" target="_blank"
+                                    ><i class="fab fa-github-square"></i
+                                ></a>
+                                <a
+                                    href="https://the-drop-x-nology.web.app"
+                                    target="_blank"
+                                    ><i class="fas fa-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <p>
+                            The Drop is an intuitive and easy to use web
+                            application. It's sole purpose is to notify/update
+                            users on the current music releases and includes
+                            features such as Spotify API integration and a full
+                            user/artist following feature. It was built during
+                            the _nology course with a team of 15 members, The
+                            primary technologies used are React and Firebase. I
+                            was responsible for developing a full following
+                            feature and integrating it to the various parts of
+                            the database/app.
+                        </p>
+                        <div id="projectJump" class="imgContainer">
+                            <div class="p1Img"></div>
+                            <div class="p1Skills">
+                                <div class="titles">Technologies Used</div>
+                                <div class="reactskill skills">
+                                    <div class="logo1 logos"></div>
+                                </div>
+                                <div class="fbskill skills">
+                                    <div class="logo2 logos"></div>
+                                </div>
+                                <div class="askill skills">
+                                    <div class="logo3 logos"></div>
+                                </div>
+                                <div class="jskill skills">
+                                    <div class="logo4 logos"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project2 panel">
+                        <br />
+                        <div class="headers">
+                            <h1 class="anaglyph2">Oznom</h1>
+                            <div class="linksIcons">
+                                <a
+                                    href="https://github.com/DhirenAtodaria/budget-app"
+                                    target="_blank"
+                                    ><i class="fab fa-github-square"></i
+                                ></a>
+                                <a
+                                    href="https://personal-project-budget.web.app/login"
+                                    target="_blank"
+                                    ><i class="fas fa-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <p>
+                            Oznom is a complete money handling app. It's
+                            designed to allow a user to enter their daily,
+                            monthly and yearly spends in a nice intuitive UI
+                            experience, in-addition, it's fully authenticated
+                            with error messages and each account can enter their
+                            own spendings. However, above all else, the main
+                            feature is the collation of all the information and
+                            presenting it back to the user in a responsive line
+                            graph. The technologies used are
+                            <strong>React</strong>, <strong>d3.js</strong>,
+                            <strong>Redux</strong> and
+                            <strong>Firebase</strong>
+                        </p>
+                        <div class="imgContainer">
+                            <div class="p1Img"></div>
+                            <div class="p1Skills">
+                                <div class="titles">Technologies Used</div>
+                                <div class="reactskill skills">
+                                    <div class="logo1 logos"></div>
+                                </div>
+                                <div class="fbskill skills">
+                                    <div class="logo2 logos"></div>
+                                </div>
+                                <div class="askill skills">
+                                    <div class="logo3 logos"></div>
+                                </div>
+                                <div class="jskill skills">
+                                    <div class="logo4 logos"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project3 panel">
+                        <br />
+                        <div class="headers">
+                            <h1 class="anaglyph3">
+                                Food Scanner<br /><span class="secondaryBig"
+                                    >AI Web App</span
+                                >
+                            </h1>
+                            <div class="linksIcons">
+                                <a
+                                    href="https://github.com/DhirenAtodaria/personal-project-1-ai"
+                                    target="_blank"
+                                    ><i class="fab fa-github-square"></i
+                                ></a>
+                                <a
+                                    href="ec2-35-179-77-44.eu-west-2.compute.amazonaws.com:8050"
+                                    target="_blank"
+                                    ><i class="fas fa-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <p>
+                            This project is a personal project I created,
+                            exploring other popular technologies and expanding
+                            my knowledge in fields such as AI-integration with
+                            backend development. The project allows a user to
+                            upload a picture of a food, it will then guess what
+                            that food could be and present nutritional
+                            information of said food. It was created using
+                            <strong>PyTorch</strong>, <strong>Flask</strong>,
+                            <strong>Dash</strong> and hosted/deployed with
+                            <strong>Docker</strong> and <strong>AWS</strong>
+                        </p>
+                        <div class="imgContainer">
+                            <div class="p1Img"></div>
+                            <div class="p1Skills">
+                                <div class="titles">Technologies Used</div>
+                                <div class="reactskill skills">
+                                    <div class="logo1 logos"></div>
+                                </div>
+                                <div class="fbskill skills">
+                                    <div class="logo2 logos"></div>
+                                </div>
+                                <div class="askill skills">
+                                    <div class="logo3 logos"></div>
+                                </div>
+                                <div class="jskill skills">
+                                    <div class="logo4 logos"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project4 panel">
+                        <br />
+                        <div class="headers">
+                            <h1 class="anaglyph4">PokeReact</h1>
+                            <div class="linksIcons">
+                                <a
+                                    href="https://github.com/DhirenAtodaria/Poke-react"
+                                    target="_blank"
+                                    ><i class="fab fa-github-square"></i
+                                ></a>
+                                <a
+                                    href="https://dhirenatodaria.github.io/Poke-react/"
+                                    target="_blank"
+                                    ><i class="fas fa-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <p>
+                            PokeReact is a page demonstrating the capabilities
+                            of React but with a twist. Features includes full
+                            search bar, complete Pokemon cards with a design
+                            focused approach and tilt.js for a more
+                            fluid/animated response. The project was created in
+                            week 5 of the _nology course.
+                        </p>
+                        <div class="imgContainer">
+                            <div class="p1Img"></div>
+                            <div class="p1Skills">
+                                <div class="titles">Technologies Used</div>
+                                <div class="reactskill skills">
+                                    <div class="logo1 logos"></div>
+                                </div>
+                                <div class="fbskill skills">
+                                    <div class="logo2 logos"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project5 panel">
+                        <br />
+                        <div class="headers">
+                            <h1 class="anaglyph5">
+                                OMDB <br /><span class="secondary"
+                                    >Movie Search</span
+                                >
+                            </h1>
+                            <div class="linksIcons">
+                                <a
+                                    href="https://github.com/DhirenAtodaria/omdb/"
+                                    target="_blank"
+                                    ><i class="fab fa-github-square"></i
+                                ></a>
+                                <a
+                                    href="https://dhirenatodaria.github.io/omdb/"
+                                    target="_blank"
+                                    ><i class="fas fa-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <p>
+                            OMDB captures the features of using an external API
+                            to present information in a design focused and easy
+                            to use manner. It allows the user to search for any
+                            movie, presents them with information based on the
+                            query and allows them to then proceed to the IMDB
+                            page of the said result. In addition it also has a
+                            filter to select individual results. This app was
+                            created during week 6 of the _nology course.
+                        </p>
+                        <div class="imgContainer">
+                            <div class="p1Img"></div>
+                            <div class="p1Skills">
+                                <div class="titles">Technologies Used</div>
+                                <div class="reactskill skills">
+                                    <div class="logo1 logos"></div>
+                                </div>
+                                <div class="fbskill skills">
+                                    <div class="logo2 logos"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project6 panel">
+                        <br />
+                        <div class="headers">
+                            <h1 class="anaglyph6">
+                                Millionaire <br /><span class="secondary"
+                                    >Quiz</span
+                                >
+                            </h1>
+                            <div class="linksIcons">
+                                <a
+                                    href="https://github.com/DhirenAtodaria/game-project-1"
+                                    target="_blank"
+                                    ><i class="fab fa-github-square"></i
+                                ></a>
+                                <a
+                                    href="https://dhirenatodaria.github.io/game-project-1/"
+                                    target="_blank"
+                                    ><i class="fas fa-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <p>
+                            Millionaire Quiz is a game project created during
+                            week 4 of the _nology course. It fully coded with
+                            OOP principles, and querys an external quiz API. It
+                            is also fully animated with various different
+                            features with GSAP and includes fully functioning
+                            lifelines. The game provides a fun and interesting
+                            experience to the user.
+                        </p>
+                        <div class="imgContainer">
+                            <div class="p1Img"></div>
+                            <div class="p1Skills">
+                                <div class="titles">Technologies Used</div>
+                                <div class="reactskill skills">
+                                    <div class="logo1 logos"></div>
+                                </div>
+                                <div class="fbskill skills">
+                                    <div class="logo2 logos"></div>
+                                </div>
+                                <div class="askill skills">
+                                    <div class="logo3 logos"></div>
+                                </div>
+                                <div class="jskill skills">
+                                    <div class="logo4 logos"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project7 panel">
+                        <br />
+                        <div class="headers">
+                            <h1 class="anaglyph7">
+                                Nasa <br /><span class="secondary"
+                                    >Coming Soon</span
+                                >
+                            </h1>
+                            <div class="linksIcons">
+                                <a href="#" target="_blank"
+                                    ><i class="fab fa-github-square"></i
+                                ></a>
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <p>Coming Soon</p>
+                        <div class="imgContainer">
+                            <div class="p1Img"></div>
+                            <div class="p1Skills">
+                                <div class="titles">Technologies Used</div>
+                                <div class="reactskill skills">
+                                    <div class="logo1 logos"></div>
+                                </div>
+                                <div class="fbskill skills">
+                                    <div class="logo2 logos"></div>
+                                </div>
+                                <div class="askill skills">
+                                    <div class="logo3 logos"></div>
+                                </div>
+                                <div class="jskill skills">
+                                    <div class="logo4 logos"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project8 panel">
+                        <br />
+                        <div class="headers">
+                            <h1 class="anaglyph8">
+                                Angular<br /><span class="secondary"
+                                    >Coming Soon</span
+                                >
+                            </h1>
+                            <div class="linksIcons">
+                                <a href="#" target="_blank"
+                                    ><i class="fab fa-github-square"></i
+                                ></a>
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-link"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <p>An Angular TypeScript app coming soon.</p>
+                        <div class="imgContainer">
+                            <div class="p1Img"></div>
+                            <div class="p1Skills">
+                                <div class="titles">Technologies Used</div>
+                                <div class="reactskill skills">
+                                    <div class="logoReact logos"></div>
+                                </div>
+                                <div class="fbskill skills">
+                                    <div class="logofb logos"></div>
+                                </div>
+                                <div class="askill skills">
+                                    <div class="logoa logos"></div>
+                                </div>
+                                <div class="jskill skills">
+                                    <div class="logoj logos"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="four">
+                <div id="bg2">
+                    <div class="vcontainer">
+                        <video autoplay muted loop playsinline>
+                            <source src="./aboutvideo.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <div class="projects">
+                        <p id="reveal3" class="opac mouse">A B O U T</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="five" id="aboutlink">
+                <div id="title">
+                    <h1 class="mouse">A b o u t</h1>
+                </div>
+
+                <article id="headline">
+                    <h2 class="mouse">The Tech<em>_nology</em> story.</h2>
+                </article>
+
+                <article id="firstpara">
+                    <p class="mouse">
+                        My journey begins when I was at university. You see that
+                        picture on the right? That's it. I went to the
+                        University of Warwick to study Maths and Stats. I had an
+                        amazing time and learnt a lot, got to meet many new
+                        people. But one thing, that stuck out throughout those
+                        years, was I had absolutely no idea what kind of career
+                        I wanted to do. I thought hard and long but nothing
+                        seemed appealing at the time. So I did what any other
+                        confused young adult would do. Go and live in China.
+                    </p>
+                </article>
+
+                <article id="image1"></article>
+
+                <article id="into">
+                    <p class="mouse">
+                        Upon returning, after having experienced huge personal
+                        development/growth in China, I did an internship with
+                        BT, where I got to learn more about the world of tech
+                        and what it contains. It was around this time I came
+                        across _nology. It is a 12-week course designed to
+                        immerse and provide you with all you need to begin an
+                        exciting career, as a new front-end developer. Having
+                        realised coding was what I wanted to do with a career, I
+                        proceeded to join _nology.
+                    </p>
+                </article>
+
+                <article id="image2"></article>
+
+                <article id="mystory">
+                    <p class="mouse">
+                        I began the course late January. It began with the
+                        basics: HTML/CSS/JS. I completed a lots of challenges,
+                        including creating games and completing other hard
+                        problems. Upon learning these for a few weeks, we
+                        trasnitioned onto React. I learned about the React
+                        ecosystem, and the possibilities of what could be
+                        created using React. In-addition, we undertook a client
+                        project called 'The Drop'. A fully featured MVP for a
+                        client who will proceed to gain investment using it. The
+                        app was created in 5 weeks and contains many different
+                        features such as Spotify Integration, a full following
+                        feature and more. It was also around this time I finally
+                        completed a final project called Oznom, a money
+                        budgeting app. The future is exciting, and I can't wait
+                        for what comes after _nology.
+                    </p>
+                </article>
+            </section>
+
+            <section class="six">
+                <footer>
+                    <div class="background">
+                        <div>
+                            <p class="mouse">Mobile: 07932901892</p>
+                            <p class="mouse">
+                                E-Mail: dhiren.atodaria@hotmail.co.uk
+                            </p>
+                        </div>
+                        <a
+                            href="https://github.com/DhirenAtodaria?tab=repositories"
+                            target="_blank"
+                            ><i class="fab fa-github-square"></i
+                        ></a>
+                        <a
+                            href="https://www.linkedin.com/in/dhiren-atodaria/"
+                            target="_blank"
+                            ><i class="fab fa-linkedin"></i
+                        ></a>
+                    </div>
+                </footer>
+            </section>
         </div>
 
-        <div class="project2 panel">
-          <br/>
-          <div class="headers">
-            <h1 class="anaglyph2">Oznom</h1>
-            <div class="linksIcons">
-              <a href="https://github.com/DhirenAtodaria/budget-app" target="_blank"><i class="fab fa-github-square"></i></a>
-              <a href="https://personal-project-budget.web.app/login" target="_blank"><i class="fas fa-link"></i></a>
-          </div>
-          </div>
-          <p>Oznom is a complete money handling app. It's designed to allow a user to enter their daily, monthly and yearly spends in a nice intuitive UI experience, in-addition, it's fully authenticated with error messages and each account can enter their own spendings. However, above all else, the main feature is the collation of all the information and presenting it back to the user in a responsive line graph. The technologies used are <strong>React</strong>, <strong>d3.js</strong>, <strong>Semantic UI</strong> and <strong>Firebase</strong></p>
-          <div class="imgContainer">
-            <div class="p1Img"></div>
-            <div class="p1Skills">
-              <div class="titles">Technologies Used</div>
-              <div class="reactskill skills">
-                <div class="logo1 logos"></div>
-              </div>
-              <div class="fbskill skills">
-                <div class="logo2 logos"></div>
-              </div>
-              <div class="askill skills">
-                <div class="logo3 logos"></div>
-              </div>
-              <div class="jskill skills">
-                <div class="logo4 logos"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project3 panel">
-          <br/>
-          <div class="headers">
-            <h1 class="anaglyph3">Food Scanner<br /><span class="secondaryBig">AI Web App</span></h1>
-            <div class="linksIcons">
-              <a href="https://github.com/DhirenAtodaria/personal-project-1-ai" target="_blank"><i class="fab fa-github-square"></i></a>
-              <a href="ec2-35-179-77-44.eu-west-2.compute.amazonaws.com:8050" target="_blank"><i class="fas fa-link"></i></a>
-            </div>
-          </div>
-          <p>This project is a personal project I created, exploring other popular technologies and expanding my knowledge in fields such as AI-integration with backend development. The project allows a user to upload a picture of a food, it will then guess what that food could be and present nutritional information of said food. It was created using <strong>PyTorch</strong>, <strong>Flask</strong>, <strong>Dash</strong> and hosted/deployed with <strong>Docker</strong> and <strong>AWS</strong></p>
-          <div class="imgContainer">
-            <div class="p1Img"></div>
-            <div class="p1Skills">
-              <div class="titles">Technologies Used</div>
-              <div class="reactskill skills">
-                <div class="logo1 logos"></div>
-              </div>
-              <div class="fbskill skills">
-                <div class="logo2 logos"></div>
-              </div>
-              <div class="askill skills">
-                <div class="logo3 logos"></div>
-              </div>
-              <div class="jskill skills">
-                <div class="logo4 logos"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project4 panel">
-          <br/>
-          <div class="headers">
-            <h1 class="anaglyph4">PokeReact</h1>
-            <div class="linksIcons">
-              <a href="https://github.com/DhirenAtodaria/Poke-react" target="_blank"><i class="fab fa-github-square"></i></a>
-              <a href="https://dhirenatodaria.github.io/Poke-react/" target="_blank"><i class="fas fa-link"></i></a>
-            </div>
-          </div>
-          <p>PokeReact is a page demonstrating the capabilities of React but with a twist. Features includes full search bar, complete Pokemon cards with a design focused approach and tilt.js for a more fluid/animated response. The project was created in week 5 of the _nology course.</p>
-          <div class="imgContainer">
-            <div class="p1Img"></div>
-            <div class="p1Skills">
-              <div class="titles">Technologies Used</div>
-              <div class="reactskill skills">
-                <div class="logo1 logos"></div>
-              </div>
-              <div class="fbskill skills">
-                <div class="logo2 logos"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-
-        <div class="project5 panel">
-          <br/>
-          <div class="headers">
-            <h1 class="anaglyph5">OMDB <br /><span class="secondary">Movie Search</span></h1>
-            <div class="linksIcons">
-              <a href="https://github.com/DhirenAtodaria/omdb/" target="_blank"><i class="fab fa-github-square"></i></a>
-              <a href="https://dhirenatodaria.github.io/omdb/" target="_blank"><i class="fas fa-link"></i></a>
-            </div>
-          </div>
-          <p>OMDB captures the features of using an external API to present information in a design focused and easy to use manner. It allows the user to search for any movie, presents them with information based on the query and allows them to then proceed to the IMDB page of the said result. In addition it also has a filter to select individual results. This app was created during week 6 of the _nology course.</p>
-          <div class="imgContainer">
-            <div class="p1Img"></div>
-            <div class="p1Skills">
-              <div class="titles">Technologies Used</div>
-              <div class="reactskill skills">
-                <div class="logo1 logos"></div>
-              </div>
-              <div class="fbskill skills">
-                <div class="logo2 logos"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project6 panel">
-          <br/>
-          <div class="headers">
-            <h1 class="anaglyph6">Millionaire  <br /><span class="secondary">Quiz</span></h1>
-            <div class="linksIcons">
-              <a href="https://github.com/DhirenAtodaria/game-project-1" target="_blank"><i class="fab fa-github-square"></i></a>
-              <a href="https://dhirenatodaria.github.io/game-project-1/" target="_blank"><i class="fas fa-link"></i></a>
-            </div>
-          </div>
-          <p>Millionaire Quiz is a game project created during week 4 of the _nology course. It fully coded with OOP principles, and querys an external quiz API. It is also fully animated with various different features with GSAP and includes fully functioning lifelines. The game provides a fun and interesting experience to the user.</p>
-          <div class="imgContainer">
-            <div class="p1Img"></div>
-            <div class="p1Skills">
-              <div class="titles">Technologies Used</div>
-              <div class="reactskill skills">
-                <div class="logo1 logos"></div>
-              </div>
-              <div class="fbskill skills">
-                <div class="logo2 logos"></div>
-              </div>
-              <div class="askill skills">
-                <div class="logo3 logos"></div>
-              </div>
-              <div class="jskill skills">
-                <div class="logo4 logos"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project7 panel">
-          <br/>
-          <div class="headers">
-            <h1 class="anaglyph7">Nasa <br /><span class="secondary">Coming Soon</span></h1>
-            <div class="linksIcons">
-              <a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-link"></i></a>
-            </div>
-          </div>
-          <p>Coming Soon</p>
-          <div class="imgContainer">
-            <div class="p1Img"></div>
-            <div class="p1Skills">
-              <div class="titles">Technologies Used</div>
-              <div class="reactskill skills">
-                <div class="logo1 logos"></div>
-              </div>
-              <div class="fbskill skills">
-                <div class="logo2 logos"></div>
-              </div>
-              <div class="askill skills">
-                <div class="logo3 logos"></div>
-              </div>
-              <div class="jskill skills">
-                <div class="logo4 logos"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project8 panel">
-          <br/>
-          <div class="headers">
-            <h1 class="anaglyph8">Angular<br /><span class="secondary">Coming Soon</span></h1>
-            <div class="linksIcons">
-              <a href="#" target="_blank"><i class="fab fa-github-square"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-link"></i></a>
-            </div>
-          </div>
-          <p>An Angular TypeScript app coming soon.</p>
-          <div class="imgContainer">
-            <div class="p1Img"></div>
-            <div class="p1Skills">
-              <div class="titles">Technologies Used</div>
-              <div class="reactskill skills">
-                <div class="logoReact logos"></div>
-              </div>
-              <div class="fbskill skills">
-                <div class="logofb logos"></div>
-              </div>
-              <div class="askill skills">
-                <div class="logoa logos"></div>
-              </div>
-              <div class="jskill skills">
-                <div class="logoj logos"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="four">
-      <div id="bg2">
-        <div class="vcontainer">
-          <video autoplay muted loop playsinline>
-            <source src="./aboutvideo.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="projects">
-          <p id="reveal3" class="opac mouse">A B O U T</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="five" id="aboutlink">
-      
-      <div id="title">
-        <h1 class="mouse">A b o u t</h1>
-      </div>
-
-      <article id="headline">
-        <h2 class="mouse">The Tech<em>_nology</em> story.</h2>
-      </article>
-
-      <article id="firstpara">
-        <p class="mouse">My journey begins when I was at university. You see that picture on the right? That's it. I went to the University of Warwick to study Maths and Stats. I had an amazing time and learnt a lot, got to meet many new people. But one thing, that stuck out throughout those years, was I had absolutely no idea what kind of career I wanted to do. I thought hard and long but nothing seemed appealing at the time. So I did what any other confused young adult would do. Go and live in China.</p>
-      </article>
-
-      <article id="image1"></article>
-
-      <article id="into">
-        <p class="mouse">Upon returning, after having experienced huge personal development/growth in China, I did an internship with BT, where I got to learn more about the world of tech and what it contains. It was around this time I came across _nology. It is a 12-week course designed to immerse and provide you with all you need to begin an exciting career, as a new front-end developer. Having realised coding was what I wanted to do with a career, I proceeded to join _nology.</p>
-      </article>
-
-      <article id="image2"></article>
-
-      <article id="mystory">
-        <p class="mouse">I began the course late January. It began with the basics: HTML/CSS/JS. I completed a lots of challenges, including creating games and completing other hard problems. Upon learning these for a few weeks, we trasnitioned onto React. I learned about the React ecosystem, and the possibilities of what could be created using React. In-addition, we undertook a client project called 'The Drop'. A fully featured MVP for a client who will proceed to gain investment using it. The app was created in 5 weeks and contains many different features such as Spotify Integration, a full following feature and more. It was also around this time I finally completed a final project called Oznom, a money budgeting app. The future is exciting, and I can't wait for what comes after _nology.</p>
-      </article>
-    </section>
-
-    <section class="six">
-
-      <footer>
-
-        <div class="background">
-          <div>
-            <p class="mouse">Mobile: 07932901892</p>
-            <p class="mouse">E-Mail: dhiren.atodaria@hotmail.co.uk</p>
-          </div>
-          <a href="https://github.com/DhirenAtodaria?tab=repositories" target="_blank"><i class="fab fa-github-square"></i></a> <a href="https://www.linkedin.com/in/dhiren-atodaria/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </footer>
-
-    </section>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/CSSRulePlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/6.1.1/typeit.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-  <script src="./index.js"></script>
-  <script src="./sandbox.js"></script>
-</body>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/CSSRulePlugin.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/6.1.1/typeit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+        <script src="./index.js"></script>
+        <script src="./sandbox.js"></script>
+    </body>
 </html>
