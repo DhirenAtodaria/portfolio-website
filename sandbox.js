@@ -165,8 +165,8 @@ if (!isSafari) {
     }
 }
 
-let parallaxah = document.getElementById("parallaxah");
-let parallaxInstance = new Parallax(parallaxah);
+let parallax = document.getElementById("parallaxah");
+let parallaxInstance = new Parallax(parallax);
 
 window.onscroll = function () {
     myFunction();
