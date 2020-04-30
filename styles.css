@@ -480,6 +480,7 @@ nav .progress-container .progress-bar {
   width: 800%;
   height: 100%;
   opacity: 0;
+  will-change: transform;
 }
 
 .three #slideContainer .panel {
