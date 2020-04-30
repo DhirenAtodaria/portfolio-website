@@ -268,7 +268,7 @@ const tween3 = gsap.timeline();
 //Leaving Page 1
 tween3
     .delay(1)
-    .to("#slideContainer", 3, { opacity: 1 })
+    .to("#slideContainer", 8, { opacity: 1 })
     .add("labelrm1")
     .to(".anaglyph", 1, { className: "-=texteffect" }, "labelrm1")
     .to("#slideContainer", 4, { z: -150 }, "labelrm1")
@@ -332,7 +332,7 @@ tween3
     .add("label7")
     .to(".anaglyph8", 1, { className: "texteffect" }, "label8")
     .to("#slideContainer", 4, { z: 0 }, "label8")
-    .to("#slideContainer", 3, { opacity: 0, delay: 2 });
+    .to("#slideContainer", 8, { opacity: 0, delay: 2 });
 
 const scene2 = new ScrollMagic.Scene({
     triggerElement: ".three",
