@@ -23,147 +23,147 @@ window.mobileCheck = () => {
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 console.log(isSafari);
 
-if (!isSafari) {
-    if (!window.mobileCheck()) {
-        let canvas = document.querySelector("canvas");
-        let c = canvas.getContext("2d", { alpha: false });
+// if (!isSafari) {
+//     if (!window.mobileCheck()) {
+//         let canvas = document.querySelector("canvas");
+//         let c = canvas.getContext("2d", { alpha: false });
 
-        canvas.width = window.innerWidth * 1.1;
-        canvas.height = window.innerHeight * 1.1;
+//         canvas.width = window.innerWidth * 1.1;
+//         canvas.height = window.innerHeight * 1.1;
 
-        let particleCount;
-        if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
-            particleCount = 100;
-        } else {
-            particleCount = 250;
-        }
+//         let particleCount;
+//         if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
+//             particleCount = 100;
+//         } else {
+//             particleCount = 250;
+//         }
 
-        let mouse = {
-            x: window.innerWidth / 2,
-            y: window.innerHeight / 2,
-        };
+//         let mouse = {
+//             x: window.innerWidth / 2,
+//             y: window.innerHeight / 2,
+//         };
 
-        window.addEventListener("mousemove", function (event) {
-            mouse.x = event.clientX - canvas.width / 2;
-            mouse.y = event.clientY - canvas.height / 2;
-        });
+//         window.addEventListener("mousemove", function (event) {
+//             mouse.x = event.clientX - canvas.width / 2;
+//             mouse.y = event.clientY - canvas.height / 2;
+//         });
 
-        window.addEventListener("resize", function () {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+//         window.addEventListener("resize", function () {
+//             canvas.width = window.innerWidth;
+//             canvas.height = window.innerHeight;
 
-            lightParticles = [];
-            initializeParticles();
-        });
+//             lightParticles = [];
+//             initializeParticles();
+//         });
 
-        function LightParticle(x, y, radius, color) {
-            this.x = x;
-            this.y = y;
-            this.radius = radius;
-            this.color = color;
+//         function LightParticle(x, y, radius, color) {
+//             this.x = x;
+//             this.y = y;
+//             this.radius = radius;
+//             this.color = color;
 
-            this.update = function () {
-                this.draw();
-            };
+//             this.update = function () {
+//                 this.draw();
+//             };
 
-            this.draw = function () {
-                c.save();
-                c.beginPath();
-                c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-                c.shadowColor = this.color;
-                c.shadowBlur = 15;
-                c.shadowOffsetX = 0;
-                c.shadowOffsetY = 0;
-                c.fillStyle = this.color;
-                c.fill();
-                c.closePath();
-                c.restore();
-            };
-        }
+//             this.draw = function () {
+//                 c.save();
+//                 c.beginPath();
+//                 c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+//                 c.shadowColor = this.color;
+//                 c.shadowBlur = 15;
+//                 c.shadowOffsetX = 0;
+//                 c.shadowOffsetY = 0;
+//                 c.fillStyle = this.color;
+//                 c.fill();
+//                 c.closePath();
+//                 c.restore();
+//             };
+//         }
 
-        let lightParticles = [];
+//         let lightParticles = [];
 
-        let timer = 0;
-        let opacity = 1;
-        let speed = 0.0001;
-        let colors = ["#F6F8FF", "#23CE6B", "#00003D", "#A846A0", "#50514F"];
+//         let timer = 0;
+//         let opacity = 1;
+//         let speed = 0.0001;
+//         let colors = ["#F6F8FF", "#23CE6B", "#00003D", "#A846A0", "#50514F"];
 
-        let initializeParticles;
+//         let initializeParticles;
 
-        (initializeParticles = () => {
-            for (let i = 0; i < particleCount; i++) {
-                let randomColorIndex = Math.floor(Math.random() * 6);
-                let randomRadius = Math.random() * 4;
+//         (initializeParticles = () => {
+//             for (let i = 0; i < particleCount; i++) {
+//                 let randomColorIndex = Math.floor(Math.random() * 6);
+//                 let randomRadius = Math.random() * 4;
 
-                // Ensure particles are spawned past screen width and height so
-                // there will be no missing stars when rotating canvas
-                let x =
-                    Math.random() * (canvas.width + 200) -
-                    (canvas.width + 200) / 2;
-                let y =
-                    Math.random() * (canvas.width + 200) -
-                    (canvas.width + 200) / 2;
-                lightParticles.push(
-                    new LightParticle(
-                        x,
-                        y,
-                        randomRadius,
-                        colors[randomColorIndex]
-                    )
-                );
-            }
-        })();
+//                 // Ensure particles are spawned past screen width and height so
+//                 // there will be no missing stars when rotating canvas
+//                 let x =
+//                     Math.random() * (canvas.width + 200) -
+//                     (canvas.width + 200) / 2;
+//                 let y =
+//                     Math.random() * (canvas.width + 200) -
+//                     (canvas.width + 200) / 2;
+//                 lightParticles.push(
+//                     new LightParticle(
+//                         x,
+//                         y,
+//                         randomRadius,
+//                         colors[randomColorIndex]
+//                     )
+//                 );
+//             }
+//         })();
 
-        animate = () => {
-            window.requestAnimationFrame(animate);
+//         animate = () => {
+//             window.requestAnimationFrame(animate);
 
-            c.save();
-            if (isMouseDown === true) {
-                // Ease into the new opacity
-                let desiredOpacity = 0.01;
-                opacity += (desiredOpacity - opacity) * 0.03;
-                c.fillStyle = "rgba(0, 0, 0," + opacity + ")";
+//             c.save();
+//             if (isMouseDown === true) {
+//                 // Ease into the new opacity
+//                 let desiredOpacity = 0.01;
+//                 opacity += (desiredOpacity - opacity) * 0.03;
+//                 c.fillStyle = "rgba(0, 0, 0," + opacity + ")";
 
-                // Ease into the new speed
-                let desiredSpeed = 0.012;
-                speed += (desiredSpeed - speed) * 0.01;
-                timer += speed;
-            } else {
-                // Ease back to the original opacity
-                let originalOpacity = 1;
-                opacity += (originalOpacity - opacity) * 0.01;
-                c.fillStyle = "rgba(0, 0, 0, " + opacity + ")";
+//                 // Ease into the new speed
+//                 let desiredSpeed = 0.012;
+//                 speed += (desiredSpeed - speed) * 0.01;
+//                 timer += speed;
+//             } else {
+//                 // Ease back to the original opacity
+//                 let originalOpacity = 1;
+//                 opacity += (originalOpacity - opacity) * 0.01;
+//                 c.fillStyle = "rgba(0, 0, 0, " + opacity + ")";
 
-                // Ease back to the original speed
-                let originalSpeed = 0.001;
-                speed += (originalSpeed - speed) * 0.01;
-                timer += speed;
-            }
+//                 // Ease back to the original speed
+//                 let originalSpeed = 0.001;
+//                 speed += (originalSpeed - speed) * 0.01;
+//                 timer += speed;
+//             }
 
-            c.fillRect(0, 0, canvas.width, canvas.height);
-            c.translate(canvas.width / 2, canvas.height / 2);
-            c.rotate(timer);
+//             c.fillRect(0, 0, canvas.width, canvas.height);
+//             c.translate(canvas.width / 2, canvas.height / 2);
+//             c.rotate(timer);
 
-            for (let i = 0; i < lightParticles.length; i++) {
-                lightParticles[i].update();
-            }
+//             for (let i = 0; i < lightParticles.length; i++) {
+//                 lightParticles[i].update();
+//             }
 
-            c.restore();
-        };
+//             c.restore();
+//         };
 
-        let isMouseDown = false;
+//         let isMouseDown = false;
 
-        window.addEventListener("mousedown", function () {
-            isMouseDown = true;
-        });
+//         window.addEventListener("mousedown", function () {
+//             isMouseDown = true;
+//         });
 
-        window.addEventListener("mouseup", function () {
-            isMouseDown = false;
-        });
+//         window.addEventListener("mouseup", function () {
+//             isMouseDown = false;
+//         });
 
-        animate();
-    }
-}
+//         animate();
+//     }
+// }
 
 let parallax = document.getElementById("parallaxah");
 let parallaxInstance = new Parallax(parallax);
