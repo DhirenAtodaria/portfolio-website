@@ -336,7 +336,7 @@ tween3
 
 const scene2 = new ScrollMagic.Scene({
     triggerElement: ".three",
-    duration: "4000%",
+    duration: "2000%",
     triggerHook: "onLeave",
 })
     .setPin(".three")
