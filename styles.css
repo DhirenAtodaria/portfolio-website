@@ -16,6 +16,10 @@
   scroll-behavior: smooth;
 }
 
+#parallaxah {
+  top: 0 !important;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

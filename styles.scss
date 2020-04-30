@@ -16,6 +16,18 @@
     scroll-behavior: smooth;
 }
 
+// .scrollmagic-pin-spacer{
+//     * {
+//     top:0 !important
+//     }
+//  }
+
+#parallaxah {
+    top:0 !important;
+}
+ 
+
+
 ::-webkit-scrollbar {
     display: none;
 }
