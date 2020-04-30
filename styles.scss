@@ -69,14 +69,10 @@ html {
                 max-height: 100%;
                 width: 100%;
                 overflow: hidden;
-                // left: -100px !important;
-                // top: -250px !important;
+                left: -100px !important;
+                top: -250px !important;
                 opacity: 0.4;
                 z-index: -1;
-
-                canvas {
-                    transform: translate(-5%, -5%);
-                }
 
                 @media screen and (min-width: 1920px) {
                     display: none !important;
@@ -386,6 +382,12 @@ nav {
     -ms-perspective: 500px;
     perspective: 500px;
 
+    // h1 {
+    //     margin: 0;
+    //     font-size: 40px;
+    //     color: white;
+    // }
+
     #slideContainer {
         width: 800%;
         height: 100%;
@@ -631,7 +633,7 @@ nav {
 
                 .jskill {
                     .logo4 {
-                        background-image: url("./skills/redux.png");
+                        background-image: url("./skills/sui.png");
                     }
                 }
             }
@@ -675,40 +677,6 @@ nav {
     .project4 {
         .imgContainer {
             .p1Img {
-                background-image: url("./projectimages/nasa/nrh.png");
-            }
-
-            .p1Skills {
-                .reactskill {
-                    .logo1 {
-                        background-image: url("./skills/rlogo.png");
-                    }
-                }
-
-                .fbskill {
-                    .logo2 {
-                        background-image: url("./skills/redux.png");
-                    }
-                }
-
-                .askill {
-                    .logo3 {
-                        background-image: url("");
-                    }
-                }
-
-                .jskill {
-                    .logo4 {
-                        background-image: url("");
-                    }
-                }
-            }
-        }
-    }
-
-    .project5 {
-        .imgContainer {
-            .p1Img {
                 background-image: url("./projectimages/pokereact/pokereact.png");
             }
 
@@ -728,7 +696,7 @@ nav {
         }
     }
 
-    .project6 {
+    .project5 {
         .imgContainer {
             .p1Img {
                 background-image: url("./projectimages/omdb/omdb.png");
@@ -750,7 +718,7 @@ nav {
         }
     }
 
-    .project7 {
+    .project6 {
         .imgContainer {
             .p1Img {
                 background-image: url("./projectimages/munnyaire/munnaire.png");
@@ -759,13 +727,47 @@ nav {
             .p1Skills {
                 .reactskill {
                     .logo1 {
-                        background-image: url("./skills/jslogo.png");
+                        background-image: url("./skills/rlogo.png");
                     }
                 }
 
                 .fbskill {
                     .logo2 {
-                        background-image: url("./skills/sass.png");
+                        background-image: url("./skills/fblogo.png");
+                    }
+                }
+            }
+        }
+    }
+
+    .project7 {
+        .imgContainer {
+            .p1Img {
+                background-image: url("");
+            }
+
+            .p1Skills {
+                .reactskill {
+                    .logo1 {
+                        background-image: url("");
+                    }
+                }
+
+                .fbskill {
+                    .logo2 {
+                        background-image: url("");
+                    }
+                }
+
+                .askill {
+                    .logo3 {
+                        background-image: url("");
+                    }
+                }
+
+                .jskill {
+                    .logo4 {
+                        background-image: url("");
                     }
                 }
             }

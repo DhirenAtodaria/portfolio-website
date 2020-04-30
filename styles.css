@@ -94,18 +94,10 @@ html .outer .four .vcontainer2 {
   max-height: 100%;
   width: 100%;
   overflow: hidden;
+  left: -100px !important;
+  top: -250px !important;
   opacity: 0.4;
   z-index: -1;
-}
-
-body .outer .one .vcontainer2 canvas,
-body .outer .two .vcontainer2 canvas,
-body .outer .four .vcontainer2 canvas,
-html .outer .one .vcontainer2 canvas,
-html .outer .two .vcontainer2 canvas,
-html .outer .four .vcontainer2 canvas {
-  -webkit-transform: translate(-5%, -5%);
-          transform: translate(-5%, -5%);
 }
 
 @media screen and (min-width: 1920px) {
@@ -777,7 +769,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project2 .imgContainer .p1Skills .jskill .logo4 {
-  background-image: url("./skills/redux.png");
+  background-image: url("./skills/sui.png");
 }
 
 .three .project3 .imgContainer .p1Img {
@@ -801,7 +793,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project4 .imgContainer .p1Img {
-  background-image: url("./projectimages/nasa/nrh.png");
+  background-image: url("./projectimages/pokereact/pokereact.png");
 }
 
 .three .project4 .imgContainer .p1Skills .reactskill .logo1 {
@@ -809,19 +801,11 @@ nav .progress-container .progress-bar {
 }
 
 .three .project4 .imgContainer .p1Skills .fbskill .logo2 {
-  background-image: url("./skills/redux.png");
-}
-
-.three .project4 .imgContainer .p1Skills .askill .logo3 {
-  background-image: url("");
-}
-
-.three .project4 .imgContainer .p1Skills .jskill .logo4 {
-  background-image: url("");
+  background-image: url("./skills/fblogo.png");
 }
 
 .three .project5 .imgContainer .p1Img {
-  background-image: url("./projectimages/pokereact/pokereact.png");
+  background-image: url("./projectimages/omdb/omdb.png");
 }
 
 .three .project5 .imgContainer .p1Skills .reactskill .logo1 {
@@ -833,7 +817,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project6 .imgContainer .p1Img {
-  background-image: url("./projectimages/omdb/omdb.png");
+  background-image: url("./projectimages/munnyaire/munnaire.png");
 }
 
 .three .project6 .imgContainer .p1Skills .reactskill .logo1 {
@@ -845,15 +829,23 @@ nav .progress-container .progress-bar {
 }
 
 .three .project7 .imgContainer .p1Img {
-  background-image: url("./projectimages/munnyaire/munnaire.png");
+  background-image: url("");
 }
 
 .three .project7 .imgContainer .p1Skills .reactskill .logo1 {
-  background-image: url("./skills/jslogo.png");
+  background-image: url("");
 }
 
 .three .project7 .imgContainer .p1Skills .fbskill .logo2 {
-  background-image: url("./skills/sass.png");
+  background-image: url("");
+}
+
+.three .project7 .imgContainer .p1Skills .askill .logo3 {
+  background-image: url("");
+}
+
+.three .project7 .imgContainer .p1Skills .jskill .logo4 {
+  background-image: url("");
 }
 
 .four {
