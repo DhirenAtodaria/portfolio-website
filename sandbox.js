@@ -21,7 +21,6 @@ window.mobileCheck = () => {
 };
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-console.log(isSafari);
 
 if (!isSafari) {
     if (!window.mobileCheck()) {
@@ -165,8 +164,11 @@ if (!isSafari) {
     }
 }
 
-let parallax = document.getElementById("parallaxah");
-let parallaxInstance = new Parallax(parallax);
+if (!(/Edge/.test(navigator.userAgent))) {
+    let parallax = document.getElementById("parallaxah");
+    let parallaxInstance = new Parallax(parallax);
+}
+
 
 window.onscroll = function () {
     myFunction();
