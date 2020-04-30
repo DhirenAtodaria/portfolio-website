@@ -174,23 +174,6 @@ window.onscroll = function () {
     myFunction();
 };
 
-const cursor = cursorDot({
-    diameter: 30,
-    borderWidth: 1,
-    easing: 4,
-    zIndex: 10000,
-});
-
-cursor.over(".mouse", {
-    scale: 1.5,
-    background: "#fff",
-});
-
-cursor.over(".links", {
-    scale: 0.5,
-    background: "purple",
-});
-
 function myFunction() {
     const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
