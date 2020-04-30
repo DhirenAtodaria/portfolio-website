@@ -799,7 +799,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project4 .imgContainer .p1Img {
-  background-image: url("./projectimages/pokereact/pokereact.png");
+  background-image: url("./projectimages/nasa/nrh.png");
 }
 
 .three .project4 .imgContainer .p1Skills .reactskill .logo1 {
@@ -807,11 +807,19 @@ nav .progress-container .progress-bar {
 }
 
 .three .project4 .imgContainer .p1Skills .fbskill .logo2 {
-  background-image: url("./skills/fblogo.png");
+  background-image: url("./skills/redux.png");
+}
+
+.three .project4 .imgContainer .p1Skills .askill .logo3 {
+  background-image: url("");
+}
+
+.three .project4 .imgContainer .p1Skills .jskill .logo4 {
+  background-image: url("");
 }
 
 .three .project5 .imgContainer .p1Img {
-  background-image: url("./projectimages/omdb/omdb.png");
+  background-image: url("./projectimages/pokereact/pokereact.png");
 }
 
 .three .project5 .imgContainer .p1Skills .reactskill .logo1 {
@@ -823,7 +831,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project6 .imgContainer .p1Img {
-  background-image: url("./projectimages/munnyaire/munnaire.png");
+  background-image: url("./projectimages/omdb/omdb.png");
 }
 
 .three .project6 .imgContainer .p1Skills .reactskill .logo1 {
@@ -835,23 +843,15 @@ nav .progress-container .progress-bar {
 }
 
 .three .project7 .imgContainer .p1Img {
-  background-image: url("");
+  background-image: url("./projectimages/munnyaire/munnaire.png");
 }
 
 .three .project7 .imgContainer .p1Skills .reactskill .logo1 {
-  background-image: url("");
+  background-image: url("./skills/rlogo.png");
 }
 
 .three .project7 .imgContainer .p1Skills .fbskill .logo2 {
-  background-image: url("");
-}
-
-.three .project7 .imgContainer .p1Skills .askill .logo3 {
-  background-image: url("");
-}
-
-.three .project7 .imgContainer .p1Skills .jskill .logo4 {
-  background-image: url("");
+  background-image: url("./skills/fblogo.png");
 }
 
 .four {

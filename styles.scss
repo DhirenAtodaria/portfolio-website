@@ -386,12 +386,6 @@ nav {
     -ms-perspective: 500px;
     perspective: 500px;
 
-    // h1 {
-    //     margin: 0;
-    //     font-size: 40px;
-    //     color: white;
-    // }
-
     #slideContainer {
         width: 800%;
         height: 100%;
@@ -681,7 +675,7 @@ nav {
     .project4 {
         .imgContainer {
             .p1Img {
-                background-image: url("./projectimages/pokereact/pokereact.png");
+                background-image: url("./projectimages/nasa/nrh.png");
             }
 
             .p1Skills {
@@ -693,7 +687,19 @@ nav {
 
                 .fbskill {
                     .logo2 {
-                        background-image: url("./skills/fblogo.png");
+                        background-image: url("./skills/redux.png");
+                    }
+                }
+
+                .askill {
+                    .logo3 {
+                        background-image: url("");
+                    }
+                }
+
+                .jskill {
+                    .logo4 {
+                        background-image: url("");
                     }
                 }
             }
@@ -703,7 +709,7 @@ nav {
     .project5 {
         .imgContainer {
             .p1Img {
-                background-image: url("./projectimages/omdb/omdb.png");
+                background-image: url("./projectimages/pokereact/pokereact.png");
             }
 
             .p1Skills {
@@ -725,7 +731,7 @@ nav {
     .project6 {
         .imgContainer {
             .p1Img {
-                background-image: url("./projectimages/munnyaire/munnaire.png");
+                background-image: url("./projectimages/omdb/omdb.png");
             }
 
             .p1Skills {
@@ -747,31 +753,19 @@ nav {
     .project7 {
         .imgContainer {
             .p1Img {
-                background-image: url("");
+                background-image: url("./projectimages/munnyaire/munnaire.png");
             }
 
             .p1Skills {
                 .reactskill {
                     .logo1 {
-                        background-image: url("");
+                        background-image: url("./skills/rlogo.png");
                     }
                 }
 
                 .fbskill {
                     .logo2 {
-                        background-image: url("");
-                    }
-                }
-
-                .askill {
-                    .logo3 {
-                        background-image: url("");
-                    }
-                }
-
-                .jskill {
-                    .logo4 {
-                        background-image: url("");
+                        background-image: url("./skills/fblogo.png");
                     }
                 }
             }
