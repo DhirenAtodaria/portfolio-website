@@ -44,44 +44,30 @@ html {
         .four {
             position: relative;
 
-            .vcontainer {
-                position: absolute;
-                max-height: 100%;
-                width: 100%;
-                // overflow: hidden;
-                // left: -100px !important;
-                // top: -250px !important;
-                opacity: 0.4;
+            .vcontainer1 {
+                position: absolute !important;
+                left: -5vw !important;
+                top: -5vh !important;
+                width: 110vw;
+                height: 110vh;
+                background-image: url("/backgroundsfolder/projects.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
                 z-index: -1;
-
-                @media screen and (min-width: 1920px) {
-                    display: none !important;
-                }
-
-                video {
-                    object-fit: fill;
-                    max-width: none;
-                }
             }
 
             .vcontainer2 {
-                position: absolute;
-                max-height: 100%;
-                width: 100%;
-                overflow: hidden;
-                left: -100px !important;
-                top: -250px !important;
-                opacity: 0.4;
+                position: absolute !important;
+                left: -5vw !important;
+                top: -5vh !important;
+                width: 110vw;
+                height: 110vh;
+                background-image: url("/backgroundsfolder/download.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
                 z-index: -1;
-
-                @media screen and (min-width: 1920px) {
-                    display: none !important;
-                }
-
-                video {
-                    object-fit: fill;
-                    max-width: none;
-                }
             }
         }
 
@@ -382,12 +368,6 @@ nav {
     -ms-perspective: 500px;
     perspective: 500px;
 
-    // h1 {
-    //     margin: 0;
-    //     font-size: 40px;
-    //     color: white;
-    // }
-
     #slideContainer {
         width: 800%;
         height: 100%;
@@ -633,7 +613,7 @@ nav {
 
                 .jskill {
                     .logo4 {
-                        background-image: url("./skills/sui.png");
+                        background-image: url("./skills/redux.png");
                     }
                 }
             }
@@ -677,7 +657,7 @@ nav {
     .project4 {
         .imgContainer {
             .p1Img {
-                background-image: url("./projectimages/pokereact/pokereact.png");
+                background-image: url("./projectimages/nasa/nrh.png");
             }
 
             .p1Skills {
@@ -689,7 +669,19 @@ nav {
 
                 .fbskill {
                     .logo2 {
-                        background-image: url("./skills/fblogo.png");
+                        background-image: url("./skills/redux.png");
+                    }
+                }
+
+                .askill {
+                    .logo3 {
+                        background-image: url("");
+                    }
+                }
+
+                .jskill {
+                    .logo4 {
+                        background-image: url("");
                     }
                 }
             }
@@ -699,7 +691,7 @@ nav {
     .project5 {
         .imgContainer {
             .p1Img {
-                background-image: url("./projectimages/omdb/omdb.png");
+                background-image: url("./projectimages/pokereact/pokereact.png");
             }
 
             .p1Skills {
@@ -721,7 +713,7 @@ nav {
     .project6 {
         .imgContainer {
             .p1Img {
-                background-image: url("./projectimages/munnyaire/munnaire.png");
+                background-image: url("./projectimages/omdb/omdb.png");
             }
 
             .p1Skills {
@@ -743,31 +735,19 @@ nav {
     .project7 {
         .imgContainer {
             .p1Img {
-                background-image: url("");
+                background-image: url("./projectimages/munnyaire/munnaire.png");
             }
 
             .p1Skills {
                 .reactskill {
                     .logo1 {
-                        background-image: url("");
+                        background-image: url("./skills/jslogo.png");
                     }
                 }
 
                 .fbskill {
                     .logo2 {
-                        background-image: url("");
-                    }
-                }
-
-                .askill {
-                    .logo3 {
-                        background-image: url("");
-                    }
-                }
-
-                .jskill {
-                    .logo4 {
-                        background-image: url("");
+                        background-image: url("./skills/sass.png");
                     }
                 }
             }

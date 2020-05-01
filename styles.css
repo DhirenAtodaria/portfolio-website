@@ -49,39 +49,22 @@ html .outer .four {
   position: relative;
 }
 
-body .outer .one .vcontainer,
-body .outer .two .vcontainer,
-body .outer .four .vcontainer,
-html .outer .one .vcontainer,
-html .outer .two .vcontainer,
-html .outer .four .vcontainer {
-  position: absolute;
-  max-height: 100%;
-  width: 100%;
-  opacity: 0.4;
+body .outer .one .vcontainer1,
+body .outer .two .vcontainer1,
+body .outer .four .vcontainer1,
+html .outer .one .vcontainer1,
+html .outer .two .vcontainer1,
+html .outer .four .vcontainer1 {
+  position: absolute !important;
+  left: -5vw !important;
+  top: -5vh !important;
+  width: 110vw;
+  height: 110vh;
+  background-image: url("/backgroundsfolder/projects.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: -1;
-}
-
-@media screen and (min-width: 1920px) {
-  body .outer .one .vcontainer,
-  body .outer .two .vcontainer,
-  body .outer .four .vcontainer,
-  html .outer .one .vcontainer,
-  html .outer .two .vcontainer,
-  html .outer .four .vcontainer {
-    display: none !important;
-  }
-}
-
-body .outer .one .vcontainer video,
-body .outer .two .vcontainer video,
-body .outer .four .vcontainer video,
-html .outer .one .vcontainer video,
-html .outer .two .vcontainer video,
-html .outer .four .vcontainer video {
-  -o-object-fit: fill;
-     object-fit: fill;
-  max-width: none;
 }
 
 body .outer .one .vcontainer2,
@@ -90,36 +73,16 @@ body .outer .four .vcontainer2,
 html .outer .one .vcontainer2,
 html .outer .two .vcontainer2,
 html .outer .four .vcontainer2 {
-  position: absolute;
-  max-height: 100%;
-  width: 100%;
-  overflow: hidden;
-  left: -100px !important;
-  top: -250px !important;
-  opacity: 0.4;
+  position: absolute !important;
+  left: -5vw !important;
+  top: -5vh !important;
+  width: 110vw;
+  height: 110vh;
+  background-image: url("/backgroundsfolder/download.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: -1;
-}
-
-@media screen and (min-width: 1920px) {
-  body .outer .one .vcontainer2,
-  body .outer .two .vcontainer2,
-  body .outer .four .vcontainer2,
-  html .outer .one .vcontainer2,
-  html .outer .two .vcontainer2,
-  html .outer .four .vcontainer2 {
-    display: none !important;
-  }
-}
-
-body .outer .one .vcontainer2 video,
-body .outer .two .vcontainer2 video,
-body .outer .four .vcontainer2 video,
-html .outer .one .vcontainer2 video,
-html .outer .two .vcontainer2 video,
-html .outer .four .vcontainer2 video {
-  -o-object-fit: fill;
-     object-fit: fill;
-  max-width: none;
 }
 
 body .outer .three,
@@ -769,7 +732,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project2 .imgContainer .p1Skills .jskill .logo4 {
-  background-image: url("./skills/sui.png");
+  background-image: url("./skills/redux.png");
 }
 
 .three .project3 .imgContainer .p1Img {
@@ -793,7 +756,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project4 .imgContainer .p1Img {
-  background-image: url("./projectimages/pokereact/pokereact.png");
+  background-image: url("./projectimages/nasa/nrh.png");
 }
 
 .three .project4 .imgContainer .p1Skills .reactskill .logo1 {
@@ -801,11 +764,19 @@ nav .progress-container .progress-bar {
 }
 
 .three .project4 .imgContainer .p1Skills .fbskill .logo2 {
-  background-image: url("./skills/fblogo.png");
+  background-image: url("./skills/redux.png");
+}
+
+.three .project4 .imgContainer .p1Skills .askill .logo3 {
+  background-image: url("");
+}
+
+.three .project4 .imgContainer .p1Skills .jskill .logo4 {
+  background-image: url("");
 }
 
 .three .project5 .imgContainer .p1Img {
-  background-image: url("./projectimages/omdb/omdb.png");
+  background-image: url("./projectimages/pokereact/pokereact.png");
 }
 
 .three .project5 .imgContainer .p1Skills .reactskill .logo1 {
@@ -817,7 +788,7 @@ nav .progress-container .progress-bar {
 }
 
 .three .project6 .imgContainer .p1Img {
-  background-image: url("./projectimages/munnyaire/munnaire.png");
+  background-image: url("./projectimages/omdb/omdb.png");
 }
 
 .three .project6 .imgContainer .p1Skills .reactskill .logo1 {
@@ -829,23 +800,15 @@ nav .progress-container .progress-bar {
 }
 
 .three .project7 .imgContainer .p1Img {
-  background-image: url("");
+  background-image: url("./projectimages/munnyaire/munnaire.png");
 }
 
 .three .project7 .imgContainer .p1Skills .reactskill .logo1 {
-  background-image: url("");
+  background-image: url("./skills/jslogo.png");
 }
 
 .three .project7 .imgContainer .p1Skills .fbskill .logo2 {
-  background-image: url("");
-}
-
-.three .project7 .imgContainer .p1Skills .askill .logo3 {
-  background-image: url("");
-}
-
-.three .project7 .imgContainer .p1Skills .jskill .logo4 {
-  background-image: url("");
+  background-image: url("./skills/sass.png");
 }
 
 .four {
