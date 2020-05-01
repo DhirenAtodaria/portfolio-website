@@ -13,7 +13,6 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -79,6 +78,24 @@ html .outer .four .vcontainer2 {
   width: 110vw;
   height: 110vh;
   background-image: url("/backgroundsfolder/download.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+body .outer .one .vcontainer3,
+body .outer .two .vcontainer3,
+body .outer .four .vcontainer3,
+html .outer .one .vcontainer3,
+html .outer .two .vcontainer3,
+html .outer .four .vcontainer3 {
+  position: absolute !important;
+  left: -5vw !important;
+  top: -5vh !important;
+  width: 110vw;
+  height: 110vh;
+  background-image: url("/backgroundsfolder/bg3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -408,9 +425,9 @@ nav .progress-container .progress-bar {
 .two #bg {
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -423,6 +440,7 @@ nav .progress-container .progress-bar {
 }
 
 .two #bg #reveal1 {
+  width: 110vw;
   opacity: 0;
 }
 
@@ -437,6 +455,7 @@ nav .progress-container .progress-bar {
   width: 800%;
   height: 100%;
   opacity: 0;
+  will-change: transform;
 }
 
 .three #slideContainer .panel {
@@ -818,9 +837,9 @@ nav .progress-container .progress-bar {
 .four #bg2 {
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -833,11 +852,13 @@ nav .progress-container .progress-bar {
 }
 
 .four #bg2 #reveal3 {
+  width: 110vw;
   opacity: 0;
 }
 
 .projects {
-  width: 100%;
+  width: 110%;
+  position: unset !important;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
 }
