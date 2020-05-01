@@ -12,11 +12,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // max-width: 100%;
-    // scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
-
-
 
 ::-webkit-scrollbar {
     display: none;
@@ -25,7 +22,6 @@
 body,
 html {
     font-family: "Roboto Condensed", sans-serif;
-    // font-family: 'Chivo', sans-serif;
     overflow-x: hidden;
     background-color: black;
     width: 100%;
@@ -46,48 +42,43 @@ html {
         .four {
             position: relative;
 
-            .vcontainer {
-                position: absolute;
-                max-height: 100%;
-                width: 100%;
-                // overflow: hidden;
-                // left: -100px !important;
-                // top: -250px !important;
-                opacity: 0.4;
+            .vcontainer1 {
+                position: absolute !important;
+                left: -5vw !important;
+                top: -5vh !important;
+                width: 110vw;
+                height: 110vh;
+                background-image: url("/backgroundsfolder/projects.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
                 z-index: -1;
-
-                @media screen and (min-width: 1920px) {
-                    display: none !important;
-                }
-
-                video {
-                    object-fit: fill;
-                    max-width: none;
-                }
             }
 
             .vcontainer2 {
-                position: absolute;
-                max-height: 100%;
-                width: 100%;
-                // overflow: hidden;
-                // left: -100px !important;
-                // top: -250px !important;
-                // opacity: 0.4;
+                position: absolute !important;
+                left: -5vw !important;
+                top: -5vh !important;
+                width: 110vw;
+                height: 110vh;
+                background-image: url("/backgroundsfolder/download.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
                 z-index: -1;
+            }
 
-                canvas {
-                    transform: translate(-5%, -5%);
-                }
-
-                @media screen and (min-width: 1920px) {
-                    display: none !important;
-                }
-
-                video {
-                    object-fit: fill;
-                    max-width: none;
-                }
+            .vcontainer3 {
+                position: absolute !important;
+                left: -5vw !important;
+                top: -5vh !important;
+                width: 110vw;
+                height: 110vh;
+                background-image: url("/backgroundsfolder/bg3.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                z-index: -1;
             }
         }
 
@@ -366,10 +357,7 @@ nav {
     #bg {
         height: 100%;
         width: 100%;
-        // background-image: url(./trails.jpg);
-        // background-size: cover;
-        // background-repeat: no-repeat;
-        display: flex;
+        display: flex !important;
         justify-content: center;
         align-items: center;
         color: white;
@@ -377,6 +365,7 @@ nav {
         opacity: 0;
 
         #reveal1 {
+            width: 110vw;
             opacity: 0;
         }
     }
@@ -392,7 +381,7 @@ nav {
         width: 800%;
         height: 100%;
         opacity: 0;
-            will-change: transform;
+        will-change: transform;
 
         .panel {
             height: 100%;
@@ -774,145 +763,6 @@ nav {
             }
         }
     }
-
-    // .project2 {
-    // background-color: green;
-    // height: 100%;
-    // width: 100%;
-    // position: absolute;
-    // }
-
-    // .project3 {
-    // background-color: orange;
-    // height: 100%;
-    // width: 100%;
-    // position: absolute;
-    // }
-    // #reveal2 {
-    //     opacity: 0;
-    // }
-
-    // .cardcontainer {
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: space-around;
-    //     align-items: center;
-    //     flex-wrap: wrap;
-    //     height: 90%;
-    //     width: 100%;
-    //     opacity: 0.8;
-
-    //     #card1 {
-    //         .smallcard {
-    //             background-image: url("./images/dropproject.png");
-    //             background-size: cover;
-    //             background-repeat: no-repeat;
-    //             background-position: center;
-    //             filter: grayscale(100%);
-    //         }
-    //     }
-
-    //     #card2 {
-    //         .smallcard {
-    //             background-image: url("./images/oznom.png");
-    //             background-size: cover;
-    //             background-repeat: no-repeat;
-    //             background-position: center;
-    //             filter: grayscale(100%);
-    //         }
-    //     }
-
-    //     #card3 {
-    //         .smallcard {
-    //             background-image: url("./images/projectimg2.png");
-    //             background-size: cover;
-    //             background-repeat: no-repeat;
-    //             background-position: center;
-    //             filter: grayscale(100%);
-    //         }
-    //     }
-
-    //     #card4 {
-    //         .smallcard {
-    //             background-image: url("./images/pokeproject.png");
-    //             background-size: cover;
-    //             background-repeat: no-repeat;
-    //             background-position: center;
-    //             filter: grayscale(100%);
-    //         }
-    //     }
-
-    //     #card5 {
-    //         .smallcard {
-    //             background-image: url("./images/omdbproject.png");
-    //             background-size: cover;
-    //             background-repeat: no-repeat;
-    //             background-position: center;
-    //             filter: grayscale(100%);
-    //         }
-    //     }
-
-    //     #card6 {
-    //         .smallcard {
-    //             background-image: url("./images/game-project-image.PNG");
-    //             background-size: cover;
-    //             background-repeat: no-repeat;
-    //             background-position: center;
-    //             filter: grayscale(100%);
-    //         }
-    //     }
-
-    //     .bigcard {
-    //         height: 400px;
-    //         width: 500px;
-    //         display: flex;
-    //         flex-direction: column;
-    //         justify-content: center;
-    //         align-items: center;
-
-    //         .smallcard {
-    //             height: 80%;
-    //             width: 80%;
-    //             border: 1px solid white;
-    //             background-color: black;
-    //             border-radius: 3px 3px 0 0;
-    //         }
-
-    //         .smallercard {
-    //             display: flex;
-    //             justify-content: space-evenly;
-    //             align-items: center;
-    //             height: 15%;
-    //             width: 80%;
-    //             background-color: black;
-    //             color: white;
-    //             border: 1px solid white;
-    //             border-radius: 0px 0px 3px 3px;
-
-    //         .picons {
-    //             width: 25%;
-    //             display: flex;
-    //             justify-content: space-between;
-    //             align-items: center;
-    //             font-size: 28px;
-
-    //             a {
-    //                 color: rgb(202, 116, 202);
-    //                 transition: 0.5s;
-
-    //                 &:hover {
-    //                     color: white;
-    //                     transition: 0.5s;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
-    //     .point {
-    //         opacity: 0;
-    //     }
-    // }
 }
 
 .four {
@@ -921,10 +771,7 @@ nav {
     #bg2 {
         height: 100%;
         width: 100%;
-        // background-image: url(./trails2.jpg);
-        // background-size: cover;
-        // background-repeat: no-repeat;
-        display: flex;
+        display: flex !important;
         justify-content: center;
         align-items: center;
         color: white;
@@ -932,13 +779,15 @@ nav {
         opacity: 0;
 
         #reveal3 {
+            width: 110vw;
             opacity: 0;
         }
     }
 }
 
 .projects {
-    width: 100%;
+    width: 110%;
+    position: unset !important;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
 }
@@ -1067,18 +916,6 @@ nav {
 }
 
 @media screen and (min-width: 670px) {
-    // body {
-    //     .outer {
-    //         .three {
-    //             height: 100vh;
-    //         }
-    //     }
-    // }
-
-    // .three .cardcontainer {
-    //     flex-direction: row;
-    // }
-
     .one {
         .typeitbox {
             .firsttexts {
@@ -1103,19 +940,6 @@ nav {
 }
 
 @media screen and (min-width: 1220px) {
-    // body {
-    //     .outer {
-
-    //         .three {
-    //             height: 100vh;
-    //         }
-    //     }
-    // }
-
-    // .three .cardcontainer {
-    //     flex-direction: row;
-    // }
-
     .five {
         article {
             font-size: 20px;

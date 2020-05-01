@@ -13,6 +13,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -48,39 +49,22 @@ html .outer .four {
   position: relative;
 }
 
-body .outer .one .vcontainer,
-body .outer .two .vcontainer,
-body .outer .four .vcontainer,
-html .outer .one .vcontainer,
-html .outer .two .vcontainer,
-html .outer .four .vcontainer {
-  position: absolute;
-  max-height: 100%;
-  width: 100%;
-  opacity: 0.4;
+body .outer .one .vcontainer1,
+body .outer .two .vcontainer1,
+body .outer .four .vcontainer1,
+html .outer .one .vcontainer1,
+html .outer .two .vcontainer1,
+html .outer .four .vcontainer1 {
+  position: absolute !important;
+  left: -5vw !important;
+  top: -5vh !important;
+  width: 110vw;
+  height: 110vh;
+  background-image: url("/backgroundsfolder/projects.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: -1;
-}
-
-@media screen and (min-width: 1920px) {
-  body .outer .one .vcontainer,
-  body .outer .two .vcontainer,
-  body .outer .four .vcontainer,
-  html .outer .one .vcontainer,
-  html .outer .two .vcontainer,
-  html .outer .four .vcontainer {
-    display: none !important;
-  }
-}
-
-body .outer .one .vcontainer video,
-body .outer .two .vcontainer video,
-body .outer .four .vcontainer video,
-html .outer .one .vcontainer video,
-html .outer .two .vcontainer video,
-html .outer .four .vcontainer video {
-  -o-object-fit: fill;
-     object-fit: fill;
-  max-width: none;
 }
 
 body .outer .one .vcontainer2,
@@ -89,42 +73,34 @@ body .outer .four .vcontainer2,
 html .outer .one .vcontainer2,
 html .outer .two .vcontainer2,
 html .outer .four .vcontainer2 {
-  position: absolute;
-  max-height: 100%;
-  width: 100%;
+  position: absolute !important;
+  left: -5vw !important;
+  top: -5vh !important;
+  width: 110vw;
+  height: 110vh;
+  background-image: url("/backgroundsfolder/download.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: -1;
 }
 
-body .outer .one .vcontainer2 canvas,
-body .outer .two .vcontainer2 canvas,
-body .outer .four .vcontainer2 canvas,
-html .outer .one .vcontainer2 canvas,
-html .outer .two .vcontainer2 canvas,
-html .outer .four .vcontainer2 canvas {
-  -webkit-transform: translate(-5%, -5%);
-          transform: translate(-5%, -5%);
-}
-
-@media screen and (min-width: 1920px) {
-  body .outer .one .vcontainer2,
-  body .outer .two .vcontainer2,
-  body .outer .four .vcontainer2,
-  html .outer .one .vcontainer2,
-  html .outer .two .vcontainer2,
-  html .outer .four .vcontainer2 {
-    display: none !important;
-  }
-}
-
-body .outer .one .vcontainer2 video,
-body .outer .two .vcontainer2 video,
-body .outer .four .vcontainer2 video,
-html .outer .one .vcontainer2 video,
-html .outer .two .vcontainer2 video,
-html .outer .four .vcontainer2 video {
-  -o-object-fit: fill;
-     object-fit: fill;
-  max-width: none;
+body .outer .one .vcontainer3,
+body .outer .two .vcontainer3,
+body .outer .four .vcontainer3,
+html .outer .one .vcontainer3,
+html .outer .two .vcontainer3,
+html .outer .four .vcontainer3 {
+  position: absolute !important;
+  left: -5vw !important;
+  top: -5vh !important;
+  width: 110vw;
+  height: 110vh;
+  background-image: url("/backgroundsfolder/bg3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 }
 
 body .outer .three,
@@ -450,9 +426,9 @@ nav .progress-container .progress-bar {
 .two #bg {
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -465,6 +441,7 @@ nav .progress-container .progress-bar {
 }
 
 .two #bg #reveal1 {
+  width: 110vw;
   opacity: 0;
 }
 
@@ -861,9 +838,9 @@ nav .progress-container .progress-bar {
 .four #bg2 {
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -876,11 +853,13 @@ nav .progress-container .progress-bar {
 }
 
 .four #bg2 #reveal3 {
+  width: 110vw;
   opacity: 0;
 }
 
 .projects {
-  width: 100%;
+  width: 110%;
+  position: unset !important;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
 }
