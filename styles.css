@@ -78,7 +78,8 @@ html .outer .four .vcontainer2 {
   top: -5vh !important;
   width: 110vw;
   height: 110vh;
-  background-image: url("./backgroundsfolder/mainCompressed.jpg");
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(10, 10, 10, 0.55)), to(rgba(10, 10, 10, 0.55))), url("./backgroundsfolder/gla2.jpg");
+  background: linear-gradient(0deg, rgba(10, 10, 10, 0.55), rgba(10, 10, 10, 0.55)), url("./backgroundsfolder/gla2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
