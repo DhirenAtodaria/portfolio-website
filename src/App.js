@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Background from "./background";
+import { css } from "@emotion/css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    return (
+        <div
+            className={css`
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                position: relative;
+            `}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+            <nav
+                className={css`
+                    width: 90%;
+                    height: 7.5%;
+                `}
+            >
+                This be nav
+            </nav>
+            <div
+                className={css`
+                    height: 85%;
+                    width: 90%;
+                `}
+            >
+                <Background />
+            </div>
+        </div>
+    );
 }
 
 export default App;
