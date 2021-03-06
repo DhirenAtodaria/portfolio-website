@@ -1,24 +1,21 @@
-import React, { useRef } from "react";
-import { Canvas, useFrame, useResource, useThree } from "react-three-fiber";
+import React, { useRef, useEffect } from "react";
+import { Canvas, useFrame, useResource } from "react-three-fiber";
 import {
     useGLTF,
-    OrbitControls,
-    MeshDistortMaterial,
-    MeshWobbleMaterial,
-    useHelper,
     CameraShake,
+    Reflector,
+    OrbitControls,
 } from "@react-three/drei";
 import deer from "./deer.glb";
 import * as THREE from "three";
-import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib";
 import {
-    DirectionalLightHelper,
-    MeshPhongMaterial,
-    PointLightHelper,
-    SpotLightHelper,
-} from "three";
+    EffectComposer,
+    Bloom,
+    Vignette,
+    ChromaticAberration,
+} from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
 import * as Images from "./cube";
-import { SimplexNoise } from "three/examples/jsm/math/SimplexNoise";
 
 const urls = [Images.px, Images.nx, Images.py, Images.ny, Images.pz, Images.nz];
 
@@ -39,15 +36,41 @@ const Deer = () => {
         >
             <meshStandardMaterial
                 envMap={reflection}
-                // bumpMap={bumpMap}
-                // color={"#53687E"}
-                roughness={0.05}
+                roughness={0.025}
                 metalness={1}
-                clearcoat={1}
-                clearcoatRoughness={1}
-                // wireframe
+                emissive={0x000000}
             />
         </mesh>
+    );
+};
+
+const ReflectorScene = ({ blur, depthScale, distortion, normalScale }) => {
+    return (
+        <Reflector
+            resolution={1024}
+            args={[1000, 1000]}
+            position={[0, -60, 0]}
+            mirror={0.51}
+            mixBlur={10}
+            mixStrength={2}
+            rotation={[-Math.PI / 2, 0, Math.PI / 2]}
+            blur={blur || [0, 0]}
+            minDepthThreshold={0.8}
+            maxDepthThreshold={1.2}
+            depthScale={depthScale || 0}
+            depthToBlurRatioBias={0.2}
+            debug={0}
+            distortion={0}
+        >
+            {(Material, props) => (
+                <Material
+                    color="#a0a0a0"
+                    metalness={0.99}
+                    roughness={0}
+                    {...props}
+                />
+            )}
+        </Reflector>
     );
 };
 
@@ -56,84 +79,99 @@ const Light = () => {
     const pointLightRef2 = useResource();
     const pointLightRef3 = useResource();
 
-    useHelper(pointLightRef, PointLightHelper, 5.5, "white");
+    let t = 0;
 
-    useFrame((state, delta) => {
-        // pointLightRef.current.position.x += Math.sin(
-        //     state.clock.getElapsedTime()
-        // );
-        // pointLightRef2.current.position.x += Math.cos(
-        //     state.clock.getElapsedTime()
-        // );
-        // pointLightRef3.current.position.z += Math.sin(
-        //     state.clock.getElapsedTime()
-        // );
-        // state.camera.lookAt(20, 20, 0);
+    useFrame(() => {
+        t += 0.0065;
+
+        pointLightRef.current.position.y = 60 * Math.sin(t);
+        pointLightRef.current.position.z = 60 * Math.cos(t);
+        pointLightRef3.current.position.y = -60 * Math.sin(t);
+        pointLightRef3.current.position.z = -60 * Math.cos(t);
     });
 
     return (
         <>
             <pointLight
                 ref={pointLightRef}
-                color={"hotpink"}
+                color={0x3402ff}
                 intensity={100}
-                position={[0, 50, 0]}
+                position={[0, 0, 0]}
             />
-            {/* <pointLight
+            <pointLight
                 ref={pointLightRef2}
-                color={"white"}
+                color={0xbfd7ea}
                 intensity={100}
                 position={[0, 50, 0]}
             />
             <pointLight
                 ref={pointLightRef3}
-                color={"blue"}
-                intensity={1000}
+                color={0xf72585}
+                intensity={100}
                 position={[0, 50, 0]}
             />
-            <pointLight color={"orange"} intensity={1} position={[0, -50, 0]} /> */}
-            {/* <spotLight
-                ref={lightRef}
-                intensity={0.5}
-                angle={0.3}
-                penumbra={1}
-            /> */}
         </>
     );
 };
 
 const config = {
-    maxYaw: 100.1,
-    maxPitch: 100.1,
-    maxRoll: 100.1,
-    yawFrequency: 100,
-    pitchFrequency: 100,
-    rollFrequency: 100,
-    intensity: 100,
-    decay: false,
+    maxYaw: 0.01,
+    maxPitch: 0.01,
+    maxRoll: 0,
+    yawFrequency: 0.1,
+    pitchFrequency: 0.1,
+    rollFrequency: 0,
 };
 
-function Background() {
-    const cameraRig = useRef();
+function CameraShakeWithOrbitScene({ cfg }) {
+    const controls = useResource();
 
+    useEffect(() => {
+        controls.current.target = new THREE.Vector3(20, 20, 0);
+    }, [controls]);
+
+    return (
+        <>
+            <React.Suspense fallback={null}>
+                <OrbitControls ref={controls} enabled={false} />
+                <CameraShake {...cfg} additive />
+            </React.Suspense>
+        </>
+    );
+}
+
+function Background() {
     return (
         <Canvas
             camera={{
                 near: 1,
                 far: 10000,
-                position: [102, 10, 70],
+                position: [90, 0, 81],
                 fov: 25,
             }}
         >
-            <CameraShake {...config} ref={cameraRig} />
+            <CameraShakeWithOrbitScene cfg={{ ...config }} />
             <color attach="background" args={["#000000"]} />
-            {/* <fog color="#161616" attach="fog" near={8} far={100} /> */}
+            <fog color="#161616" attach="fog" near={8} far={200} />
             <Light />
-            <OrbitControls />
+            <ReflectorScene />
+
             <ambientLight intensity={0.1} />
             <React.Suspense fallback={null}>
                 <Deer />
             </React.Suspense>
+            <EffectComposer>
+                <Bloom
+                    luminanceThreshold={1}
+                    luminanceSmoothing={0.9}
+                    intensity={200}
+                    blendFunction={BlendFunction.AdditiveBlending}
+                    height={1000}
+                />
+
+                <ChromaticAberration offset={[0.0005, 0.001]} />
+                <Vignette eskil={false} offset={0.1} darkness={0.5} />
+            </EffectComposer>
         </Canvas>
     );
 }
