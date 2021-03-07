@@ -7,7 +7,7 @@ import {
     OrbitControls,
 } from "@react-three/drei";
 import { gsap, Power1 } from "gsap";
-import deer from "./deer.glb";
+import deer from "./deerRotated.glb";
 import * as THREE from "three";
 import {
     EffectComposer,
@@ -31,12 +31,7 @@ const Deer = () => {
     } = useGLTF(deer, true);
 
     return (
-        <mesh
-            ref={mesh}
-            name={"deer"}
-            geometry={deerGeo.geometry}
-            rotation={[0, 0, 0]}
-        >
+        <mesh ref={mesh} name={"deer"} geometry={deerGeo.geometry}>
             <meshStandardMaterial
                 envMap={reflection}
                 roughness={0.025}
@@ -134,7 +129,7 @@ function CameraShakeWithOrbitScene({ cfg, controls }) {
     return (
         <>
             <React.Suspense fallback={null}>
-                <OrbitControls ref={controls} enabled={false} />
+                <OrbitControls ref={controls} enabled={true} />
                 <CameraShake {...cfg} additive />
             </React.Suspense>
         </>
@@ -144,9 +139,9 @@ function CameraShakeWithOrbitScene({ cfg, controls }) {
 const AnimationHandler = ({ section, listener, controls }) => {
     const { camera, scene } = useThree();
 
-    // useFrame(() => {
-    //     camera.position.x += 0.05;
-    // });
+    useFrame(() => {
+        console.log(camera.position);
+    });
 
     useEffect(() => {
         console.log(section);
@@ -207,8 +202,8 @@ function Background() {
                 camera={{
                     near: 1,
                     far: 10000,
-                    position: [90, 0, 81],
-                    fov: 25,
+                    position: [-32, 7, 62],
+                    fov: 50,
                 }}
             >
                 <CameraShakeWithOrbitScene
@@ -216,9 +211,9 @@ function Background() {
                     controls={controls}
                 />
                 <color attach="background" args={["#000000"]} />
-                <fog color="#161616" attach="fog" near={8} far={200} />
+                {/* <fog color="#161616" attach="fog" near={8} far={200} /> */}
                 <Light />
-                <ReflectorScene />
+                {/* <ReflectorScene /> */}
 
                 <ambientLight intensity={0.1} />
                 <React.Suspense fallback={null}>
@@ -237,6 +232,7 @@ function Background() {
                     <Vignette eskil={false} offset={0.1} darkness={0.5} />
                 </EffectComposer>
                 <AnimationHandler section={section} />
+                <axesHelper args={[500]} />
             </Canvas>
         </ReactScrollWheelHandler>
     );
