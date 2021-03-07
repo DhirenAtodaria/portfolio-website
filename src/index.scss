@@ -1,3 +1,28 @@
+@font-face {
+    font-family: "Haas";
+    src: url("./fonts/Haas.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Butler";
+    src: url("./fonts/Bt.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Vogue";
+    src: url("./fonts/Vogue.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Bon";
+    src: url("./fonts/Bon.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "BonRegular";
+    src: url("./fonts/BonRegular.otf") format("opentype");
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
