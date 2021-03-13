@@ -1,12 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Canvas, useFrame, useResource, useThree } from "react-three-fiber";
-import {
-    useGLTF,
-    CameraShake,
-    Reflector,
-    OrbitControls,
-} from "@react-three/drei";
-import { gsap, Power1 } from "gsap";
+import { Canvas, useFrame, useResource } from "react-three-fiber";
+import { useGLTF, CameraShake, OrbitControls } from "@react-three/drei";
 import deer from "./deerRotated.glb";
 import * as THREE from "three";
 import {
@@ -19,12 +13,13 @@ import { BlendFunction } from "postprocessing";
 import * as Images from "./cube";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import { css } from "@emotion/css";
+import AnimationHandler from "./AnimationHandler";
 
 const urls = [Images.px, Images.nx, Images.py, Images.ny, Images.pz, Images.nz];
 
 const reflection = new THREE.CubeTextureLoader().load(urls);
 
-const Deer = () => {
+const Deer = React.memo(() => {
     const mesh = useRef();
     const {
         nodes: { Deer: deerGeo },
@@ -40,39 +35,9 @@ const Deer = () => {
             />
         </mesh>
     );
-};
+});
 
-const ReflectorScene = ({ blur, depthScale, distortion, normalScale }) => {
-    return (
-        <Reflector
-            resolution={1024}
-            args={[1000, 1000]}
-            position={[0, -60, 0]}
-            mirror={0.51}
-            mixBlur={10}
-            mixStrength={2}
-            rotation={[-Math.PI / 2, 0, Math.PI / 2]}
-            blur={blur || [0, 0]}
-            minDepthThreshold={0.8}
-            maxDepthThreshold={1.2}
-            depthScale={depthScale || 0}
-            depthToBlurRatioBias={0.2}
-            debug={0}
-            distortion={0}
-        >
-            {(Material, props) => (
-                <Material
-                    color="#a0a0a0"
-                    metalness={0.99}
-                    roughness={0}
-                    {...props}
-                />
-            )}
-        </Reflector>
-    );
-};
-
-const Light = () => {
+const Light = React.memo(() => {
     const pointLightRef = useResource();
     const pointLightRef2 = useResource();
     const pointLightRef3 = useResource();
@@ -82,10 +47,10 @@ const Light = () => {
     useFrame(() => {
         t += 0.0065;
 
-        pointLightRef.current.position.y = 60 * Math.sin(t);
-        pointLightRef.current.position.z = 60 * Math.cos(t);
-        pointLightRef3.current.position.y = -60 * Math.sin(t);
-        pointLightRef3.current.position.z = -60 * Math.cos(t);
+        pointLightRef.current.position.y = 120 * Math.sin(t);
+        pointLightRef.current.position.z = 120 * Math.cos(t);
+        pointLightRef3.current.position.y = -120 * Math.sin(t);
+        pointLightRef3.current.position.z = -120 * Math.cos(t);
     });
 
     return (
@@ -110,18 +75,18 @@ const Light = () => {
             />
         </>
     );
-};
+});
 
 const config = {
-    maxYaw: 0.01,
-    maxPitch: 0.01,
+    maxYaw: 0.0125,
+    maxPitch: 0.0125,
     maxRoll: 0,
     yawFrequency: 0.1,
     pitchFrequency: 0.1,
     rollFrequency: 0,
 };
 
-function CameraShakeWithOrbitScene({ cfg, controls }) {
+const CameraShakeWithOrbitScene = React.memo(({ cfg, controls }) => {
     useEffect(() => {
         controls.current.target = new THREE.Vector3(20, 20, 0);
     }, [controls]);
@@ -129,68 +94,42 @@ function CameraShakeWithOrbitScene({ cfg, controls }) {
     return (
         <>
             <React.Suspense fallback={null}>
-                <OrbitControls ref={controls} enabled={true} />
+                <OrbitControls ref={controls} enabled={false} />
                 <CameraShake {...cfg} additive />
             </React.Suspense>
         </>
     );
-}
+});
 
-const AnimationHandler = ({ section, listener, controls }) => {
-    const { camera, scene } = useThree();
-
-    useFrame(() => {
-        console.log(camera.position);
-    });
-
-    useEffect(() => {
-        console.log(section);
-        console.log(camera);
-        if (section === 1) {
-            const deerAni = gsap.timeline();
-            deerAni.addLabel("bodyMove");
-            deerAni.to(camera, {
-                zoom: 0.9,
-                duration: 0.5,
-                ease: Power1.easeOut,
-                onUpdate: function () {
-                    camera.updateProjectionMatrix();
-                },
-            });
-            deerAni.to(camera.position, {
-                x: 138,
-                // y: 13.7,
-                // z: -113.5,
-                duration: 4,
-                ease: Power1.easeOut,
-                onUpdate: function () {},
-            });
-            // meshAni.to(mesh.current.scale, {
-            //     x: 4,
-            //     y: 4,
-            //     z: 4,
-            //     duration: 2,
-            //     ease: Power1.easeOut,
-            // });
-        }
-    }, [section, camera]);
-
-    return null;
-};
-
-function Background() {
+function Background({ titleRef, descRef }) {
     const controls = useResource();
     const [listener, setListen] = useState(false);
-    const [section, setSection] = useState(0);
+    const [section, setSection] = useState({
+        currentPage: 0,
+        previousPage: null,
+    });
 
     return (
         <ReactScrollWheelHandler
             upHandler={(e) => {
                 console.log("scroll up");
+                if (section.currentPage > 0) {
+                    setSection({
+                        currentPage: section.currentPage - 1,
+                        previousPage: section.currentPage,
+                    });
+                    setListen(true);
+                }
             }}
             downHandler={(e) => {
                 console.log("scroll down");
-                section < 1 && setSection(section + 1);
+                if (section.currentPage < 1) {
+                    setSection({
+                        currentPage: section.currentPage + 1,
+                        previousPage: section.currentPage,
+                    });
+                    setListen(true);
+                }
             }}
             className={css`
                 width: 100%;
@@ -202,8 +141,8 @@ function Background() {
                 camera={{
                     near: 1,
                     far: 10000,
-                    position: [-32, 7, 62],
-                    fov: 50,
+                    position: [-70, -4, 114],
+                    fov: 25,
                 }}
             >
                 <CameraShakeWithOrbitScene
@@ -211,10 +150,8 @@ function Background() {
                     controls={controls}
                 />
                 <color attach="background" args={["#000000"]} />
-                {/* <fog color="#161616" attach="fog" near={8} far={200} /> */}
+                <fog color="#161616" attach="fog" near={110} far={400} />
                 <Light />
-                {/* <ReflectorScene /> */}
-
                 <ambientLight intensity={0.1} />
                 <React.Suspense fallback={null}>
                     <Deer />
@@ -227,12 +164,16 @@ function Background() {
                         blendFunction={BlendFunction.AdditiveBlending}
                         height={1000}
                     />
-
-                    <ChromaticAberration offset={[0.0005, 0.001]} />
+                    {/* <ChromaticAberration offset={[0.0005, 0.001]} /> */}
                     <Vignette eskil={false} offset={0.1} darkness={0.5} />
                 </EffectComposer>
-                <AnimationHandler section={section} />
-                <axesHelper args={[500]} />
+                <AnimationHandler
+                    section={section}
+                    listener={listener}
+                    titleRef={titleRef}
+                    descRef={descRef}
+                    setListen={setListen}
+                />
             </Canvas>
         </ReactScrollWheelHandler>
     );
