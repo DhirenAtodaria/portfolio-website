@@ -1,14 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Canvas, useFrame, useResource } from "react-three-fiber";
+import React, { useRef, useEffect, useState, useCallback } from "react";
+import { Canvas, useFrame, useResource, useThree } from "react-three-fiber";
 import { useGLTF, CameraShake, OrbitControls } from "@react-three/drei";
 import deer from "./deerRotated.glb";
 import * as THREE from "three";
-import {
-    EffectComposer,
-    Bloom,
-    Vignette,
-    ChromaticAberration,
-} from "@react-three/postprocessing";
+import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import * as Images from "./cube";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
@@ -37,15 +32,19 @@ const Deer = React.memo(() => {
     );
 });
 
-const Light = React.memo(() => {
+const Light = React.memo(({ spinFactor, zoomFactor }) => {
     const pointLightRef = useResource();
     const pointLightRef2 = useResource();
     const pointLightRef3 = useResource();
+    const { camera } = useThree();
 
     let t = 0;
 
     useFrame(() => {
-        t += 0.0065;
+        t += spinFactor.current;
+
+        camera.zoom = zoomFactor.current;
+        camera.updateProjectionMatrix();
 
         pointLightRef.current.position.y = 120 * Math.sin(t);
         pointLightRef.current.position.z = 120 * Math.cos(t);
@@ -101,34 +100,67 @@ const CameraShakeWithOrbitScene = React.memo(({ cfg, controls }) => {
     );
 });
 
-function Background({ titleRef, descRef }) {
+function Background({ titleRef, aboutRef, section, setSection }) {
     const controls = useResource();
     const [listener, setListen] = useState(false);
-    const [section, setSection] = useState({
-        currentPage: 0,
-        previousPage: null,
-    });
+
+    const [animating, setAnimating] = useState(false);
+    const spinFactor = useRef(0.0065);
+    const zoomFactor = useRef(1.0);
+    const timer = useRef(null);
+
+    const downClickHandler = useCallback(() => {
+        if (!animating) {
+            spinFactor.current = THREE.MathUtils.lerp(
+                spinFactor.current,
+                0.25,
+                0.01
+            );
+
+            zoomFactor.current = THREE.MathUtils.lerp(
+                zoomFactor.current,
+                1.1,
+                0.005
+            );
+        }
+    }, [animating]);
+
+    const upClickHandler = useCallback(() => {
+        if (!animating) {
+            spinFactor.current = THREE.MathUtils.lerp(
+                spinFactor.current,
+                0.0065,
+                0.01
+            );
+
+            zoomFactor.current = THREE.MathUtils.lerp(
+                zoomFactor.current,
+                1.0,
+                0.005
+            );
+        }
+    }, [animating]);
 
     return (
         <ReactScrollWheelHandler
             upHandler={(e) => {
-                console.log("scroll up");
                 if (section.currentPage > 0) {
                     setSection({
                         currentPage: section.currentPage - 1,
                         previousPage: section.currentPage,
                     });
                     setListen(true);
+                    setAnimating(true);
                 }
             }}
             downHandler={(e) => {
-                console.log("scroll down");
-                if (section.currentPage < 1) {
+                if (section.currentPage < 2) {
                     setSection({
                         currentPage: section.currentPage + 1,
                         previousPage: section.currentPage,
                     });
                     setListen(true);
+                    setAnimating(true);
                 }
             }}
             className={css`
@@ -144,6 +176,16 @@ function Background({ titleRef, descRef }) {
                     position: [-70, -4, 114],
                     fov: 25,
                 }}
+                onPointerDown={(e) => {
+                    setListen(true);
+                    clearInterval(timer.current);
+                    timer.current = setInterval(downClickHandler, 16.6);
+                }}
+                onPointerUp={(e) => {
+                    setListen(false);
+                    clearInterval(timer.current);
+                    timer.current = setInterval(upClickHandler, 16.6);
+                }}
             >
                 <CameraShakeWithOrbitScene
                     cfg={{ ...config }}
@@ -151,7 +193,7 @@ function Background({ titleRef, descRef }) {
                 />
                 <color attach="background" args={["#000000"]} />
                 <fog color="#161616" attach="fog" near={110} far={400} />
-                <Light />
+                <Light spinFactor={spinFactor} zoomFactor={zoomFactor} />
                 <ambientLight intensity={0.1} />
                 <React.Suspense fallback={null}>
                     <Deer />
@@ -160,19 +202,19 @@ function Background({ titleRef, descRef }) {
                     <Bloom
                         luminanceThreshold={1}
                         luminanceSmoothing={0.9}
-                        intensity={200}
+                        intensity={2000}
                         blendFunction={BlendFunction.AdditiveBlending}
                         height={1000}
                     />
-                    {/* <ChromaticAberration offset={[0.0005, 0.001]} /> */}
                     <Vignette eskil={false} offset={0.1} darkness={0.5} />
                 </EffectComposer>
                 <AnimationHandler
                     section={section}
                     listener={listener}
                     titleRef={titleRef}
-                    descRef={descRef}
+                    aboutRef={aboutRef}
                     setListen={setListen}
+                    setAnimating={setAnimating}
                 />
             </Canvas>
         </ReactScrollWheelHandler>

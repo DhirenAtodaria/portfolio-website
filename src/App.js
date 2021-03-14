@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Background, OverlayText } from "./background";
+import React, { useRef, useState } from "react";
+import { Background, OverlayText, AboutText } from "./background";
 import { css } from "@emotion/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -19,7 +19,7 @@ const baseTextStyles = css`
     letter-spacing: 0.1em;
 `;
 
-const Nav = () => {
+const Nav = ({ currentPage }) => {
     return (
         <nav
             className={css`
@@ -56,7 +56,7 @@ const Nav = () => {
                     font-size: 0.85em;
                 `}
             >
-                1/4
+                {currentPage + 1}/4
             </div>
             <ul
                 className={css`
@@ -106,8 +106,13 @@ const Footer = () => {
 
 const App = () => {
     const titleRef = useRef([]);
+    const aboutRef = useRef([]);
+    const [section, setSection] = useState({
+        currentPage: 0,
+        previousPage: null,
+    });
 
-    const refs = { titleRef };
+    const refs = { titleRef, aboutRef };
 
     return (
         <div
@@ -120,7 +125,7 @@ const App = () => {
                 position: relative;
             `}
         >
-            <Nav />
+            <Nav currentPage={section.currentPage} />
             <div
                 className={css`
                     height: 85%;
@@ -129,7 +134,12 @@ const App = () => {
                 `}
             >
                 <OverlayText {...refs} />
-                <Background {...refs} />
+                <Background
+                    {...refs}
+                    section={section}
+                    setSection={setSection}
+                />
+                <AboutText {...refs} />
             </div>
             <Footer />
         </div>

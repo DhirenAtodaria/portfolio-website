@@ -1,4 +1,4 @@
 import Background from "./Background";
-import OverlayText from "./OverlayText";
+import { OverlayText, AboutText } from "./OverlayText";
 
-export { Background, OverlayText };
+export { Background, OverlayText, AboutText };
