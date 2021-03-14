@@ -1,9 +1,20 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { Canvas, useFrame, useResource, useThree } from "react-three-fiber";
-import { useGLTF, CameraShake, OrbitControls } from "@react-three/drei";
+import {
+    useGLTF,
+    CameraShake,
+    OrbitControls,
+    Icosahedron,
+    MeshDistortMaterial,
+} from "@react-three/drei";
 import deer from "./deerRotated.glb";
 import * as THREE from "three";
-import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
+import {
+    EffectComposer,
+    Bloom,
+    Vignette,
+    DepthOfField,
+} from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import * as Images from "./cube";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
@@ -12,7 +23,82 @@ import AnimationHandler from "./AnimationHandler";
 
 const urls = [Images.px, Images.nx, Images.py, Images.ny, Images.pz, Images.nz];
 
+const urls2 = [
+    Images.px1,
+    Images.nx1,
+    Images.py1,
+    Images.ny1,
+    Images.pz1,
+    Images.nz1,
+];
+
 const reflection = new THREE.CubeTextureLoader().load(urls);
+
+const reflection2 = new THREE.CubeTextureLoader().load(urls2);
+
+function Instances({ material }) {
+    const [sphereRefs] = useState(() => []);
+    const initialPositions = [
+        [-4, 20, -12],
+        [-10, 12, -4],
+        [-11, -12, -23],
+        [-16, -6, -10],
+        [-26, -20, -15],
+        [-30, -5, -20],
+        [-35, -10, 10],
+        [12, -2, -3],
+        [33, 4, 12],
+        [135, -2, 23],
+        [8, 10, 20],
+        [17, -5, -20],
+        [58, 4, -12],
+        [65, -2, -23],
+        [75, -7, -20],
+        [95, -10, -10],
+        [117, -2, -30],
+    ];
+    useFrame(() => {
+        sphereRefs.forEach((el) => {
+            el.position.y += 0.02;
+            if (el.position.y > 50) el.position.y = -18;
+            el.rotation.x += 0.06;
+            el.rotation.y += 0.06;
+            el.rotation.z += 0.02;
+        });
+    });
+    return (
+        <>
+            {initialPositions.map((pos, i) => (
+                <Icosahedron
+                    args={[1, 4]}
+                    position={[pos[0], pos[1], pos[2]]}
+                    material={material}
+                    key={i}
+                    ref={(ref) => (sphereRefs[i] = ref)}
+                />
+            ))}
+        </>
+    );
+}
+
+const BubblesBackground = () => {
+    const matRef = useResource();
+
+    return (
+        <>
+            <MeshDistortMaterial
+                ref={matRef}
+                envMap={reflection2}
+                color={"#010101"}
+                roughness={0.1}
+                metalness={1}
+                radius={1}
+                distort={0.4}
+            />
+            {matRef.current && <Instances material={matRef.current} />}
+        </>
+    );
+};
 
 const Deer = React.memo(() => {
     const mesh = useRef();
@@ -143,7 +229,7 @@ function Background({ titleRef, aboutRef, section, setSection }) {
 
     return (
         <ReactScrollWheelHandler
-            upHandler={(e) => {
+            upHandler={() => {
                 if (section.currentPage > 0) {
                     setSection({
                         currentPage: section.currentPage - 1,
@@ -153,7 +239,7 @@ function Background({ titleRef, aboutRef, section, setSection }) {
                     setAnimating(true);
                 }
             }}
-            downHandler={(e) => {
+            downHandler={() => {
                 if (section.currentPage < 2) {
                     setSection({
                         currentPage: section.currentPage + 1,
@@ -176,17 +262,18 @@ function Background({ titleRef, aboutRef, section, setSection }) {
                     position: [-70, -4, 114],
                     fov: 25,
                 }}
-                onPointerDown={(e) => {
+                onPointerDown={() => {
                     setListen(true);
                     clearInterval(timer.current);
                     timer.current = setInterval(downClickHandler, 16.6);
                 }}
-                onPointerUp={(e) => {
+                onPointerUp={() => {
                     setListen(false);
                     clearInterval(timer.current);
                     timer.current = setInterval(upClickHandler, 16.6);
                 }}
             >
+                <BubblesBackground />
                 <CameraShakeWithOrbitScene
                     cfg={{ ...config }}
                     controls={controls}
@@ -206,6 +293,13 @@ function Background({ titleRef, aboutRef, section, setSection }) {
                         blendFunction={BlendFunction.AdditiveBlending}
                         height={1000}
                     />
+                    <DepthOfField
+                        focusDistance={0}
+                        focalLength={0.04}
+                        bokehScale={2}
+                        height={480}
+                    />
+
                     <Vignette eskil={false} offset={0.1} darkness={0.5} />
                 </EffectComposer>
                 <AnimationHandler
