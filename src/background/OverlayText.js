@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { gsap, Power1 } from "gsap";
+import React from "react";
 import { css } from "@emotion/css";
 
 const commonStyles = css`
@@ -64,7 +63,7 @@ const AboutText = ({ aboutRef }) => {
                 }
 
                 span:nth-child(1) {
-                    margin-top: 2%;
+                    margin-top: 6%;
                     font-size: 7em;
                     font-family: "Bon";
                     letter-spacing: -4px;

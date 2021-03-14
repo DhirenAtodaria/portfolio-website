@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import { useFrame, useResource, useThree } from "react-three-fiber";
-import { gsap, Power1 } from "gsap";
+import { useResource, useThree } from "react-three-fiber";
+import { gsap } from "gsap";
 import CustomEase from "./customEase/CustomEase";
 
 gsap.registerPlugin(CustomEase);
