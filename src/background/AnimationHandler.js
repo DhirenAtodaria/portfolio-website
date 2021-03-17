@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { useResource, useThree } from "react-three-fiber";
+import { useFrame, useResource, useThree } from "react-three-fiber";
 import { gsap } from "gsap";
 import CustomEase from "./customEase/CustomEase";
 
@@ -11,11 +11,16 @@ const AnimationHandler = ({
     setAnimating,
     titleRef,
     aboutRef,
+    mouse,
 }) => {
     const { camera } = useThree();
     const pivot = useResource();
     const deerAni = useRef();
     const deerAni2 = useRef();
+
+    // useFrame(() => {
+    //     pivot.current.rotation.y = mouse.current[0];
+    // });
 
     useEffect(() => {
         pivot.current.add(camera);

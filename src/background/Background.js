@@ -33,34 +33,36 @@ const urls2 = [
 ];
 
 const reflection = new THREE.CubeTextureLoader().load(urls);
-
 const reflection2 = new THREE.CubeTextureLoader().load(urls2);
 
-function Instances({ material }) {
+const Instances = ({ material }) => {
     const [sphereRefs] = useState(() => []);
     const initialPositions = [
-        [-4, 20, -12],
-        [-10, 12, -4],
-        [-11, -12, -23],
-        [-16, -6, -10],
+        [-35, -10, 35],
+        [-35, 25, 35],
+        [-30, -5, -21],
         [-26, -20, -15],
-        [-30, -5, -20],
-        [-35, -10, 10],
-        [12, -2, -3],
-        [33, 4, 12],
-        [135, -2, 23],
+        [-20, 4, -10],
+        [-11, 0, -23],
+        [-10, 12, -4],
         [8, 10, 20],
-        [17, -5, -20],
-        [58, 4, -12],
-        [65, -2, -23],
+        [7, 10, -15],
+        [20, 3, -20],
+        [41, 7, -20],
+        [10, 4, 35],
+        [67, -22, -23],
         [75, -7, -20],
-        [95, -10, -10],
-        [117, -2, -30],
+        [78, -17, -20],
+        [80, 10, 20],
+        [95, -8, 35],
+        [50, -11, 35],
+        [45, -4, 50],
+        [14, -2, 55],
     ];
     useFrame(() => {
         sphereRefs.forEach((el) => {
             el.position.y += 0.02;
-            if (el.position.y > 50) el.position.y = -18;
+            if (el.position.y > 60) el.position.y = -18;
             el.rotation.x += 0.06;
             el.rotation.y += 0.06;
             el.rotation.z += 0.02;
@@ -79,7 +81,7 @@ function Instances({ material }) {
             ))}
         </>
     );
-}
+};
 
 const BubblesBackground = () => {
     const matRef = useResource();
@@ -188,6 +190,8 @@ const CameraShakeWithOrbitScene = React.memo(({ cfg, controls }) => {
 
 function Background({ titleRef, aboutRef, section, setSection }) {
     const controls = useResource();
+    const mouse = useRef([0, 0]);
+
     const [listener, setListen] = useState(false);
 
     const [animating, setAnimating] = useState(false);
@@ -206,7 +210,7 @@ function Background({ titleRef, aboutRef, section, setSection }) {
             zoomFactor.current = THREE.MathUtils.lerp(
                 zoomFactor.current,
                 1.1,
-                0.005
+                0.025
             );
         }
     }, [animating]);
@@ -216,13 +220,13 @@ function Background({ titleRef, aboutRef, section, setSection }) {
             spinFactor.current = THREE.MathUtils.lerp(
                 spinFactor.current,
                 0.0065,
-                0.01
+                0.05
             );
 
             zoomFactor.current = THREE.MathUtils.lerp(
                 zoomFactor.current,
                 1.0,
-                0.005
+                0.075
             );
         }
     }, [animating]);
@@ -272,6 +276,18 @@ function Background({ titleRef, aboutRef, section, setSection }) {
                     clearInterval(timer.current);
                     timer.current = setInterval(upClickHandler, 16.6);
                 }}
+                // onMouseMove={(e) => {
+                //     e.preventDefault();
+                //     const windowInner = window.innerWidth * 0.95;
+                //     const spread =
+                //         (2.1 * (windowInner - e.clientX)) / windowInner;
+
+                //     mouse.current = [
+                //         (spread - 1) * 0.1,
+                //         (window.innerHeight - e.clientY) / window.innerHeight -
+                //             0.5,
+                //     ];
+                // }}
             >
                 <BubblesBackground />
                 <CameraShakeWithOrbitScene
@@ -309,6 +325,7 @@ function Background({ titleRef, aboutRef, section, setSection }) {
                     aboutRef={aboutRef}
                     setListen={setListen}
                     setAnimating={setAnimating}
+                    mouse={mouse}
                 />
             </Canvas>
         </ReactScrollWheelHandler>
