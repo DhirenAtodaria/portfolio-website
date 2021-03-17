@@ -276,18 +276,6 @@ function Background({ titleRef, aboutRef, section, setSection }) {
                     clearInterval(timer.current);
                     timer.current = setInterval(upClickHandler, 16.6);
                 }}
-                // onMouseMove={(e) => {
-                //     e.preventDefault();
-                //     const windowInner = window.innerWidth * 0.95;
-                //     const spread =
-                //         (2.1 * (windowInner - e.clientX)) / windowInner;
-
-                //     mouse.current = [
-                //         (spread - 1) * 0.1,
-                //         (window.innerHeight - e.clientY) / window.innerHeight -
-                //             0.5,
-                //     ];
-                // }}
             >
                 <BubblesBackground />
                 <CameraShakeWithOrbitScene
@@ -325,7 +313,6 @@ function Background({ titleRef, aboutRef, section, setSection }) {
                     aboutRef={aboutRef}
                     setListen={setListen}
                     setAnimating={setAnimating}
-                    mouse={mouse}
                 />
             </Canvas>
         </ReactScrollWheelHandler>
