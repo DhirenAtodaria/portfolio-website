@@ -59,9 +59,13 @@ const Instances = ({ material }) => {
         [45, -4, 50],
         [14, -2, 55],
     ];
+    const rotationFactorArray = Array(20)
+        .fill()
+        .map(() => Math.random() * 0.05 + 0.01);
+
     useFrame(() => {
-        sphereRefs.forEach((el) => {
-            el.position.y += 0.02;
+        sphereRefs.forEach((el, index) => {
+            el.position.y += rotationFactorArray[index];
             if (el.position.y > 60) el.position.y = -18;
             el.rotation.x += 0.06;
             el.rotation.y += 0.06;
@@ -70,13 +74,13 @@ const Instances = ({ material }) => {
     });
     return (
         <>
-            {initialPositions.map((pos, i) => (
+            {initialPositions.map((pos, index) => (
                 <Icosahedron
-                    args={[1, 4]}
+                    args={[1.1, 4]}
                     position={[pos[0], pos[1], pos[2]]}
                     material={material}
-                    key={i}
-                    ref={(ref) => (sphereRefs[i] = ref)}
+                    key={index}
+                    ref={(ref) => (sphereRefs[index] = ref)}
                 />
             ))}
         </>
@@ -95,7 +99,7 @@ const BubblesBackground = () => {
                 roughness={0.1}
                 metalness={1}
                 radius={1}
-                distort={0.4}
+                distort={0.5}
             />
             {matRef.current && <Instances material={matRef.current} />}
         </>
@@ -190,8 +194,6 @@ const CameraShakeWithOrbitScene = React.memo(({ cfg, controls }) => {
 
 function Background({ titleRef, aboutRef, section, setSection }) {
     const controls = useResource();
-    const mouse = useRef([0, 0]);
-
     const [listener, setListen] = useState(false);
 
     const [animating, setAnimating] = useState(false);

@@ -4,6 +4,7 @@ import { css } from "@emotion/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Loader from "./Loader";
 
 const commonStyles = css`
     width: 90%;
@@ -107,6 +108,7 @@ const Footer = () => {
 const App = () => {
     const titleRef = useRef([]);
     const aboutRef = useRef([]);
+    const outerRef = useRef();
     const [section, setSection] = useState({
         currentPage: 0,
         previousPage: null,
@@ -127,12 +129,15 @@ const App = () => {
         >
             <Nav currentPage={section.currentPage} />
             <div
+                ref={outerRef}
                 className={css`
                     height: 85%;
                     width: 90%;
                     position: relative;
+                    overflow: hidden;
                 `}
             >
+                {/* <Loader outerRef={outerRef} /> */}
                 <OverlayText {...refs} />
                 <Background
                     {...refs}

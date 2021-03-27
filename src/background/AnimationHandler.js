@@ -11,7 +11,6 @@ const AnimationHandler = ({
     setAnimating,
     titleRef,
     aboutRef,
-    mouse,
 }) => {
     const { camera } = useThree();
     const pivot = useResource();
@@ -20,6 +19,22 @@ const AnimationHandler = ({
 
     useEffect(() => {
         pivot.current.add(camera);
+
+        const initalAnimation = gsap
+            .timeline()
+            .to(pivot.current.position, {
+                z: -70,
+                x: 87,
+                y: 40,
+                duration: 1,
+            })
+            .to(pivot.current.rotation, {
+                x: Math.PI / 4,
+                duration: 2,
+            });
+    }, []);
+
+    useEffect(() => {
         deerAni.current = gsap
             .timeline({ paused: true })
             .to(titleRef.current, {
