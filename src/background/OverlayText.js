@@ -15,6 +15,11 @@ const commonStyles = css`
     flex-direction: column;
 `;
 
+const chromaticAbberation = css`
+    text-shadow: 3px 2px 2px rgba(251, 12, 12, 1),
+        0px -1px 3px rgba(12, 79, 251, 0.5), -3px 0px 2px rgba(52, 251, 12, 1);
+`;
+
 const OverlayText = ({ titleRef }) => {
     return (
         <div
@@ -30,6 +35,7 @@ const OverlayText = ({ titleRef }) => {
                     font-size: 11.5em;
                     font-family: "Bon";
                     letter-spacing: -4px;
+                    ${chromaticAbberation}
                 }
 
                 span:nth-child(2) {
@@ -71,6 +77,7 @@ const AboutText = ({ aboutRef }) => {
                     text-decoration-thickness: 1.1px;
                     text-underline-position: under;
                     opacity: 0;
+                    ${chromaticAbberation}
                 }
 
                 span:nth-child(2) {
@@ -99,4 +106,107 @@ const AboutText = ({ aboutRef }) => {
     );
 };
 
-export { OverlayText, AboutText };
+const WorkItem = ({ company, role, odd, last }) => (
+    <div
+        className={css`
+            height: 34px;
+            ${last ? "margin-bottom: 0px;" : "margin-bottom: 15px;"}
+            ${odd ? "margin-right: 10px;" : "margin-left: 10px;"}
+        `}
+    >
+        <div>{company}</div>
+        <div>{role}</div>
+    </div>
+);
+
+const WorkText = ({ workRef }) => {
+    return (
+        <div
+            className={css`
+                ${commonStyles}
+                align-items: flex-start;
+
+                span {
+                    margin-left: 5%;
+                }
+
+                span:nth-child(1) {
+                    margin-top: 6%;
+                    font-size: 7em;
+                    font-family: "Bon";
+                    letter-spacing: -4px;
+                    text-decoration: underline;
+                    text-decoration-thickness: 1.1px;
+                    text-underline-position: under;
+                    opacity: 0;
+                    ${chromaticAbberation}
+                }
+
+                span:nth-child(2) {
+                    font-size: 0.6em;
+                    font-family: "Haas";
+                    width: 80ch;
+                    line-height: 17px;
+                    display: flex;
+                    opacity: 0;
+                }
+            `}
+        >
+            <span ref={(e) => (workRef.current[0] = e)}>Experience</span>
+            <span ref={(e) => (workRef.current[1] = e)}>
+                <div
+                    className={css`
+                        width: 50%;
+                        height: 100%;
+                        border-right: 0.5px solid white;
+                        align-items: flex-end;
+                        display: flex;
+                        flex-direction: column;
+                        text-align: right;
+                    `}
+                >
+                    <WorkItem
+                        company={"Babylon Health, London"}
+                        role={"Mar. 2021 - Present: Software Engineer"}
+                        odd
+                    />
+                    <WorkItem />
+                    <WorkItem
+                        company={"_nology, London"}
+                        role={
+                            "Jan. 2020 - Apr. 2020: Software Developer Bootcamp"
+                        }
+                        odd
+                    />
+                    <WorkItem />
+                    <WorkItem
+                        company={"Ameson, Whenzhou China"}
+                        role={"Sep. 2018 - Jun 2019: Educational Ambassador"}
+                        odd
+                        last
+                    />
+                </div>
+                <div
+                    className={css`
+                        width: 50%;
+                        height: 100%;
+                        border-left: 0.5px solid white;
+                    `}
+                >
+                    <WorkItem />
+                    <WorkItem
+                        company={"Creditsafe, Cardiff"}
+                        role={"Jun. 2020 - Mar 2021: Junior Software Engineer"}
+                    />
+                    <WorkItem />
+                    <WorkItem
+                        company={"BT, London"}
+                        role={"Sep. 2019 - Oct 2019: Digital Skills Internship"}
+                    />
+                </div>
+            </span>
+        </div>
+    );
+};
+
+export { OverlayText, AboutText, WorkText };

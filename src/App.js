@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Background, OverlayText, AboutText } from "./background";
+import { Background, OverlayText, AboutText, WorkText } from "./background";
 import { css } from "@emotion/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -108,13 +108,14 @@ const Footer = () => {
 const App = () => {
     const titleRef = useRef([]);
     const aboutRef = useRef([]);
-    const outerRef = useRef();
+    const workRef = useRef([]);
     const [section, setSection] = useState({
         currentPage: 0,
         previousPage: null,
     });
+    const [loading, setLoading] = React.useState(true);
 
-    const refs = { titleRef, aboutRef };
+    const refs = { titleRef, aboutRef, workRef };
 
     return (
         <div
@@ -127,24 +128,24 @@ const App = () => {
                 position: relative;
             `}
         >
+            <Loader loading={loading} setLoading={setLoading} />
             <Nav currentPage={section.currentPage} />
             <div
-                ref={outerRef}
                 className={css`
                     height: 85%;
                     width: 90%;
                     position: relative;
-                    overflow: hidden;
                 `}
             >
-                {/* <Loader outerRef={outerRef} /> */}
                 <OverlayText {...refs} />
                 <Background
                     {...refs}
                     section={section}
                     setSection={setSection}
+                    loading={loading}
                 />
                 <AboutText {...refs} />
+                <WorkText {...refs} />
             </div>
             <Footer />
         </div>

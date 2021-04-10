@@ -40,19 +40,19 @@ const Instances = ({ material }) => {
     const initialPositions = [
         [-35, -10, 35],
         [-35, 25, 35],
-        [-30, -5, -21],
+        [-30, -5, -45],
         [-26, -20, -15],
         [-20, 4, -10],
-        [-11, 0, -23],
+        [-11, 0, -78],
         [-10, 12, -4],
         [8, 10, 20],
         [7, 10, -15],
-        [20, 3, -20],
-        [41, 7, -20],
+        [20, 3, -54],
+        [41, 7, -95],
         [10, 4, 35],
         [67, -22, -23],
         [75, -7, -20],
-        [78, -17, -20],
+        [78, -17, -80],
         [80, 10, 20],
         [95, -8, 35],
         [50, -11, 35],
@@ -192,7 +192,14 @@ const CameraShakeWithOrbitScene = React.memo(({ cfg, controls }) => {
     );
 });
 
-function Background({ titleRef, aboutRef, section, setSection }) {
+function Background({
+    titleRef,
+    aboutRef,
+    workRef,
+    section,
+    setSection,
+    loading,
+}) {
     const controls = useResource();
     const [listener, setListen] = useState(false);
 
@@ -200,6 +207,10 @@ function Background({ titleRef, aboutRef, section, setSection }) {
     const spinFactor = useRef(0.0065);
     const zoomFactor = useRef(1.0);
     const timer = useRef(null);
+
+    useEffect(() => {
+        console.log("Listening", listener);
+    }, [listener, section]);
 
     const downClickHandler = useCallback(() => {
         if (!animating) {
@@ -313,8 +324,10 @@ function Background({ titleRef, aboutRef, section, setSection }) {
                     listener={listener}
                     titleRef={titleRef}
                     aboutRef={aboutRef}
+                    workRef={workRef}
                     setListen={setListen}
                     setAnimating={setAnimating}
+                    loading={loading}
                 />
             </Canvas>
         </ReactScrollWheelHandler>

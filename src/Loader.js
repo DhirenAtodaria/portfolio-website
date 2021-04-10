@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { gsap, Power1 } from "gsap";
+import { gsap, Power1, Expo } from "gsap";
 import { css } from "@emotion/css";
 import { motion } from "framer-motion";
 
-export const Loader = ({ outerRef }) => {
-    let [loading, setLoading] = React.useState(true);
-
+export const Loader = ({ loading, setLoading }) => {
     const loadingRef = useRef();
     const screenRef = useRef();
 
@@ -24,6 +22,7 @@ export const Loader = ({ outerRef }) => {
             removingAnimation.to(screenRef.current, {
                 x: "-100%",
                 duration: 1,
+                ease: Expo.easeInOut,
             });
         }
     }, [loading]);
@@ -58,8 +57,8 @@ export const Loader = ({ outerRef }) => {
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        font-family: "Bon";
-                        letter-spacing: 1em;
+                        font-family: "Haas";
+                        letter-spacing: 0.5em;
                         text-indent: -1em;
                         direction: rtl;
                     `}

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useResource, useThree } from "react-three-fiber";
-import { gsap } from "gsap";
+import { gsap, Power3 } from "gsap";
 import CustomEase from "./customEase/CustomEase";
 
 gsap.registerPlugin(CustomEase);
@@ -11,28 +11,45 @@ const AnimationHandler = ({
     setAnimating,
     titleRef,
     aboutRef,
+    workRef,
+    loading = true,
 }) => {
     const { camera } = useThree();
     const pivot = useResource();
     const deerAni = useRef();
     const deerAni2 = useRef();
+    const initialLoadingAni = useRef();
 
     useEffect(() => {
         pivot.current.add(camera);
 
-        const initalAnimation = gsap
-            .timeline()
-            .to(pivot.current.position, {
-                z: -70,
-                x: 87,
-                y: 40,
-                duration: 1,
-            })
-            .to(pivot.current.rotation, {
-                x: Math.PI / 4,
-                duration: 2,
-            });
-    }, []);
+        initialLoadingAni.current = gsap
+            .timeline({ paused: true, delay: 1 })
+            .fromTo(
+                pivot.current.rotation,
+                {
+                    x: (-Math.PI / 4) * 0.8,
+                },
+                {
+                    x: 0,
+                    duration: 3.5,
+                    ease: Power3.easeInOut,
+                }
+            )
+            .to(
+                pivot.current.position,
+                {
+                    x: 20,
+                    y: 20,
+                    z: 0,
+                    duration: 3.5,
+                    ease: Power3.easeInOut,
+                },
+                "-=3.5"
+            );
+
+        return () => initialLoadingAni.current.kill();
+    }, [camera, pivot]);
 
     useEffect(() => {
         deerAni.current = gsap
@@ -41,6 +58,10 @@ const AnimationHandler = ({
                 opacity: 0,
                 y: -10,
                 duration: 0.5,
+                onReverseComplete: function () {
+                    setListen(false);
+                    setAnimating(false);
+                },
             })
             .to(
                 pivot.current.rotation,
@@ -82,10 +103,6 @@ const AnimationHandler = ({
                         setListen(false);
                         setAnimating(false);
                     },
-                    onReverseComplete: function () {
-                        setListen(false);
-                        setAnimating(false);
-                    },
                 },
                 "-=0.5"
             );
@@ -100,6 +117,10 @@ const AnimationHandler = ({
                 opacity: 0,
                 y: -10,
                 duration: 0.5,
+                onReverseComplete: function () {
+                    setListen(false);
+                    setAnimating(false);
+                },
             })
             .to(
                 pivot.current.rotation,
@@ -111,14 +132,6 @@ const AnimationHandler = ({
                         "custom",
                         "M0,0 C0.798,0 0.2,1 1,1 "
                     ),
-                    onComplete: () => {
-                        setListen(false);
-                        setAnimating(false);
-                    },
-                    onReverseComplete: function () {
-                        setListen(false);
-                        setAnimating(false);
-                    },
                 },
                 "-=0.4"
             )
@@ -132,12 +145,37 @@ const AnimationHandler = ({
                         "custom",
                         "M0,0 C0.798,0 0.2,1 1,1 "
                     ),
+                    onComplete: () => {
+                        setListen(false);
+                        setAnimating(false);
+                    },
                 },
                 "-=1.9"
+            )
+            .fromTo(
+                workRef.current,
+                {
+                    opacity: 0,
+                    y: -10,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    onComplete: () => {
+                        setListen(false);
+                        setAnimating(false);
+                    },
+                },
+                "-=0.5"
             );
-    }, [aboutRef, camera, pivot, setAnimating, setListen]);
+    }, [aboutRef, camera, pivot, setAnimating, setListen, workRef]);
 
     useEffect(() => {
+        if (!loading) {
+            initialLoadingAni.current.play();
+        }
+
         if (section.currentPage === 1 && section.previousPage === 0) {
             deerAni.current.play();
         }
@@ -153,9 +191,9 @@ const AnimationHandler = ({
         if (section.currentPage === 1 && section.previousPage === 2) {
             deerAni2.current.reverse();
         }
-    }, [section]);
+    }, [loading, section]);
 
-    return <object3D ref={pivot} position={[20, 20, 0]} />;
+    return <object3D ref={pivot} position={[89.5, -40, -85]} />;
 };
 
 export default AnimationHandler;
