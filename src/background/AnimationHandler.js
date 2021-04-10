@@ -18,6 +18,7 @@ const AnimationHandler = ({
     const pivot = useResource();
     const deerAni = useRef();
     const deerAni2 = useRef();
+    const deerAni3 = useRef();
     const initialLoadingAni = useRef();
 
     useEffect(() => {
@@ -46,10 +47,24 @@ const AnimationHandler = ({
                     ease: Power3.easeInOut,
                 },
                 "-=3.5"
+            )
+            .fromTo(
+                titleRef.current,
+                {
+                    opacity: 0,
+                    y: "-100%",
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: { each: 0.04, from: "random" },
+                },
+                "-=2"
             );
 
         return () => initialLoadingAni.current.kill();
-    }, [camera, pivot]);
+    }, [camera, pivot, setAnimating, setListen, titleRef]);
 
     useEffect(() => {
         deerAni.current = gsap
@@ -145,10 +160,6 @@ const AnimationHandler = ({
                         "custom",
                         "M0,0 C0.798,0 0.2,1 1,1 "
                     ),
-                    onComplete: () => {
-                        setListen(false);
-                        setAnimating(false);
-                    },
                 },
                 "-=1.9"
             )
@@ -169,7 +180,35 @@ const AnimationHandler = ({
                 },
                 "-=0.5"
             );
+
+        return () => deerAni2.current.kill();
     }, [aboutRef, camera, pivot, setAnimating, setListen, workRef]);
+
+    useEffect(() => {
+        deerAni3.current = gsap
+            .timeline({ paused: true })
+            .to(workRef.current, {
+                opacity: 0,
+                y: -10,
+                duration: 0.5,
+                onReverseComplete: function () {
+                    setListen(false);
+                    setAnimating(false);
+                },
+            })
+            .to(
+                pivot.current.position,
+                {
+                    y: 1000,
+                    x: -20,
+                    duration: 3.5,
+                    ease: Power3.easeInOut,
+                },
+                "-=0.4"
+            );
+
+        return () => deerAni3.current.kill();
+    }, [pivot, setAnimating, setListen, workRef]);
 
     useEffect(() => {
         if (!loading) {
@@ -190,6 +229,15 @@ const AnimationHandler = ({
 
         if (section.currentPage === 1 && section.previousPage === 2) {
             deerAni2.current.reverse();
+        }
+
+        if (section.currentPage === 3 && section.previousPage === 2) {
+            console.log("running");
+            deerAni3.current.play();
+        }
+
+        if (section.currentPage === 2 && section.previousPage === 3) {
+            deerAni3.current.reverse();
         }
     }, [loading, section]);
 

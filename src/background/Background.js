@@ -7,7 +7,7 @@ import {
     Icosahedron,
     MeshDistortMaterial,
 } from "@react-three/drei";
-import deer from "./deerRotated.glb";
+import deer from "./deerRotated2.glb";
 import * as THREE from "three";
 import {
     EffectComposer,
@@ -210,6 +210,7 @@ function Background({
 
     useEffect(() => {
         console.log("Listening", listener);
+        console.log(section);
     }, [listener, section]);
 
     const downClickHandler = useCallback(() => {
@@ -257,7 +258,7 @@ function Background({
                 }
             }}
             downHandler={() => {
-                if (section.currentPage < 2) {
+                if (section.currentPage < 3) {
                     setSection({
                         currentPage: section.currentPage + 1,
                         previousPage: section.currentPage,
@@ -296,7 +297,7 @@ function Background({
                     controls={controls}
                 />
                 <color attach="background" args={["#000000"]} />
-                <fog color="#161616" attach="fog" near={110} far={400} />
+                <fog color="#000000" attach="fog" near={110} far={400} />
                 <Light spinFactor={spinFactor} zoomFactor={zoomFactor} />
                 <ambientLight intensity={0.1} />
                 <React.Suspense fallback={null}>

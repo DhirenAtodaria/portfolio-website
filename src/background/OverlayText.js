@@ -35,6 +35,8 @@ const OverlayText = ({ titleRef }) => {
                     font-size: 11.5em;
                     font-family: "Bon";
                     letter-spacing: -4px;
+                    overflow: hidden;
+                    display: flex;
                     ${chromaticAbberation}
                 }
 
@@ -48,8 +50,20 @@ const OverlayText = ({ titleRef }) => {
                 }
             `}
         >
-            <span ref={(e) => (titleRef.current[0] = e)}>D. Atodaria</span>
-            <span ref={(e) => (titleRef.current[1] = e)}>
+            <span>
+                <div ref={(e) => (titleRef.current[0] = e)}>D</div>
+                <div ref={(e) => (titleRef.current[1] = e)}>.</div>
+                <div ref={(e) => (titleRef.current[2] = e)}>&nbsp;</div>
+                <div ref={(e) => (titleRef.current[3] = e)}>A</div>
+                <div ref={(e) => (titleRef.current[4] = e)}>t</div>
+                <div ref={(e) => (titleRef.current[5] = e)}>o</div>
+                <div ref={(e) => (titleRef.current[6] = e)}>d</div>
+                <div ref={(e) => (titleRef.current[7] = e)}>a</div>
+                <div ref={(e) => (titleRef.current[8] = e)}>r</div>
+                <div ref={(e) => (titleRef.current[9] = e)}>i</div>
+                <div ref={(e) => (titleRef.current[10] = e)}>a</div>
+            </span>
+            <span ref={(e) => (titleRef.current[11] = e)}>
                 A software engineer living in London. With a focus on front-end
                 development and writing clean, quality, code.
             </span>
