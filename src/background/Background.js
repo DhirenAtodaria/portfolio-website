@@ -2,12 +2,12 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import { Canvas, useFrame, useResource, useThree } from "react-three-fiber";
 import {
     useGLTF,
-    CameraShake,
     OrbitControls,
     Icosahedron,
     MeshDistortMaterial,
 } from "@react-three/drei";
-import deer from "./deerRotated2.glb";
+import deer from "./cube1.glb";
+import { CameraShake } from "./CustomCameraShake";
 import * as THREE from "three";
 import {
     EffectComposer,
@@ -94,7 +94,7 @@ const BubblesBackground = () => {
         <>
             <MeshDistortMaterial
                 ref={matRef}
-                envMap={reflection2}
+                envMap={reflection}
                 color={"#010101"}
                 roughness={0.1}
                 metalness={1}
@@ -112,13 +112,27 @@ const Deer = React.memo(() => {
         nodes: { Deer: deerGeo },
     } = useGLTF(deer, true);
 
+    useFrame(() => {
+        mesh.current.rotation.x += 0.001;
+        mesh.current.rotation.y += 0.001;
+        mesh.current.rotation.z += 0.001;
+    });
+
     return (
-        <mesh ref={mesh} name={"deer"} geometry={deerGeo.geometry}>
-            <meshStandardMaterial
-                envMap={reflection}
-                roughness={0.025}
+        <mesh
+            ref={mesh}
+            name={"deer"}
+            geometry={deerGeo.geometry}
+            position={[-10, 20, 0]}
+        >
+            <meshPhysicalMaterial
+                // envMap={reflection2}
+                // sheen={0x000000}
+                clearcoat={1}
+                clearcoatRoughness={0}
+                roughness={0.1}
                 metalness={1}
-                emissive={0x000000}
+                // emissive={0x000000}
             />
         </mesh>
     );
@@ -164,33 +178,41 @@ const Light = React.memo(({ spinFactor, zoomFactor }) => {
                 intensity={100}
                 position={[0, 50, 0]}
             />
+            <pointLight intensity={50} />
         </>
     );
 });
+
+const CameraShakeWithOrbitScene = React.memo(
+    ({ cfg, controls, frequencyFactor }) => {
+        useEffect(() => {
+            controls.current.target = new THREE.Vector3(20, 20, 0);
+        }, [controls]);
+
+        return (
+            <>
+                <React.Suspense fallback={null}>
+                    <OrbitControls ref={controls} enabled={false} />
+                    <CameraShake
+                        {...cfg}
+                        frequencyFactor={frequencyFactor}
+                        additive
+                    />
+                </React.Suspense>
+            </>
+        );
+    }
+);
 
 const config = {
     maxYaw: 0.0125,
     maxPitch: 0.0125,
     maxRoll: 0,
+    rollFrequency: 0,
     yawFrequency: 0.1,
     pitchFrequency: 0.1,
-    rollFrequency: 0,
+    intensity: 1,
 };
-
-const CameraShakeWithOrbitScene = React.memo(({ cfg, controls }) => {
-    useEffect(() => {
-        controls.current.target = new THREE.Vector3(20, 20, 0);
-    }, [controls]);
-
-    return (
-        <>
-            <React.Suspense fallback={null}>
-                <OrbitControls ref={controls} enabled={false} />
-                <CameraShake {...cfg} additive />
-            </React.Suspense>
-        </>
-    );
-});
 
 function Background({
     titleRef,
@@ -206,12 +228,8 @@ function Background({
     const [animating, setAnimating] = useState(false);
     const spinFactor = useRef(0.0065);
     const zoomFactor = useRef(1.0);
+    const frequencyFactor = useRef(0.1);
     const timer = useRef(null);
-
-    useEffect(() => {
-        console.log("Listening", listener);
-        console.log(section);
-    }, [listener, section]);
 
     const downClickHandler = useCallback(() => {
         if (!animating) {
@@ -223,8 +241,14 @@ function Background({
 
             zoomFactor.current = THREE.MathUtils.lerp(
                 zoomFactor.current,
-                1.1,
+                1.15,
                 0.025
+            );
+
+            frequencyFactor.current = THREE.MathUtils.lerp(
+                frequencyFactor.current,
+                5,
+                0.05
             );
         }
     }, [animating]);
@@ -241,6 +265,12 @@ function Background({
                 zoomFactor.current,
                 1.0,
                 0.075
+            );
+
+            frequencyFactor.current = THREE.MathUtils.lerp(
+                frequencyFactor.current,
+                0.1,
+                0.5
             );
         }
     }, [animating]);
@@ -294,6 +324,7 @@ function Background({
                 <BubblesBackground />
                 <CameraShakeWithOrbitScene
                     cfg={{ ...config }}
+                    frequencyFactor={frequencyFactor}
                     controls={controls}
                 />
                 <color attach="background" args={["#000000"]} />

@@ -20,6 +20,18 @@ const chromaticAbberation = css`
         0px -1px 3px rgba(12, 79, 251, 0.5), -3px 0px 2px rgba(52, 251, 12, 1);
 `;
 
+const Split = ({ text, customRef }) => {
+    const textArray = text
+        .split("")
+        .map((letter) => (letter === " " ? <>&nbsp;</> : letter));
+
+    console.log(textArray);
+
+    return textArray.map((letter, index) => (
+        <div ref={(e) => (customRef.current[index] = e)}>{letter}</div>
+    ));
+};
+
 const OverlayText = ({ titleRef }) => {
     return (
         <div
@@ -51,17 +63,7 @@ const OverlayText = ({ titleRef }) => {
             `}
         >
             <span>
-                <div ref={(e) => (titleRef.current[0] = e)}>D</div>
-                <div ref={(e) => (titleRef.current[1] = e)}>.</div>
-                <div ref={(e) => (titleRef.current[2] = e)}>&nbsp;</div>
-                <div ref={(e) => (titleRef.current[3] = e)}>A</div>
-                <div ref={(e) => (titleRef.current[4] = e)}>t</div>
-                <div ref={(e) => (titleRef.current[5] = e)}>o</div>
-                <div ref={(e) => (titleRef.current[6] = e)}>d</div>
-                <div ref={(e) => (titleRef.current[7] = e)}>a</div>
-                <div ref={(e) => (titleRef.current[8] = e)}>r</div>
-                <div ref={(e) => (titleRef.current[9] = e)}>i</div>
-                <div ref={(e) => (titleRef.current[10] = e)}>a</div>
+                <Split text={"D. Atodaria"} customRef={titleRef} />
             </span>
             <span ref={(e) => (titleRef.current[11] = e)}>
                 A software engineer living in London. With a focus on front-end
@@ -106,7 +108,7 @@ const AboutText = ({ aboutRef }) => {
         >
             <span ref={(e) => (aboutRef.current[0] = e)}>About</span>
             <span ref={(e) => (aboutRef.current[1] = e)}>
-                A self-motivated and curious individual with verious difference
+                A self-motivated and curious individual with various difference
                 skills. My journey begins when I left university in 2018 after
                 completing a degree in Maths and Stats. Afterwards I decided to
                 travel to China for a year and gain some personal development.

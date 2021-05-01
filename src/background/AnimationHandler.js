@@ -83,7 +83,7 @@ const AnimationHandler = ({
                 {
                     x: Math.PI * 0.1,
                     y: Math.PI,
-                    duration: 2,
+                    duration: 1.75,
                     ease: CustomEase.create(
                         "custom",
                         "M0,0 C0.798,0 0.2,1 1,1 "
@@ -96,13 +96,13 @@ const AnimationHandler = ({
                 {
                     x: -30,
                     y: -30,
-                    duration: 1.5,
+                    duration: 1.25,
                     ease: CustomEase.create(
                         "custom",
                         "M0,0 C0.798,0 0.2,1 1,1 "
                     ),
                 },
-                "-=2.0"
+                "-=1.75"
             )
             .fromTo(
                 aboutRef.current,
@@ -141,7 +141,7 @@ const AnimationHandler = ({
                 pivot.current.rotation,
                 {
                     x: Math.PI * 0.2,
-                    y: Math.PI * 1.6,
+                    y: Math.PI * 1.5,
                     duration: 2,
                     ease: CustomEase.create(
                         "custom",
@@ -199,10 +199,14 @@ const AnimationHandler = ({
             .to(
                 pivot.current.position,
                 {
-                    y: 1000,
+                    y: 500,
                     x: -20,
                     duration: 3.5,
                     ease: Power3.easeInOut,
+                    onComplete: () => {
+                        setListen(false);
+                        setAnimating(false);
+                    },
                 },
                 "-=0.4"
             );
