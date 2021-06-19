@@ -236,7 +236,6 @@ const AnimationHandler = ({
         }
 
         if (section.currentPage === 3 && section.previousPage === 2) {
-            console.log("running");
             deerAni3.current.play();
         }
 

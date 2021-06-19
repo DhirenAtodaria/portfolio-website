@@ -25,8 +25,6 @@ const Split = ({ text, customRef }) => {
         .split("")
         .map((letter) => (letter === " " ? <>&nbsp;</> : letter));
 
-    console.log(textArray);
-
     return textArray.map((letter, index) => (
         <div ref={(e) => (customRef.current[index] = e)}>{letter}</div>
     ));
@@ -37,14 +35,13 @@ const OverlayText = ({ titleRef }) => {
         <div
             className={css`
                 ${commonStyles}
-
+                justify-content: center;
                 span {
                     margin-right: 8%;
                 }
 
                 span:nth-child(1) {
-                    margin-top: 10%;
-                    font-size: 11.5em;
+                    font-size: 8.5em;
                     font-family: "Bon";
                     letter-spacing: -4px;
                     overflow: hidden;
@@ -64,10 +61,6 @@ const OverlayText = ({ titleRef }) => {
         >
             <span>
                 <Split text={"D. Atodaria"} customRef={titleRef} />
-            </span>
-            <span ref={(e) => (titleRef.current[11] = e)}>
-                A software engineer living in London. With a focus on front-end
-                development and writing clean, quality, code.
             </span>
         </div>
     );

@@ -4,9 +4,15 @@ import {
     useGLTF,
     OrbitControls,
     Icosahedron,
+    TorusKnot,
+    Octahedron,
+    Torus,
+    Parametric,
+    Box,
     MeshDistortMaterial,
 } from "@react-three/drei";
 import deer from "./cube1.glb";
+import { random } from "lodash";
 import { CameraShake } from "./CustomCameraShake";
 import * as THREE from "three";
 import {
@@ -33,7 +39,6 @@ const urls2 = [
 ];
 
 const reflection = new THREE.CubeTextureLoader().load(urls);
-const reflection2 = new THREE.CubeTextureLoader().load(urls2);
 
 const Instances = ({ material }) => {
     const [sphereRefs] = useState(() => []);
@@ -61,33 +66,42 @@ const Instances = ({ material }) => {
     ];
     const rotationFactorArray = Array(20)
         .fill()
-        .map(() => Math.random() * 0.05 + 0.01);
+        .map(() =>
+            random(0, 100) > 80 ? random(0.09, 0.1) : random(0.01, 0.04)
+        );
 
     useFrame(() => {
         sphereRefs.forEach((el, index) => {
             el.position.y += rotationFactorArray[index];
             if (el.position.y > 60) el.position.y = -18;
-            el.rotation.x += 0.06;
-            el.rotation.y += 0.06;
-            el.rotation.z += 0.02;
+            el.rotation.x += 0.01;
+            el.rotation.y += 0.01;
         });
     });
+
     return (
         <>
-            {initialPositions.map((pos, index) => (
-                <Icosahedron
-                    args={[1.1, 4]}
-                    position={[pos[0], pos[1], pos[2]]}
-                    material={material}
-                    key={index}
-                    ref={(ref) => (sphereRefs[index] = ref)}
-                />
-            ))}
+            {initialPositions.map((pos, index) => {
+                const randomNumber = random(1, 3);
+                const commonProps = {
+                    position: [pos[0], pos[1], pos[2]],
+                    material: material,
+                    key: index,
+                    ref: (ref) => (sphereRefs[index] = ref),
+                };
+                if (randomNumber === 1) {
+                    return <Icosahedron args={[1.1, 4]} {...commonProps} />;
+                } else if (randomNumber === 2) {
+                    return <Torus args={[0.5, 0.3, 64, 16]} {...commonProps} />;
+                } else {
+                    return <Octahedron args={[1.5]} {...commonProps} />;
+                }
+            })}
         </>
     );
 };
 
-const BubblesBackground = () => {
+const BubblesBackground = React.memo(() => {
     const matRef = useResource();
 
     return (
@@ -96,7 +110,7 @@ const BubblesBackground = () => {
                 ref={matRef}
                 envMap={reflection}
                 color={"#010101"}
-                roughness={0.1}
+                roughness={0.2}
                 metalness={1}
                 radius={1}
                 distort={0.5}
@@ -104,7 +118,7 @@ const BubblesBackground = () => {
             {matRef.current && <Instances material={matRef.current} />}
         </>
     );
-};
+});
 
 const Deer = React.memo(() => {
     const mesh = useRef();

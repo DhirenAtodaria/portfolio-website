@@ -133,7 +133,7 @@ const App = () => {
             <div
                 className={css`
                     height: 85%;
-                    width: 90%;
+                    width: 100%;
                     position: relative;
                 `}
             >

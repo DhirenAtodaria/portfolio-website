@@ -43,7 +43,6 @@ const CameraShake = /*#__PURE__*/ forwardRef(
             []
         );
         useFrame(({ clock }, delta) => {
-            console.log(frequencyFactor.current);
             const shake = Math.pow(intensityRef.current, 2);
             const yaw =
                 maxYaw *
