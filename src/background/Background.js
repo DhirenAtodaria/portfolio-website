@@ -4,14 +4,10 @@ import {
     useGLTF,
     OrbitControls,
     Icosahedron,
-    TorusKnot,
     Octahedron,
     Torus,
-    Parametric,
-    Box,
     MeshDistortMaterial,
 } from "@react-three/drei";
-import deer from "./cube1.glb";
 import { random } from "lodash";
 import { CameraShake } from "./CustomCameraShake";
 import * as THREE from "three";
@@ -22,20 +18,19 @@ import {
     DepthOfField,
 } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
-import * as Images from "./cube";
+import * as ModelAssets from "./cube";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import { css } from "@emotion/css";
 import AnimationHandler from "./AnimationHandler";
 
-const urls = [Images.px, Images.nx, Images.py, Images.ny, Images.pz, Images.nz];
-
-const urls2 = [
-    Images.px1,
-    Images.nx1,
-    Images.py1,
-    Images.ny1,
-    Images.pz1,
-    Images.nz1,
+const cube = ModelAssets.cube;
+const urls = [
+    ModelAssets.px,
+    ModelAssets.nx,
+    ModelAssets.py,
+    ModelAssets.ny,
+    ModelAssets.pz,
+    ModelAssets.nz,
 ];
 
 const reflection = new THREE.CubeTextureLoader().load(urls);
@@ -120,11 +115,11 @@ const BubblesBackground = React.memo(() => {
     );
 });
 
-const Deer = React.memo(() => {
+const Cube = React.memo(() => {
     const mesh = useRef();
     const {
-        nodes: { Deer: deerGeo },
-    } = useGLTF(deer, true);
+        nodes: { Deer: cubeGeo },
+    } = useGLTF(cube, true);
 
     useFrame(() => {
         mesh.current.rotation.x += 0.001;
@@ -135,18 +130,15 @@ const Deer = React.memo(() => {
     return (
         <mesh
             ref={mesh}
-            name={"deer"}
-            geometry={deerGeo.geometry}
+            name={"cube"}
+            geometry={cubeGeo.geometry}
             position={[-10, 20, 0]}
         >
             <meshPhysicalMaterial
-                // envMap={reflection2}
-                // sheen={0x000000}
                 clearcoat={1}
                 clearcoatRoughness={0}
                 roughness={0.1}
                 metalness={1}
-                // emissive={0x000000}
             />
         </mesh>
     );
@@ -346,7 +338,7 @@ function Background({
                 <Light spinFactor={spinFactor} zoomFactor={zoomFactor} />
                 <ambientLight intensity={0.1} />
                 <React.Suspense fallback={null}>
-                    <Deer />
+                    <Cube />
                 </React.Suspense>
                 <EffectComposer>
                     <Bloom
