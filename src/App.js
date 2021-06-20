@@ -108,6 +108,7 @@ const Footer = () => {
 const App = () => {
     const titleRef = useRef([]);
     const aboutRef = useRef([]);
+    const sectionRef = useRef([]);
     const workRef = useRef([]);
     const [section, setSection] = useState({
         currentPage: 0,
@@ -115,7 +116,7 @@ const App = () => {
     });
     const [loading, setLoading] = React.useState(true);
 
-    const refs = { titleRef, aboutRef, workRef };
+    const refs = { titleRef, aboutRef, sectionRef, workRef };
 
     return (
         <div

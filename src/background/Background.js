@@ -103,12 +103,13 @@ const BubblesBackground = React.memo(() => {
         <>
             <MeshDistortMaterial
                 ref={matRef}
-                envMap={reflection}
+                // envMap={reflection}
                 color={"#010101"}
-                roughness={0.2}
+                roughness={1}
                 metalness={1}
                 radius={1}
                 distort={0.5}
+                wireframe
             />
             {matRef.current && <Instances material={matRef.current} />}
         </>
@@ -224,6 +225,7 @@ function Background({
     titleRef,
     aboutRef,
     workRef,
+    sectionRef,
     section,
     setSection,
     loading,
@@ -308,6 +310,7 @@ function Background({
                 height: 100%;
             `}
             pauseListeners={listener}
+            disableSwipe
         >
             <Canvas
                 camera={{
@@ -363,6 +366,7 @@ function Background({
                     titleRef={titleRef}
                     aboutRef={aboutRef}
                     workRef={workRef}
+                    sectionRef={sectionRef}
                     setListen={setListen}
                     setAnimating={setAnimating}
                     loading={loading}

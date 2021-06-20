@@ -66,51 +66,79 @@ const OverlayText = ({ titleRef }) => {
     );
 };
 
-const AboutText = ({ aboutRef }) => {
+const AboutText = ({ aboutRef, sectionRef }) => {
     return (
         <div
             className={css`
                 ${commonStyles}
                 align-items: flex-start;
+                justify-content: center;
 
-                span {
-                    margin-left: 8%;
-                }
+                section {
+                    width: 25%;
+                    padding-left: 6%;
+                    padding-right: 4%;
+                    padding-bottom: 5%;
+                    padding-top: 2%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-left: 5px solid white;
 
-                span:nth-child(1) {
-                    margin-top: 6%;
-                    font-size: 7em;
-                    font-family: "Bon";
-                    letter-spacing: -4px;
-                    text-decoration: underline;
-                    text-decoration-thickness: 1.1px;
-                    text-underline-position: under;
-                    opacity: 0;
-                    ${chromaticAbberation}
-                }
+                    div {
+                        width: unset;
+                        overflow: hidden;
+                        .header {
+                            font-size: 7em;
+                            font-family: "Bon";
+                            letter-spacing: -4px;
+                            text-decoration: underline;
+                            text-decoration-thickness: 1.1px;
+                            line-height: 1;
+                            display: inline-block;
+                            ${chromaticAbberation};
+                        }
 
-                span:nth-child(2) {
-                    font-size: 0.6em;
-                    font-family: "Haas";
-                    width: 80ch;
-                    text-align: justify;
-                    line-height: 17px;
-                    opacity: 0;
+                        .content {
+                            font-size: 0.65em;
+                            margin-top: 2%;
+                            font-family: "Haas";
+                            width: 50ch;
+                            text-align: justify;
+                            line-height: 17px;
+                            display: inline-block;
+                        }
+                    }
                 }
             `}
         >
-            <span ref={(e) => (aboutRef.current[0] = e)}>About</span>
-            <span ref={(e) => (aboutRef.current[1] = e)}>
-                A self-motivated and curious individual with various difference
-                skills. My journey begins when I left university in 2018 after
-                completing a degree in Maths and Stats. Afterwards I decided to
-                travel to China for a year and gain some personal development.
-                My passion for software development started when I joined a
-                bootcamp early 2020 and I've been a software engineer since. My
-                main expertise lies in frontend development along with
-                React/React Native, however I have experience in all
-                specialities including devops/backend.
-            </span>
+            <section ref={(e) => (sectionRef.current[0] = e)}>
+                <div>
+                    <span
+                        ref={(e) => (aboutRef.current[0] = e)}
+                        className="header"
+                    >
+                        About
+                    </span>
+                </div>
+                <div>
+                    <span
+                        ref={(e) => (aboutRef.current[1] = e)}
+                        className="content"
+                    >
+                        A self-motivated and curious individual with various
+                        difference skills. My journey begins when I left
+                        university in 2018 after completing a degree in Maths
+                        and Stats. Afterwards I decided to travel to China for a
+                        year and gain some personal development. My passion for
+                        software development started when I joined a bootcamp
+                        early 2020 and I've been a software engineer since. My
+                        main expertise lies in frontend development along with
+                        React/React Native, however I have experience in all
+                        specialities including devops/backend.
+                    </span>
+                </div>
+            </section>
         </div>
     );
 };

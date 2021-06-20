@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useResource, useThree } from "react-three-fiber";
-import { gsap, Power3 } from "gsap";
+import { gsap, Power3, Expo } from "gsap";
 import CustomEase from "./customEase/CustomEase";
 
 gsap.registerPlugin(CustomEase);
@@ -11,6 +11,7 @@ const AnimationHandler = ({
     setAnimating,
     titleRef,
     aboutRef,
+    sectionRef,
     workRef,
     loading = true,
 }) => {
@@ -71,8 +72,9 @@ const AnimationHandler = ({
             .timeline({ paused: true })
             .to(titleRef.current, {
                 opacity: 0,
-                y: -10,
+                y: "-100%",
                 duration: 0.5,
+                stagger: { each: 0.04, from: "random" },
                 onReverseComplete: function () {
                     setListen(false);
                     setAnimating(false);
@@ -89,7 +91,7 @@ const AnimationHandler = ({
                         "M0,0 C0.798,0 0.2,1 1,1 "
                     ),
                 },
-                "-=0.4"
+                "-=0.8"
             )
             .to(
                 camera.position,
@@ -105,7 +107,7 @@ const AnimationHandler = ({
                 "-=1.75"
             )
             .fromTo(
-                aboutRef.current,
+                sectionRef.current,
                 {
                     opacity: 0,
                     y: -10,
@@ -114,29 +116,60 @@ const AnimationHandler = ({
                     opacity: 1,
                     y: 0,
                     duration: 0.5,
+                },
+                "-=0.8"
+            )
+            .fromTo(
+                aboutRef.current,
+                {
+                    yPercent: -105,
+                },
+                {
+                    yPercent: 0,
+                    duration: 0.5,
+                    ease: Expo.easeInOut,
+                    stagger: { each: 0.4 },
                     onComplete: () => {
                         setListen(false);
                         setAnimating(false);
                     },
                 },
-                "-=0.5"
+                "-=1"
             );
 
         return () => deerAni.current.kill();
-    }, [camera, pivot, setListen, titleRef, aboutRef, setAnimating]);
+    }, [
+        camera,
+        pivot,
+        setListen,
+        titleRef,
+        aboutRef,
+        setAnimating,
+        sectionRef,
+    ]);
 
     useEffect(() => {
         deerAni2.current = gsap
             .timeline({ paused: true })
             .to(aboutRef.current, {
-                opacity: 0,
-                y: -10,
+                yPercent: -105,
                 duration: 0.5,
+                ease: Expo.easeInOut,
+                stagger: { each: 0.4, from: "end" },
                 onReverseComplete: function () {
                     setListen(false);
                     setAnimating(false);
                 },
             })
+            .to(
+                sectionRef.current,
+                {
+                    opacity: 0,
+                    y: -10,
+                    duration: 0.5,
+                },
+                "-=0.4"
+            )
             .to(
                 pivot.current.rotation,
                 {
@@ -148,7 +181,7 @@ const AnimationHandler = ({
                         "M0,0 C0.798,0 0.2,1 1,1 "
                     ),
                 },
-                "-=0.4"
+                "-=1"
             )
             .to(
                 pivot.current.position,
@@ -182,7 +215,7 @@ const AnimationHandler = ({
             );
 
         return () => deerAni2.current.kill();
-    }, [aboutRef, camera, pivot, setAnimating, setListen, workRef]);
+    }, [aboutRef, camera, pivot, sectionRef, setAnimating, setListen, workRef]);
 
     useEffect(() => {
         deerAni3.current = gsap
