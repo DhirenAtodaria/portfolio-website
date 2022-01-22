@@ -23,6 +23,11 @@
     src: url("./fonts/BonRegular.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "Algreya";
+    src: url("./fonts/Oswald-ExtraLight.ttf") format("truetype");
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",

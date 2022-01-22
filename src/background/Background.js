@@ -33,8 +33,6 @@ const urls = [
     ModelAssets.nz,
 ];
 
-const reflection = new THREE.CubeTextureLoader().load(urls);
-
 const Instances = ({ material }) => {
     const [sphereRefs] = useState(() => []);
     const initialPositions = [
@@ -103,7 +101,6 @@ const BubblesBackground = React.memo(() => {
         <>
             <MeshDistortMaterial
                 ref={matRef}
-                // envMap={reflection}
                 color={"#010101"}
                 roughness={1}
                 metalness={1}

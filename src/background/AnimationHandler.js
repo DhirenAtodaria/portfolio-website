@@ -58,8 +58,9 @@ const AnimationHandler = ({
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.5,
-                    stagger: { each: 0.04, from: "random" },
+                    duration: 1,
+                    stagger: { each: 0.08, from: "start" },
+                    ease: Power3.easeOut,
                 },
                 "-=2"
             );
@@ -73,8 +74,10 @@ const AnimationHandler = ({
             .to(titleRef.current, {
                 opacity: 0,
                 y: "-100%",
-                duration: 0.5,
-                stagger: { each: 0.04, from: "random" },
+                duration: 1,
+                delay: 0.1,
+                stagger: { each: 0.08, from: "end" },
+                ease: Power3.easeIn,
                 onReverseComplete: function () {
                     setListen(false);
                     setAnimating(false);
@@ -126,9 +129,9 @@ const AnimationHandler = ({
                 },
                 {
                     yPercent: 0,
-                    duration: 0.5,
-                    ease: Expo.easeInOut,
-                    stagger: { each: 0.4 },
+                    duration: 1,
+                    ease: Expo.easeOut,
+                    stagger: { each: 0.8 },
                     onComplete: () => {
                         setListen(false);
                         setAnimating(false);
@@ -153,9 +156,9 @@ const AnimationHandler = ({
             .timeline({ paused: true })
             .to(aboutRef.current, {
                 yPercent: -105,
-                duration: 0.5,
-                ease: Expo.easeInOut,
-                stagger: { each: 0.4, from: "end" },
+                duration: 1,
+                ease: Expo.easeIn,
+                stagger: { each: 0.5, from: "end" },
                 onReverseComplete: function () {
                     setListen(false);
                     setAnimating(false);

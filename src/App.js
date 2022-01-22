@@ -54,7 +54,7 @@ const Nav = ({ currentPage }) => {
                     transform: translateX(-50%);
                     position: absolute;
                     left: 50%;
-                    font-size: 0.85em;
+                    font-size: 0.8em;
                 `}
             >
                 {currentPage + 1}/4
@@ -63,7 +63,7 @@ const Nav = ({ currentPage }) => {
                 className={css`
                     ${baseTextStyles}
                     list-style-type: none;
-                    font-size: 0.75em;
+                    font-size: 0.7em;
                     display: flex;
                     li {
                         margin-left: 40px;
