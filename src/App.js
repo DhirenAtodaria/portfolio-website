@@ -59,22 +59,6 @@ const Nav = ({ currentPage }) => {
             >
                 {currentPage + 1}/4
             </div>
-            <ul
-                className={css`
-                    ${baseTextStyles}
-                    list-style-type: none;
-                    font-size: 0.7em;
-                    display: flex;
-                    li {
-                        margin-left: 40px;
-                    }
-                `}
-            >
-                <li>Home</li>
-                <li>About</li>
-                <li>Work</li>
-                <li>Contact</li>
-            </ul>
         </nav>
     );
 };
