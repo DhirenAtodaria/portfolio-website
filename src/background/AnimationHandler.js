@@ -39,6 +39,10 @@ const AnimationHandler = ({
                     x: 0,
                     duration: 3.5,
                     ease: Power3.easeInOut,
+                    onReverseComplete: function () {
+                        setListen(false);
+                        setAnimating(false);
+                    },
                 }
             )
             .to(
@@ -64,6 +68,10 @@ const AnimationHandler = ({
                     duration: 1,
                     stagger: { each: 0.08, from: "start" },
                     ease: Power3.easeOut,
+                    onComplete: () => {
+                        setListen(false);
+                        setAnimating(false);
+                    },
                 },
                 "-=2"
             );

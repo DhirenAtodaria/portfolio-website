@@ -231,9 +231,9 @@ function Background({
     loading,
 }) {
     const controls = useResource();
-    const [listener, setListen] = useState(false);
+    const [listener, setListen] = useState(true);
 
-    const [animating, setAnimating] = useState(false);
+    const [animating, setAnimating] = useState(true);
     const spinFactor = useRef(0.0065);
     const zoomFactor = useRef(1.0);
     const frequencyFactor = useRef(0.1);
