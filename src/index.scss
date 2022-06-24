@@ -4,16 +4,6 @@
 }
 
 @font-face {
-    font-family: "Butler";
-    src: url("./fonts/Bt.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Vogue";
-    src: url("./fonts/Vogue.ttf") format("truetype");
-}
-
-@font-face {
     font-family: "Bon";
     src: url("./fonts/Bon.otf") format("opentype");
 }
@@ -23,29 +13,14 @@
     src: url("./fonts/BonRegular.otf") format("opentype");
 }
 
-@font-face {
-    font-family: "Algreya";
-    src: url("./fonts/Oswald-ExtraLight.ttf") format("truetype");
-}
-
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-        "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
 }
 
 #root {
     height: 100vh;
     width: 100vw;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
 }
 
 canvas {
