@@ -11,8 +11,6 @@ const CameraShake = /*#__PURE__*/ forwardRef(
             maxYaw = 0.1,
             maxPitch = 0.1,
             maxRoll = 0.1,
-            yawFrequency = 1,
-            pitchFrequency = 1,
             rollFrequency = 1,
             frequencyFactor = { current: 0.1 },
             additive,

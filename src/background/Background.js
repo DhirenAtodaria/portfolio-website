@@ -24,14 +24,6 @@ import { css } from "@emotion/css";
 import AnimationHandler from "./AnimationHandler";
 
 const cube = ModelAssets.cube;
-const urls = [
-    ModelAssets.px,
-    ModelAssets.nx,
-    ModelAssets.py,
-    ModelAssets.ny,
-    ModelAssets.pz,
-    ModelAssets.nz,
-];
 
 const Instances = ({ material }) => {
     const [sphereRefs] = useState(() => []);

@@ -16,6 +16,15 @@ const commonStyles = css`
     z-index: 1;
     align-items: flex-end;
     flex-direction: column;
+    font-size: 1rem;
+
+    @media (max-width: 577px) {
+        font-size: 0.7rem;
+    }
+
+    @media (max-width: 430px) {
+        font-size: 0.6rem;
+    }
 `;
 
 const chromaticAbberation = css`
@@ -82,7 +91,6 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                 justify-content: center;
 
                 section {
-                    width: 25%;
                     padding-left: 6%;
                     padding-right: 4%;
                     padding-bottom: 5%;
@@ -90,7 +98,7 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    border-left: 5px solid white;
+                    border-left: 2.5px solid white;
 
                     div {
                         width: unset;
@@ -101,18 +109,18 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                             letter-spacing: -4px;
                             text-decoration: underline;
                             text-decoration-thickness: 1.1px;
-                            line-height: 1;
+                            line-height: 1em;
                             display: inline-block;
                             ${chromaticAbberation};
                         }
 
                         .content {
-                            font-size: 0.65em;
+                            font-size: 0.7em;
                             margin-top: 2%;
                             font-family: "Haas";
                             width: 50ch;
                             text-align: justify;
-                            line-height: 17px;
+                            line-height: 1.5em;
                             display: inline-block;
                         }
                     }
@@ -182,70 +190,82 @@ const WorkText = ({ workRef }) => {
             className={css`
                 ${commonStyles}
                 align-items: flex-start;
+                justify-content: center;
 
-                span {
-                    margin-left: 5%;
-                }
-
-                span:nth-child(1) {
-                    margin-top: 6%;
-                    font-size: 6.5em;
-                    font-family: "Bon";
-                    letter-spacing: -4px;
-                    text-decoration: underline;
-                    text-decoration-thickness: 1.1px;
-                    /* opacity: 0; */
-                    ${chromaticAbberation}
-                }
-
-                span:nth-child(2) {
-                    font-size: 0.6em;
-                    font-family: "Haas";
-                    width: 60ch;
-                    line-height: 17px;
+                section {
+                    padding-left: 6%;
+                    padding-right: 4%;
+                    padding-bottom: 5%;
+                    padding-top: 2%;
                     display: flex;
-                    /* opacity: 0; */
+                    flex-direction: column;
+                    justify-content: center;
+                    border-left: 2.5px solid white;
+
+                    span {
+                        margin-left: 5%;
+                    }
+
+                    span:nth-child(1) {
+                        margin-top: 6%;
+                        font-size: 5.5em;
+                        font-family: "Bon";
+                        letter-spacing: -4px;
+                        text-decoration: underline;
+                        text-decoration-thickness: 1.1px;
+                        ${chromaticAbberation}
+                    }
+
+                    span:nth-child(2) {
+                        font-size: 0.7em;
+                        font-family: "Haas";
+                        width: 60ch;
+                        line-height: 17px;
+                        display: flex;
+                    }
                 }
             `}
         >
-            <span ref={(e) => (workRef.current[0] = e)}>Experience</span>
-            <span ref={(e) => (workRef.current[1] = e)}>
-                <div
-                    className={css`
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                    `}
-                >
-                    <WorkItem
-                        company={"Babylon Health, London"}
-                        date={"Mar. 2021 - Present"}
-                        role={"Software Engineer"}
-                    />
+            <section ref={(e) => (workRef.current[0] = e)}>
+                <span ref={(e) => (workRef.current[1] = e)}>Experience</span>
+                <span ref={(e) => (workRef.current[2] = e)}>
+                    <div
+                        className={css`
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                        `}
+                    >
+                        <WorkItem
+                            company={"Babylon Health, London"}
+                            date={"Mar. 2021 - Present"}
+                            role={"Software Engineer"}
+                        />
 
-                    <WorkItem
-                        company={"Creditsafe, Cardiff"}
-                        date={"Jun. 2020 - Mar 2021"}
-                        role={"Junior Software Engineer"}
-                    />
-                    <WorkItem
-                        company={"_nology, London"}
-                        date={"Jan. 2020 - Apr. 2020"}
-                        role={"Software Developer Bootcamp"}
-                    />
-                    <WorkItem
-                        company={"BT, London"}
-                        date={"Sep. 2019 - Oct 2019"}
-                        role={"Digital Skills Internship"}
-                    />
-                    <WorkItem
-                        company={"Ameson, Whenzhou China"}
-                        date={"Sep. 2018 - Jun 2019"}
-                        role={"Educational Ambassador"}
-                    />
-                </div>
-            </span>
+                        <WorkItem
+                            company={"Creditsafe, Cardiff"}
+                            date={"Jun. 2020 - Mar 2021"}
+                            role={"Junior Software Engineer"}
+                        />
+                        <WorkItem
+                            company={"_nology, London"}
+                            date={"Jan. 2020 - Apr. 2020"}
+                            role={"Software Developer Bootcamp"}
+                        />
+                        <WorkItem
+                            company={"BT, London"}
+                            date={"Sep. 2019 - Oct 2019"}
+                            role={"Digital Skills Internship"}
+                        />
+                        <WorkItem
+                            company={"Ameson, Whenzhou China"}
+                            date={"Sep. 2018 - Jun 2019"}
+                            role={"Educational Ambassador"}
+                        />
+                    </div>
+                </span>
+            </section>
         </div>
     );
 };

@@ -220,6 +220,7 @@ const AnimationHandler = ({
                     opacity: 1,
                     y: 0,
                     duration: 0.5,
+                    stagger: { each: 0.25 },
                     onComplete: () => {
                         setListen(false);
                         setAnimating(false);
