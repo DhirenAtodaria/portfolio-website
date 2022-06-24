@@ -13,6 +13,9 @@ const AnimationHandler = ({
     aboutRef,
     sectionRef,
     workRef,
+    contactRef,
+    iconRef,
+    footerIconRef,
     loading = true,
 }) => {
     const { camera } = useThree();
@@ -245,10 +248,67 @@ const AnimationHandler = ({
                     },
                 },
                 "-=0.4"
+            )
+            .fromTo(
+                contactRef.current,
+                {
+                    opacity: 0,
+                    y: -10,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    onComplete: () => {
+                        setListen(false);
+                        setAnimating(false);
+                    },
+                },
+                "-=2.25"
+            )
+            .to(
+                footerIconRef.current,
+                {
+                    opacity: 0,
+                    y: -105,
+                    ease: Power3.easeInOut,
+                    duration: 2,
+                    onComplete: () => {
+                        setListen(false);
+                        setAnimating(false);
+                    },
+                },
+                "-=2.75"
+            )
+            .fromTo(
+                iconRef.current,
+                {
+                    opacity: 0,
+                    y: 105,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: Power3.easeInOut,
+                    duration: 2,
+                    onComplete: () => {
+                        setListen(false);
+                        setAnimating(false);
+                    },
+                },
+                "-=3"
             );
 
         return () => deerAni3.current.kill();
-    }, [pivot, setAnimating, setListen, workRef]);
+    }, [
+        pivot,
+        setAnimating,
+        setListen,
+        workRef,
+        contactRef,
+        iconRef,
+        footerIconRef,
+    ]);
 
     useEffect(() => {
         if (!loading) {

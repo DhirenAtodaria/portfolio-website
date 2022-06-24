@@ -223,6 +223,9 @@ function Background({
     aboutRef,
     workRef,
     sectionRef,
+    contactRef,
+    iconRef,
+    footerIconRef,
     section,
     setSection,
     loading,
@@ -364,6 +367,9 @@ function Background({
                     aboutRef={aboutRef}
                     workRef={workRef}
                     sectionRef={sectionRef}
+                    contactRef={contactRef}
+                    iconRef={iconRef}
+                    footerIconRef={footerIconRef}
                     setListen={setListen}
                     setAnimating={setAnimating}
                     loading={loading}

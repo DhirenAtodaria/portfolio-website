@@ -1,5 +1,8 @@
 import React from "react";
 import { css } from "@emotion/css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const commonStyles = css`
     width: 100%;
@@ -247,4 +250,83 @@ const WorkText = ({ workRef }) => {
     );
 };
 
-export { OverlayText, AboutText, WorkText };
+const ContactUsText = ({ contactRef, iconRef }) => {
+    return (
+        <div
+            className={css`
+                ${commonStyles}
+                align-items: flex-start;
+                justify-content: center;
+
+                section {
+                    width: 100%;
+                    padding-bottom: 5%;
+                    padding-top: 2%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                section > div:first-child {
+                    width: unset;
+                    overflow: hidden;
+                    .header {
+                        font-size: 5.5em;
+                        font-family: "Bon";
+                        letter-spacing: -4px;
+                        text-decoration: underline;
+                        text-decoration-thickness: 1.1px;
+                        line-height: 1;
+                        display: inline-block;
+                        ${chromaticAbberation};
+                    }
+
+                    .content {
+                        font-size: 0.65em;
+                        margin-top: 2%;
+                        font-family: "Haas";
+                        width: 50ch;
+                        text-align: justify;
+                        line-height: 17px;
+                        display: inline-block;
+                    }
+                }
+            `}
+        >
+            <section>
+                <div>
+                    <span
+                        ref={(e) => (contactRef.current[0] = e)}
+                        className="header"
+                    >
+                        Contact
+                    </span>
+                </div>
+                <div
+                    className={css`
+                        overflow: hidden;
+                    `}
+                >
+                    <div
+                        ref={(e) => (iconRef.current[0] = e)}
+                        className={css`
+                            width: 200px;
+                            font-size: 2em;
+                            margin-top: 25px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        `}
+                    >
+                        <FontAwesomeIcon icon={faGithub} />
+                        <FontAwesomeIcon icon={faLinkedin} />
+                        <FontAwesomeIcon icon={faEnvelope} />
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export { OverlayText, AboutText, WorkText, ContactUsText };

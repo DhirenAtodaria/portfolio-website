@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Loader from "./Loader";
+import { ContactUsText } from "./background/OverlayText";
 
 const commonStyles = css`
     width: 90%;
@@ -63,7 +64,7 @@ const Nav = ({ currentPage }) => {
     );
 };
 
-const Footer = () => {
+const Footer = ({ footerIconRef }) => {
     return (
         <div
             className={css`
@@ -71,9 +72,11 @@ const Footer = () => {
                 ${baseTextStyles}
                 justify-content: center;
                 font-size: 0.8em;
+                overflow: hidden;
             `}
         >
             <div
+                ref={(e) => (footerIconRef.current[0] = e)}
                 className={css`
                     ${commonStyles}
                     width: 125px;
@@ -94,13 +97,24 @@ const App = () => {
     const aboutRef = useRef([]);
     const sectionRef = useRef([]);
     const workRef = useRef([]);
+    const contactRef = useRef([]);
+    const iconRef = useRef([]);
+    const footerIconRef = useRef([]);
     const [section, setSection] = useState({
         currentPage: 0,
         previousPage: null,
     });
     const [loading, setLoading] = React.useState(true);
 
-    const refs = { titleRef, aboutRef, sectionRef, workRef };
+    const refs = {
+        titleRef,
+        aboutRef,
+        sectionRef,
+        workRef,
+        contactRef,
+        iconRef,
+        footerIconRef,
+    };
 
     return (
         <div
@@ -131,8 +145,9 @@ const App = () => {
                 />
                 <AboutText {...refs} />
                 <WorkText {...refs} />
+                <ContactUsText {...refs} />
             </div>
-            <Footer />
+            <Footer {...refs} />
         </div>
     );
 };
