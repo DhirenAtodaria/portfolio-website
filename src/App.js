@@ -1,10 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Background, OverlayText, AboutText, WorkText } from "./background";
 import { css } from "@emotion/css";
 import Icons from "./Icons";
 import Loader from "./Loader";
 import { ContactUsText } from "./background/OverlayText";
 import isMobile from "is-mobile";
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "UA-169339982-1";
+ReactGA.initialize(TRACKING_ID);
 
 const documentHeight = () => {
     const doc = document.documentElement;
@@ -122,6 +126,10 @@ const App = () => {
         iconRef,
         footerIconRef,
     };
+
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
 
     return (
         <div

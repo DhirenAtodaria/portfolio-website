@@ -23,6 +23,7 @@ import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import { css } from "@emotion/css";
 import AnimationHandler from "./AnimationHandler";
 import isMobile from "is-mobile";
+import ReactGA from "react-ga";
 
 const cube = ModelAssets.cube;
 
@@ -281,6 +282,11 @@ function Background({
         <ReactScrollWheelHandler
             upHandler={() => {
                 if (section.currentPage > 0) {
+                    ReactGA.event({
+                        category: "Scroll",
+                        action: "Scrolled Up",
+                        label: `User Scrolled to section - ${section.currentPage}`,
+                    });
                     setSection({
                         currentPage: section.currentPage - 1,
                         previousPage: section.currentPage,
@@ -291,6 +297,11 @@ function Background({
             }}
             downHandler={() => {
                 if (section.currentPage < 3) {
+                    ReactGA.event({
+                        category: "Scroll",
+                        action: "Scrolled Down",
+                        label: `User Scrolled to section - ${section.currentPage}`,
+                    });
                     setSection({
                         currentPage: section.currentPage + 1,
                         previousPage: section.currentPage,
