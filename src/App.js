@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Background, OverlayText, AboutText, WorkText } from "./background";
 import { css } from "@emotion/css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Icons from "./Icons";
 import Loader from "./Loader";
 import { ContactUsText } from "./background/OverlayText";
 
@@ -84,9 +82,7 @@ const Footer = ({ footerIconRef }) => {
                     font-size: 1.6em;
                 `}
             >
-                <FontAwesomeIcon icon={faGithub} />
-                <FontAwesomeIcon icon={faLinkedin} />
-                <FontAwesomeIcon icon={faEnvelope} />
+                <Icons />
             </div>
         </div>
     );

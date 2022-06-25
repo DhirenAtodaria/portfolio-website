@@ -13,6 +13,11 @@
     src: url("./fonts/BonRegular.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "LucidaGrande";
+    src: url("./fonts/LucidaGrande.ttf") format("truetype");
+}
+
 body {
     margin: 0;
     box-sizing: border-box;

@@ -57,7 +57,7 @@ export const Loader = ({ loading, setLoading }) => {
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        font-family: "Haas";
+                        font-family: "LucidaGrande";
                         letter-spacing: 0.5em;
                         text-indent: -1em;
                         direction: rtl;

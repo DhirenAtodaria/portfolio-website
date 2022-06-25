@@ -1,8 +1,6 @@
 import React from "react";
 import { css } from "@emotion/css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Icons from "../Icons";
 
 const commonStyles = css`
     width: 100%;
@@ -17,6 +15,7 @@ const commonStyles = css`
     align-items: flex-end;
     flex-direction: column;
     font-size: 1rem;
+    font-weight: 400;
 
     @media (max-width: 577px) {
         font-size: 0.7rem;
@@ -64,7 +63,7 @@ const OverlayText = ({ titleRef }) => {
                 span:nth-child(2) {
                     margin-right: 6%;
                     font-size: 0.8em;
-                    font-family: "Haas";
+                    font-family: "LucidaGrande";
                     width: 20ch;
                     text-align: justify;
                     line-height: 10px;
@@ -117,7 +116,7 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                         .content {
                             font-size: 0.7em;
                             margin-top: 2%;
-                            font-family: "Haas";
+                            font-family: "LucidaGrande";
                             width: 50ch;
                             text-align: justify;
                             line-height: 1.5em;
@@ -218,7 +217,7 @@ const WorkText = ({ workRef }) => {
 
                     span:nth-child(2) {
                         font-size: 0.7em;
-                        font-family: "Haas";
+                        font-family: "LucidaGrande";
                         width: 60ch;
                         line-height: 17px;
                         display: flex;
@@ -305,7 +304,7 @@ const ContactUsText = ({ contactRef, iconRef }) => {
                     .content {
                         font-size: 0.65em;
                         margin-top: 2%;
-                        font-family: "Haas";
+                        font-family: "LucidaGrande";
                         width: 50ch;
                         text-align: justify;
                         line-height: 17px;
@@ -339,9 +338,7 @@ const ContactUsText = ({ contactRef, iconRef }) => {
                             align-items: center;
                         `}
                     >
-                        <FontAwesomeIcon icon={faGithub} />
-                        <FontAwesomeIcon icon={faLinkedin} />
-                        <FontAwesomeIcon icon={faEnvelope} />
+                        <Icons />
                     </div>
                 </div>
             </section>
