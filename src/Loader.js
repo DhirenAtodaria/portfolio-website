@@ -128,7 +128,7 @@ export const Loader = ({ loading, setLoading }) => {
                     <div
                         className={css`
                             overflow: hidden;
-                            height: 14px;
+                            height: 12px;
                             width: 100%;
                             margin-top: 1.5em;
                             display: flex;
