@@ -165,12 +165,10 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                         different skills. My journey begins when I left
                         university in 2018 after completing a degree in Maths
                         and Stats. Afterwards I decided to travel to China for a
-                        year and gain some personal development. My passion for
-                        software development started when I joined a bootcamp
-                        early 2020 and I've been a software engineer since. My
-                        main expertise lies in frontend development along with
-                        React/React Native, however I have experience in all
-                        specialities including devops/backend.
+                        year and gain some personal development. My main
+                        expertise lies in fullstack development, mainly
+                        specialised in React/React Native for front-end and
+                        Java/Spring-boot for backend.
                     </span>
                 </div>
             </section>
@@ -357,6 +355,7 @@ const ContactUsText = ({ contactRef, iconRef }) => {
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
+                            pointer-events: all;
                         `}
                     >
                         <Icons />
