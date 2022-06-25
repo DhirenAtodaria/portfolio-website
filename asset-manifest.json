@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cd5cc8c4.chunk.css",
+    "main.js": "/static/js/main.788b5248.chunk.js",
+    "main.js.map": "/static/js/main.788b5248.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.562d6f57.js",
+    "runtime-main.js.map": "/static/js/runtime-main.562d6f57.js.map",
+    "static/js/2.64d2fd5e.chunk.js": "/static/js/2.64d2fd5e.chunk.js",
+    "static/js/2.64d2fd5e.chunk.js.map": "/static/js/2.64d2fd5e.chunk.js.map",
+    "static/js/3.6bbfba23.chunk.js": "/static/js/3.6bbfba23.chunk.js",
+    "static/js/3.6bbfba23.chunk.js.map": "/static/js/3.6bbfba23.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.cd5cc8c4.chunk.css.map": "/static/css/main.cd5cc8c4.chunk.css.map",
+    "static/js/2.64d2fd5e.chunk.js.LICENSE.txt": "/static/js/2.64d2fd5e.chunk.js.LICENSE.txt",
+    "static/js/main.788b5248.chunk.js.LICENSE.txt": "/static/js/main.788b5248.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/static/media/LucidaGrande-Light.f8b75e98.otf",
+    "static/media/cube1.41ef0c8e.glb": "/static/media/cube1.41ef0c8e.glb",
+    "static/media/nx.982edafe.jpg": "/static/media/nx.982edafe.jpg",
+    "static/media/ny.894b7306.jpg": "/static/media/ny.894b7306.jpg",
+    "static/media/nz.ec07932a.jpg": "/static/media/nz.ec07932a.jpg",
+    "static/media/px.2cf1cfc8.jpg": "/static/media/px.2cf1cfc8.jpg",
+    "static/media/py.394c2ca7.jpg": "/static/media/py.394c2ca7.jpg",
+    "static/media/pz.654bb013.jpg": "/static/media/pz.654bb013.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.562d6f57.js",
+    "static/js/2.64d2fd5e.chunk.js",
+    "static/css/main.cd5cc8c4.chunk.css",
+    "static/js/main.788b5248.chunk.js"
+  ]
+}
