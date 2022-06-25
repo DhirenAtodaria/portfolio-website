@@ -18,11 +18,15 @@ const commonStyles = css`
     font-weight: 400;
 
     @media (max-width: 577px) {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     @media (max-width: 430px) {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
+    }
+
+    @media (max-width: 295px) {
+        font-size: 0.45rem;
     }
 `;
 
@@ -114,7 +118,7 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                         }
 
                         .content {
-                            font-size: 0.7em;
+                            font-size: 0.9em;
                             margin-top: 2%;
                             font-family: "LucidaGrande";
                             width: 50ch;

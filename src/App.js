@@ -5,6 +5,14 @@ import Icons from "./Icons";
 import Loader from "./Loader";
 import { ContactUsText } from "./background/OverlayText";
 
+const documentHeight = () => {
+    console.log(window.innerHeight);
+    const doc = document.documentElement;
+    doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+};
+window.addEventListener("resize", documentHeight);
+documentHeight();
+
 const commonStyles = css`
     width: 90%;
     height: 7.5%;
@@ -69,7 +77,7 @@ const Footer = ({ footerIconRef }) => {
                 ${commonStyles}
                 ${baseTextStyles}
                 justify-content: center;
-                font-size: 0.8em;
+                font-size: 0.9em;
                 overflow: hidden;
             `}
         >

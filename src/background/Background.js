@@ -22,6 +22,7 @@ import * as ModelAssets from "./cube";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import { css } from "@emotion/css";
 import AnimationHandler from "./AnimationHandler";
+import isMobile from "is-mobile";
 
 const cube = ModelAssets.cube;
 
@@ -222,6 +223,7 @@ function Background({
     setSection,
     loading,
 }) {
+    const mobile = isMobile();
     const controls = useResource();
     const [listener, setListen] = useState(true);
 
@@ -302,7 +304,6 @@ function Background({
                 height: 100%;
             `}
             pauseListeners={listener}
-            disableSwipe
         >
             <Canvas
                 camera={{
@@ -311,16 +312,23 @@ function Background({
                     position: [-70, -4, 114],
                     fov: 25,
                 }}
-                onPointerDown={() => {
-                    setListen(true);
-                    clearInterval(timer.current);
-                    timer.current = setInterval(downClickHandler, 16.6);
-                }}
-                onPointerUp={() => {
-                    setListen(false);
-                    clearInterval(timer.current);
-                    timer.current = setInterval(upClickHandler, 16.6);
-                }}
+                {...(!mobile
+                    ? {
+                          onPointerDown: () => {
+                              setListen(true);
+                              clearInterval(timer.current);
+                              timer.current = setInterval(
+                                  downClickHandler,
+                                  16.6
+                              );
+                          },
+                          onPointerUp: () => {
+                              setListen(false);
+                              clearInterval(timer.current);
+                              timer.current = setInterval(upClickHandler, 16.6);
+                          },
+                      }
+                    : {})}
             >
                 <BubblesBackground />
                 <CameraShakeWithOrbitScene

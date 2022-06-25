@@ -1,9 +1,4 @@
 @font-face {
-    font-family: "Haas";
-    src: url("./fonts/Haas.ttf") format("truetype");
-}
-
-@font-face {
     font-family: "Bon";
     src: url("./fonts/Bon.otf") format("opentype");
 }
@@ -15,16 +10,29 @@
 
 @font-face {
     font-family: "LucidaGrande";
-    src: url("./fonts/LucidaGrande.ttf") format("truetype");
+    src: url("./fonts/LucidaGrande-Light.otf") format("opentype");
+}
+
+:root {
+    --doc-height: 100%;
 }
 
 body {
     margin: 0;
     box-sizing: border-box;
+    min-height: 100vh;
+    min-height: fill-available;
+    min-height: -webkit-fill-available;
+    overscroll-behavior: contain;
+}
+
+html {
+    height: fill-available;
+    height: -webkit-fill-available;
 }
 
 #root {
-    height: 100vh;
+    height: var(--doc-height);
     width: 100vw;
 }
 
