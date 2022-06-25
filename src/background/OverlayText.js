@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "@emotion/css";
 import Icons from "../Icons";
+import isMobile from "is-mobile";
 
 const commonStyles = css`
     width: 100%;
@@ -73,6 +74,17 @@ const OverlayText = ({ titleRef }) => {
                     line-height: 10px;
                     opacity: 0.8;
                 }
+
+                span:nth-child(3) {
+                    margin-top: 10px;
+                    margin-right: 5%;
+                    font-size: 0.8em;
+                    font-family: "LucidaGrande";
+                    width: 20ch;
+                    text-align: justify;
+                    line-height: 10px;
+                    opacity: 1;
+                }
             `}
         >
             <span>
@@ -80,6 +92,9 @@ const OverlayText = ({ titleRef }) => {
             </span>
             <span ref={(e) => titleRef.current?.push(e)}>
                 Software Engineer
+            </span>
+            <span ref={(e) => titleRef.current?.push(e)}>
+                {isMobile() ? "Swipe to see more..." : "Scroll to see more..."}
             </span>
         </div>
     );
@@ -145,7 +160,7 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                         className="content"
                     >
                         A self-motivated and curious individual with various
-                        difference skills. My journey begins when I left
+                        different skills. My journey begins when I left
                         university in 2018 after completing a degree in Maths
                         and Stats. Afterwards I decided to travel to China for a
                         year and gain some personal development. My passion for

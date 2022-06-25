@@ -63,7 +63,12 @@ const AnimationHandler = ({
                     y: "-100%",
                 },
                 {
-                    opacity: 1,
+                    opacity: function (index) {
+                        if (index === 11) {
+                            return 0.8;
+                        }
+                        return 1;
+                    },
                     y: 0,
                     duration: 1,
                     stagger: { each: 0.08, from: "start" },

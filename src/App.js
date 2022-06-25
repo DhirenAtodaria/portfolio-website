@@ -4,13 +4,16 @@ import { css } from "@emotion/css";
 import Icons from "./Icons";
 import Loader from "./Loader";
 import { ContactUsText } from "./background/OverlayText";
+import isMobile from "is-mobile";
 
 const documentHeight = () => {
-    console.log(window.innerHeight);
     const doc = document.documentElement;
-    doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+    if (isMobile()) {
+        doc.style.setProperty("height", `${window.innerHeight}px`);
+    } else {
+        doc.style.setProperty("height", `100vh`);
+    }
 };
-window.addEventListener("resize", documentHeight);
 documentHeight();
 
 const commonStyles = css`
