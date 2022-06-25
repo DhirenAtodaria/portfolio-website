@@ -26,7 +26,7 @@ const commonStyles = css`
         font-size: 0.65rem;
     }
 
-    @media (max-width: 295px) {
+    @media (max-width: 320px) {
         font-size: 0.45rem;
     }
 `;
