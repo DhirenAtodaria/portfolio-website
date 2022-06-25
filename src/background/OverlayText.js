@@ -94,7 +94,9 @@ const OverlayText = ({ titleRef }) => {
                 Software Engineer
             </span>
             <span ref={(e) => titleRef.current?.push(e)}>
-                {isMobile() ? "Swipe to see more..." : "Scroll to see more..."}
+                {isMobile({ tablet: true })
+                    ? "Swipe to see more..."
+                    : "Scroll to see more..."}
             </span>
         </div>
     );

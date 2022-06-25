@@ -223,7 +223,7 @@ function Background({
     setSection,
     loading,
 }) {
-    const mobile = isMobile();
+    const mobile = isMobile({ tablet: true });
     const controls = useResource();
     const [listener, setListen] = useState(true);
 

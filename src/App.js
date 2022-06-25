@@ -8,7 +8,7 @@ import isMobile from "is-mobile";
 
 const documentHeight = () => {
     const doc = document.documentElement;
-    if (isMobile()) {
+    if (isMobile({ tablet: true })) {
         doc.style.setProperty("height", `${window.innerHeight}px`);
     } else {
         doc.style.setProperty("height", `100vh`);
