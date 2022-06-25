@@ -239,6 +239,7 @@ const AnimationHandler = ({
                 opacity: 0,
                 y: -10,
                 duration: 0.5,
+                stagger: { each: -0.25 },
                 onReverseComplete: function () {
                     setListen(false);
                     setAnimating(false);
