@@ -118,7 +118,6 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    border-left: 2.5px solid white;
 
                     div {
                         width: unset;
@@ -135,7 +134,7 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                         }
 
                         .content {
-                            font-size: 0.9em;
+                            font-size: 0.8em;
                             margin-top: 2%;
                             font-family: "LucidaGrande";
                             width: 50ch;
@@ -161,14 +160,11 @@ const AboutText = ({ aboutRef, sectionRef }) => {
                         ref={(e) => (aboutRef.current[1] = e)}
                         className="content"
                     >
-                        A self-motivated and curious individual with various
-                        different skills. My journey begins when I left
-                        university in 2018 after completing a degree in Maths
-                        and Stats. Afterwards I decided to travel to China for a
-                        year and gain some personal development. My main
-                        expertise lies in fullstack development, mainly
-                        specialised in React/React Native for front-end and
-                        Java/Spring-boot for backend.
+                        <p>Software Engineer with a strong background in technology and a fervent interest in mastering cutting-edge tools and methodologies. </p> 
+                       
+                        <p>I am committed to leveraging my technical expertise to solve complex user-centric challenges and enhance product functionality.</p> 
+                        <p>My goal is to integrate the latest technological innovations with insights from user behavior to devise sustainable, impactful solutions that prioritize the user's experience. </p>
+                        Skills: React/React Native, Java, Spring Boot, Python, FastAPI, GraphQL/Node, CI/CD
                     </span>
                 </div>
             </section>
@@ -218,7 +214,6 @@ const WorkText = ({ workRef }) => {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    border-left: 2.5px solid white;
 
                     span {
                         margin-left: 5%;
@@ -255,9 +250,21 @@ const WorkText = ({ workRef }) => {
                             flex-direction: column;
                         `}
                     >
+                        
+                        <WorkItem
+                            company={"Cleo"}
+                            date={"Mar. 2024 - Present"}
+                            role={"Senior Frontend Engineer"}
+                        />
+                        
+                        <WorkItem
+                            company={"Cleo"}
+                            date={"Jan. 2023 - Mar. 2024"}
+                            role={"Software Engineer"}
+                        />
                         <WorkItem
                             company={"Babylon Health, London"}
-                            date={"Mar. 2021 - Present"}
+                            date={"Mar. 2021 - Dec. 2022"}
                             role={"Software Engineer"}
                         />
 
