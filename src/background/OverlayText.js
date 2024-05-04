@@ -260,7 +260,7 @@ const WorkText = ({ workRef }) => {
                         <WorkItem
                             company={"Cleo"}
                             date={"Jan. 2023 - Mar. 2024"}
-                            role={"Software Engineer"}
+                            role={"Frontend Engineer"}
                         />
                         <WorkItem
                             company={"Babylon Health, London"}
